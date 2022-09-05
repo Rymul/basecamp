@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # test route for application_controller
-  # post 'api/test', to: 'application#test'
+  post 'api/test', to: 'application#test'
 
 
   namespace :api, defaults: { format: :json } do
