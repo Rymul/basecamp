@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
-import './LoginForm.css';
+// import './LoginForm.css';
 
 const LoginFormPage = () => {
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const LoginFormPage = () => {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    if (sessionUser) return <Redirect to='/' />;
+    // if (sessionUser) return <Redirect to='/' />;
 
     const handleChange = (e) => {
         if (e.target.id) {
@@ -52,7 +52,7 @@ const LoginFormPage = () => {
 
     return (
         <div className="login-component">  
-            <form className="login-form" onSubmit={handleSubmit}>
+            <form className="login-form form" onSubmit={handleSubmit}>
                 <ul className="errors">
                     {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
@@ -67,14 +67,14 @@ const LoginFormPage = () => {
                     type="text"
                     placeholder="Email address..."
                     value={email}
-                    onChange={handleChange('email')}
+                    onChange={handleChange}
                 />
                 <input 
                     className="session-form-control"
                     type="password"
                     placeholder="Password..."
                     value={password}
-                    onChange={handleChange('password')}
+                    onChange={handleChange}
                 />
                 <Link to={'/'}>Forgot your password?</Link>
                 <br />
