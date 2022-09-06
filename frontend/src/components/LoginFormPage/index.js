@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
-// import './LoginForm.css';
+import './LoginForm.css';
 
 const LoginFormPage = () => {
     const dispatch = useDispatch();
@@ -52,40 +52,43 @@ const LoginFormPage = () => {
 
     return (
         <div className="login-component">  
-            <form className="login-form form" onSubmit={handleSubmit}>
+            <form className="login-form" onSubmit={handleSubmit}>
                 <ul className="errors">
                     {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
                 <div className="title">
                     <h1>Welcome Back!</h1>
-                    <p>Let's get you outside</p>
+                    <p>Let's get you outside.</p>
                 </div>
-
-                <input 
-                    className="session-form-control"
-                    id='email' 
-                    type="text"
-                    placeholder="Email address..."
-                    value={email}
-                    onChange={handleChange}
-                />
-                <input 
-                    className="session-form-control"
-                    type="password"
-                    placeholder="Password..."
-                    value={password}
-                    onChange={handleChange}
-                />
-                <Link to={'/'}>Forgot your password?</Link>
-                <br />
-                <button className="login-button">Log in</button>
+                <div className="login-container">
+                    <input 
+                        className="session-form-control"
+                        id='email' 
+                        type="text"
+                        placeholder="Email address..."
+                        value={email}
+                        onChange={handleChange}
+                    />
+                    <input 
+                        className="session-form-control"
+                        type="password"
+                        placeholder="Password..."
+                        value={password}
+                        onChange={handleChange}
+                    />
+                    <Link className="forgot" to={'/'}>Forgot your password?</Link>
+                    <br />
+                    <button className="login-button">Log in</button>
+                </div>
             </form>
             <div className="demo-login">
-                <button className="login-button" onClick={handleDemoClick}>Demo User</button>
+                <div className="login-container">
+                    <button className="login-button" onClick={handleDemoClick}>Demo User</button>
+                </div>
             </div>
             <div className="login-component-footer">
                 <span>Don't have a Basecamp account?</span>
-                <Link to={'/signup'}>Sign up!</Link>
+                <Link className="signup-button" to={'/signup'}> Sign up!</Link>
             </div>
         </div>
 
