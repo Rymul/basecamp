@@ -6,7 +6,6 @@ import SignupForm from "./components/SignupFormPage";
 function App() {
   return (
     <>
-      <h1>Hello from App</h1>
       <Switch>
         <Route path='/login'>
           <LoginFormPage />
@@ -14,6 +13,8 @@ function App() {
         <Route path='/signup'>
           <SignupForm />
         </Route>
+        <Route path='/'></Route>
+        <h1>Splash Page</h1>
       </Switch>
     </>
   );

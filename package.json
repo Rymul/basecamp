@@ -21,5 +21,8 @@
   "homepage": "https://github.com/Rymul/basecamp#readme",
   "engines": {
     "node": "16.x"
+  },
+  "dependencies": {
+    "react-icons": "^4.4.0"
   }
 }

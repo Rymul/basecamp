@@ -11,26 +11,25 @@ const LoginFormPage = () => {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    // if (sessionUser) return <Redirect to='/' />;
+    if (sessionUser) return <Redirect to='/' />;
 
     const handleChange = (e) => {
         if (e.target.id) {
-            setEmail(e.target.value)
+            setEmail(e.target.value);
         } else {
-            setPassword(e.target.value)
+            setPassword(e.target.value);
         }
-    }
-
-    const handleDemoClick = (e) => {
-        e.preventDefault();
-        setEmail('demo@user.com')
-        setPassword('password')
-        return dispatch(sessionActions.login({email, password}))
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
+
+        console.log(e.currentTarget.id)
+        if (e.currentTarget.id === "demo"){
+            return dispatch(sessionActions.login({email:"demo@user.com", password:"password"}))
+        }
+
         return dispatch(sessionActions.login({email, password}))
             .catch(async (res) => {
                 let data;
@@ -83,7 +82,7 @@ const LoginFormPage = () => {
             </form>
             <div className="demo-login">
                 <div className="login-container">
-                    <button className="login-button" onClick={handleDemoClick}>Demo User</button>
+                    <button className="login-button" id="demo" onClick={handleSubmit}>Demo User</button>
                 </div>
             </div>
             <div className="login-component-footer">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
+import {AiOutlineShoppingCart} from "react-icons/ai";
 import './SignupForm.css';
 
 const SignupForm = () => {
@@ -39,6 +40,7 @@ const SignupForm = () => {
 
     return (
         <div className="signup-component">
+            
             <form className="signup-form" onSubmit={handleSubmit}>
                 <ul className="errors">
                     {errors.map((error) => <li key={error}>{error}</li>)}
