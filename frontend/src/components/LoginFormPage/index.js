@@ -64,7 +64,7 @@ const LoginFormPage = () => {
                     <input 
                         className="session-form-control"
                         id='email' 
-                        type="text"
+                        type="email"
                         placeholder="Email address..."
                         value={email}
                         onChange={handleChange}
@@ -88,7 +88,7 @@ const LoginFormPage = () => {
             </div>
             <div className="login-component-footer">
                 <span>Don't have a Basecamp account?</span>
-                <Link className="signup-button" to={'/signup'}> Sign up!</Link>
+                <Link className="to-signup-button" to={'/signup'}> Sign up!</Link>
             </div>
         </div>
 
