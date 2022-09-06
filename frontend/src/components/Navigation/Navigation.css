@@ -1,0 +1,24 @@
+.const-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    background-color: rgb(205, 229, 250);
+}
+
+.home {
+    /* height: 100%; */
+}
+
+.icon {
+    /* height: 100% */
+}
+
+.logedin-buttons {
+
+}
+
+.loggedout-buttons {
+
+}

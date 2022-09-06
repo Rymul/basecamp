@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
-import {AiOutlineShoppingCart} from "react-icons/ai";
 import './SignupForm.css';
 
 const SignupForm = () => {
@@ -16,7 +15,7 @@ const SignupForm = () => {
     // const [confirmPassword, setConfirmPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    // if (sessionUser) return <Redirect to="/" />;
+    if (sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
