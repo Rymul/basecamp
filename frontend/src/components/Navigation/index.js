@@ -1,28 +1,34 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import { logout } from '../../store/session';
+import * as sessionActions from '../../store/session';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
 import './Navigation.css';
 
 const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user)
+    const dispatch = useDispatch();
     
+    const logout = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.logout());
+    }
+
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
             <div className='logedin-buttons'>
-                <button onClick={logout}>Logout</button>
+                <button className='logout' onClick={logout}>Logout</button>
                 {/* <ProfileButton user={sessionUser} /> */}
             </div>
         );
     } else {
         sessionLinks = (
-            <div className='loggedout-buttons'>
-                <NavLink className='login' to='/login'>Login</NavLink>
-                <NavLink className='signup' to='/signup'>Sign Up</NavLink>
+            <div className='loggedOut-buttons'>
+                <NavLink className='login' to='/login'>Log in</NavLink>
+                <NavLink className='signup' to='/signup'>Sign up</NavLink>
             </div>
         );
     }
@@ -31,15 +37,17 @@ const Navigation = () => {
         //   <li>
         <div className='const-nav'>
             <NavLink className='home' exact to="/">BASECAMP</NavLink>
-            <a href='https://github.com/Rymul'>
-                <AiFillGithub className='github icon'/>          
-            </a>
-            <a href='https://www.linkedin.com/in/ryanfmullen/'>
-                <AiFillLinkedin className='linkedin icon'/>
-            </a>
-            <a href='https://github.com/Rymul'>
-                <CgProfile className='aboutme icon' />
-            </a>
+            <div className='icon-buttons'>
+                <a href='https://github.com/Rymul'>
+                    <AiFillGithub className='github icon'/>          
+                </a>
+                <a href='https://www.linkedin.com/in/ryanfmullen/'>
+                    <AiFillLinkedin className='linkedin icon'/>
+                </a>
+                <a href='https://github.com/Rymul'>
+                    <CgProfile className='aboutme icon' />
+                </a>
+            </div>
             {sessionLinks}
         </div>
         //   </li>

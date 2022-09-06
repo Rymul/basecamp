@@ -4,21 +4,94 @@
     align-items: center;
     height: 30px;
     width: 100%;
-    background-color: rgb(205, 229, 250);
+    
+    padding: 1rem;
 }
 
 .home {
-    /* height: 100%; */
+    text-decoration: none;
+    padding-left: 10%;
+    font-size: 25px;
+    font-weight: 600;
+
+}
+
+.icon-buttons {
+    height: 100%;
+    width: 10%;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
 }
 
 .icon {
-    /* height: 100% */
+    height: 100%;
+    transition: all .25s ease-in-out;
+}
+
+.icon:hover {
+    color:#00C585;
+    transform: translateY(-2px);
 }
 
 .logedin-buttons {
+    height: 100%;
+    width: 10%;
+    padding-right: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
 }
 
-.loggedout-buttons {
+.loggedOut-buttons {
+    height: 100%;
+    width: 10%;
+    padding-right: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
+.login {
+    text-decoration: none;
+    color: #333333;
+    transition: all .25s ease-in-out;
+}
+
+.login:hover {
+    color:#00C585;
+    transform: translateY(-2px);
+}
+
+.signup {
+    text-decoration: none;
+    background-color: #00C585;
+    color: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+.signup:hover {
+    border: 1px solid #00C585;
+    background-color: #f9f9f9;
+    color:#00C585
+}
+
+.logout {
+    text-decoration: none;
+    background-color: #00C585;
+    color: #f9f9f9;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+}
+
+.logout:hover {
+    border: 1px solid #00C585;
+    background-color: #f9f9f9;
+    color:#00C585
 }
