@@ -24,8 +24,15 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
-    def self.find_by_credentials(credentials, password)
-        user = (User.find_by(email: credential) || User.find_by(username: credential))
+    # has_many :bookings,
+    #     dependent: :destroy
+
+    # has_many :booked_campsites,
+    #     through: :bookings,
+    #     source: :campsite
+
+    def self.find_by_credentials(email, password)
+        user = User.find_by(email: email)
         if user&.authenticate(password)
             return user
         else
