@@ -38,13 +38,10 @@ const LoginFormPage = () => {
                 } catch {
                     data = await res.text();
                 }
-                if (data?.errors) {
-                    setErrors(data.errors);
-                } else if (data) {
-                    setErrors([data]);
-                } else {
-                    setErrors([res.statusText]);
-                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+                console.log(errors)
             });
 
     }
@@ -53,7 +50,7 @@ const LoginFormPage = () => {
         <div className="login-component">  
             <form className="login-form" onSubmit={handleSubmit}>
                 <ul className="errors">
-                    {errors.map(error => <li key={error}>{error}</li>)}
+                    {errors.map(error => <li className="error" key={error}>{error}</li>)}
                 </ul>
                 <div className="title">
                     <h1>Welcome Back!</h1>

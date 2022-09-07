@@ -36,7 +36,7 @@ const Navigation = () => {
         // <ul>
         //   <li>
         <div className='const-nav'>
-            <NavLink className='home' exact to="/">BASECAMP</NavLink>
+            <NavLink className='home' exact to="/">BASEC<img className='home-tent' src="tent-text-icon.png" />MP</NavLink>
             <div className='icon-buttons'>
                 <a href='https://github.com/Rymul'>
                     <AiFillGithub className='github navIcon'/>          

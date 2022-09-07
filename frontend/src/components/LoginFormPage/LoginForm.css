@@ -107,3 +107,26 @@
 .to-signup-button:hover{
     border-bottom: 1px solid #333333;
 } 
+
+.errors {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
+    
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+    text-decoration: none;
+    color: red;
+    border: 1px solid red;
+    padding: 10px;
+    width: 350px;
+    margin: auto;
+
+}

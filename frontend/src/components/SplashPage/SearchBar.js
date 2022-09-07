@@ -44,7 +44,7 @@ const HomeSearchBar = () => {
             </div> 
             <div className='home-search'>
                 <button className='home-search-button'>
-                    <BiSearchAlt2 />
+                    <BiSearchAlt2 className='home-mag-icon'/>
                 </button>
 
             </div>
