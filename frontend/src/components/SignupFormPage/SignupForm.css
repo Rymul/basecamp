@@ -48,6 +48,7 @@
     font-weight: 600;
     font-size: 1rem;
     color: #555555;
+    outline: none;
 }
 
 .session-form-control {
