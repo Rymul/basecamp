@@ -72,6 +72,7 @@
     color: #f9f9f9;
     padding: 10px 15px;
     border-radius: 20px;
+    transition: all .25s ease-in-out;
 }
 
 .signup:hover {

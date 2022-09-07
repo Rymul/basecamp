@@ -6,6 +6,15 @@
 
 }
 
+::placeholder{
+    color: #333333;
+}
+
+.input-holder{
+    position: relative;
+    display: flex;
+}
+
 .home-location {
     text-align: center;
     width: 35%;
@@ -17,6 +26,8 @@
     height: 45px;
     width: 100%;
     border-radius: 30px;
+    border: none;
+    padding-left: 40px;
 }
 
 .home-date {
@@ -27,6 +38,7 @@
     height: 45px;
     width: 100%;
     border-radius: 30px;
+    border: none;
 }
 
 .home-guests {
@@ -37,6 +49,7 @@
     height: 45px;
     width: 100%;
     border-radius: 30px;
+    border: none;
 }
 
 .home-search {
@@ -54,15 +67,26 @@
     font-weight: 500;
     border: #00C585;
     border-radius: 25px;
+    transition: all .25s ease-in-out;
 }
 
-
-div .icon {
-    /* position: absolute; */
+.home-search-button:hover {
+    border: 1px solid #00C585;
+    background-color: #f9f9f9;
+    color:#00C585
 }
 
-/* .icon {
-    padding: 10px;
-    color: #333333;
-    min-width: 40px
+/* div .icon {
+    position: absolute;
 } */
+
+.icon {
+    position: absolute;
+    color: #333333;
+    font-size: 25px;
+    background: white;
+    height: 45px;
+    border-radius: 30px 0px 0px 30px;
+    /* padding-left: 16px; */
+    padding: 1px 4px 1px 20px;
+}

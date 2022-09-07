@@ -11,12 +11,15 @@ const HomeSearchBar = () => {
         <form className='home-searchBar'>
             <div className='home-location'>
                 <p>WHERE TO?</p>
+                <div className='input-holder'>
                 <BiSearchAlt2 className='input-icons icon' />
                 <input 
                     className='location-input'
                     type="text" 
                     placeholder='Try Yosemite, Napa, Moab...' 
                 />
+
+                </div>
             </div>
             <div className='home-date'>
                 <p>DATES</p>
