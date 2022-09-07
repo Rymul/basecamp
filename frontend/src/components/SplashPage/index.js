@@ -1,15 +1,20 @@
+import HomeSearchBar from './SearchBar';
 import './SplashPage.css';
 
 const SplashPage = () => {
 
     return (
         <div className="splash-container">
-            <div className="title">
+            <div className="splash-title">
                 <h1 >Find yourself outside.</h1>
-                <p>Discover and book tent camping, RV parks, cabins, treehouses, and glamping.</p>
+                <div className='splash-subTitle'>
+                    <p>Discover and book tent camping, RV parks, cabins, treehouses, and glamping.</p>
+                </div>
             </div>
-            <div className="seachBar">
-                <p>Search bar will go here - it will be awesome!</p>
+            <div className='searchBar-container'>
+                <div className="searchBar-component">
+                    <HomeSearchBar />
+                </div>
             </div>
             <div className='img-container'>
                 <img className='splash-img' src="woman_and_dog_in_tent.jpg" alt="picture of a woman and a dog in a tent"/>

@@ -1,0 +1,68 @@
+.home-searchBar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+
+}
+
+.home-location {
+    text-align: center;
+    width: 35%;
+    height: 100%;
+
+}
+
+.location-input {
+    height: 45px;
+    width: 100%;
+    border-radius: 30px;
+}
+
+.home-date {
+    text-align: center;
+}
+
+.date-input {
+    height: 45px;
+    width: 100%;
+    border-radius: 30px;
+}
+
+.home-guests {
+    text-align: center;
+}
+
+.guest-input {
+    height: 45px;
+    width: 100%;
+    border-radius: 30px;
+}
+
+.home-search {
+
+
+}
+
+.home-search-button {
+    text-decoration: none;
+    background-color: #00C585;
+    color: #f9f9f9;
+    height: 47px;
+    width: 51px;
+    font-size: 25px;
+    font-weight: 500;
+    border: #00C585;
+    border-radius: 25px;
+}
+
+
+div .icon {
+    /* position: absolute; */
+}
+
+/* .icon {
+    padding: 10px;
+    color: #333333;
+    min-width: 40px
+} */

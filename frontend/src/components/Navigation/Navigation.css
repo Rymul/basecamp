@@ -26,12 +26,12 @@
     
 }
 
-.icon {
+.navIcon {
     height: 100%;
     transition: all .25s ease-in-out;
 }
 
-.icon:hover {
+.navIcon:hover {
     color:#00C585;
     transform: translateY(-2px);
 }

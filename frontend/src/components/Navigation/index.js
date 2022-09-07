@@ -39,13 +39,13 @@ const Navigation = () => {
             <NavLink className='home' exact to="/">BASECAMP</NavLink>
             <div className='icon-buttons'>
                 <a href='https://github.com/Rymul'>
-                    <AiFillGithub className='github icon'/>          
+                    <AiFillGithub className='github navIcon'/>          
                 </a>
                 <a href='https://www.linkedin.com/in/ryanfmullen/'>
-                    <AiFillLinkedin className='linkedin icon'/>
+                    <AiFillLinkedin className='linkedin navIcon'/>
                 </a>
                 <a href='https://github.com/Rymul'>
-                    <CgProfile className='aboutme icon' />
+                    <CgProfile className='aboutme navIcon' />
                 </a>
             </div>
             {sessionLinks}
