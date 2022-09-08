@@ -43,9 +43,9 @@ ApplicationRecord.transaction do
     end
     puts "Creating campsites..."
 
-    c1 = Campsite.create!(name: 'Colfax Spring', location: 'Yosemite National Park', city: 'Yosemite', state: 'California', lat: 12345.6, lng: 12345.6, description: "this is a campsite", price: 45, capacity: 10, site_type: 'tent', host_id: 1)
-    file = URI.open('https://base-camp-dev.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-van.jpg')
-    c1.photos.attach(io: URI.open('https://base-camp-dev.s3.us-west-1.amazonaws.com/view-from-tent.jpg'), filename: 'yosemite-colfax-spring-van.jpg')
+    # c1 = Campsite.create!(name: 'Colfax Spring', location: 'Yosemite National Park', city: 'Yosemite', state: 'California', lat: 12345.6, lng: 12345.6, description: "this is a campsite", price: 45, capacity: 10, site_type: 'tent', host_id: 1)
+    # file = URI.open('https://base-camp-dev.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-van.jpg')
+    # c1.photos.attach(io: URI.open('https://base-camp-dev.s3.us-west-1.amazonaws.com/view-from-tent.jpg'), filename: 'yosemite-colfax-spring-van.jpg')
     # -----
 
 

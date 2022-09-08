@@ -21,7 +21,7 @@ const SplashPage = () => {
                 <img className='splash-img' src="woman_and_dog_in_tent.jpg" alt="picture of a woman and a dog in a tent"/>
             </div>
             <div className='campsite-idx'>
-                <CampsiteIndex />
+                {/* <CampsiteIndex /> */}
             </div>
         </div>
     )

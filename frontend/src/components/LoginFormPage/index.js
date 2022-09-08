@@ -25,7 +25,6 @@ const LoginFormPage = () => {
         e.preventDefault();
         setErrors([]);
 
-        console.log(e.currentTarget.id)
         if (e.currentTarget.id === "demo"){
             return dispatch(sessionActions.login({email:"demo@user.com", password:"password"}))
         }
@@ -38,10 +37,24 @@ const LoginFormPage = () => {
                 } catch {
                     data = await res.text();
                 }
-                if (data?.errors) setErrors(data.errors);
-                else if (data) setErrors([data]);
-                else setErrors([res.statusText]);
-                console.log(errors)
+                if (data?.errors) {
+                    setErrors(data.errors);
+                } else if (data) {
+                    // const newError = Object.values([data])[0]
+                    // setErrors([newError.slice(12,newError.length-4)])
+                    const newError = JSON.parse(data)
+                    setErrors(newError.errors)
+                    // setErrors([data]);
+                } else {
+                    setErrors([res.statusText]);
+                }
+                    
+                // const x = Object.values(errors)[0]
+                // console.log(x.slice(12,x.length-4), "errors")
+                console.log(data, 'data')
+                
+                // errors.map(error => console.log(error[0], 'error'));
+                // Object.values(data).map(error => console.log(error, 'error'));
             });
 
     }

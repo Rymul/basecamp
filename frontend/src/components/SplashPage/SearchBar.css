@@ -90,6 +90,7 @@
     border-radius: 25px;
     transition: all .25s ease-in-out;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .home-search-button:hover {
