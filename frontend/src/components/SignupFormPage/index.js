@@ -29,9 +29,15 @@ const SignupForm = () => {
                 } catch {
                     data = await res.text(); 
                 }
-                if (data?.errors) setErrors(data.errors);
-                else if (data) setErrors([data]);
-                else setErrors([res.statusText]);
+                if (data?.errors) {
+                    setErrors(data.errors);
+                } else if (data) {
+                    const newError = JSON.parse(data)
+                    setErrors(newError.errors)
+                    // setErrors([data]);
+                } else {
+                    setErrors([res.statusText]);
+                }    
             });
         //   }
         //   return setErrors(['Passwords must match']);
@@ -42,7 +48,7 @@ const SignupForm = () => {
             
             <form className="signup-form" onSubmit={handleSubmit}>
                 <ul className="errors">
-                    {errors.map((error) => <li key={error}>{error}</li>)}
+                    {errors.map((error) => <li className="error" key={error}>{error}</li>)}
                 </ul>
                 <div className="title">
                     <h1>Join Basecamp!</h1>

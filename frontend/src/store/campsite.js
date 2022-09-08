@@ -7,10 +7,12 @@ const receiveCampsite = (campsite) => ({
     payload: campsite
 });
 
-const receiveCampsites = (campsites) => ({
+const receiveCampsites = (campsites) => {
+    return {
     type: RECEIVE_CAMPSITES,
     payload: campsites
-});
+    }
+};
 
 
 export const getCampsite = campsiteId => state => {
@@ -43,7 +45,6 @@ export const fetchCampsites = () => async dispatch => {
     });
     if (res.ok) {
         const campsites = await res.json();
-        // debugger
         dispatch(receiveCampsites(campsites));
     }
 }
@@ -71,8 +72,7 @@ const campsitesReducer = (state = {}, action) => {
             newState[action.campsite.id] = action.payload;
             return newState;
         case RECEIVE_CAMPSITES:
-            newState[action.payload.id] = action.payload
-            return newState;
+            return { ...newState, ...action.payload}
         default:
             return state;
     }

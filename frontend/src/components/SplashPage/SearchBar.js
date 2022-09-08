@@ -3,7 +3,7 @@ import { BiSearchAlt2 } from 'react-icons/bi'
 import { BsFillCalendarFill } from 'react-icons/bs'
 import { BsFillPersonFill } from 'react-icons/bs'
 
-
+// DataRangePicker
 
 const HomeSearchBar = () => {
 
