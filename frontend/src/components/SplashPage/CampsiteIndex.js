@@ -17,7 +17,7 @@ const CampsiteIndex = () => {
                 return(
                     <div>
                         {/* <Link to={'/'}>{campsite.photoUrl[0]}</Link> */}
-                        <img src={campsite.photoUrl[0]} alt="" /> 
+                        <img src={campsite.photoUrl[0]} alt="campsite image" /> 
                     </div>
             )})}
         </>
