@@ -27,7 +27,8 @@ const ReviewIndex = (props) => {
             <div className='reviews'>
                 {reviews.map(review => (
                     <div className="review" key={review.id}>
-                        <h2>{review.reviewer.name} {review.recommended ? recommends : null }</h2>
+                        <h2 id="reviewer-name">{review.reviewer.name}</h2>
+                        {review.recommended ? <p id="reviewer-name">recommends</p> : null }
                         <p>{review.title}</p>
                         <p>{review.body}</p>
                         {review.authorId === sessionUser?.id && (

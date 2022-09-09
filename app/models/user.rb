@@ -24,6 +24,10 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
+    has_many :owned_campsites,
+        foreign_key: :host_id,
+        class_name: :Campsite,
+        dependent: :destroy
     # has_many :bookings,
     #     dependent: :destroy
 

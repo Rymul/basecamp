@@ -15,7 +15,7 @@
 class Review < ApplicationRecord
     validates :title, :body, :recomended, presence: true
     validates :rating, inclusion: { in: 1..5, message: "must be between 1 and 5" }
-    validates :not_a_duplicate
+    validate :not_a_duplicate
 
     belongs_to :campsite
 

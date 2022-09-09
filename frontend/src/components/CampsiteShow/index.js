@@ -108,7 +108,7 @@ const CampsiteShow = () => {
             </div>
             <div className='reviews-container'>
                 <h2>This is where the reviews will go</h2>
-                <ReviewIndex campsiteId={campsite.id} />
+                {/* <ReviewIndex campsiteId={campsite.id} /> */}
             </div>
             
         </div>
