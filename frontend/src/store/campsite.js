@@ -50,7 +50,7 @@ export const fetchCampsites = () => async dispatch => {
 }
 
 export const fetchCampsite = (campsiteId) => async dispatch => {
-    const res = await fetch(`api/campsites/${campsiteId}`, {
+    const res = await fetch(`/api/campsites/${campsiteId}`, {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -69,7 +69,7 @@ const campsitesReducer = (state = {}, action) => {
     const newState = { ...state }
     switch (action.type) {
         case RECEIVE_CAMPSITE:
-            newState[action.campsite.id] = action.payload;
+            newState[action.payload.id] = action.payload;
             return newState;
         case RECEIVE_CAMPSITES:
             return { ...newState, ...action.payload}

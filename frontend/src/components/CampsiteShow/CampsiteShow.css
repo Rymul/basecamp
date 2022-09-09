@@ -1,0 +1,56 @@
+
+.campsite-parent {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    background-color: rgb(244, 244, 240);;
+}
+
+.campsite-container {
+    width: 81%;
+}
+
+.state-container {
+    display: flex;
+}
+
+#state {
+    padding-right: 10px;
+    color: #333333;
+    font-size: 13px;
+    font-weight: 600;
+
+}
+
+.campsite-title-container {
+
+}
+
+#campsite-title {
+    color: #333333;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 20px 0 20px
+}
+
+.location-container {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+#review-per {
+    color: #40d9ac;
+
+}
+
+#review-num {
+    color: #333333;
+    font-size: 13px;
+}
+
+#city {
+    color: #333333;
+    font-size: 13px;
+}
