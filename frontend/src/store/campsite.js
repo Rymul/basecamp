@@ -1,8 +1,10 @@
+import { addReviews } from "./review";
+import { addUsers } from "./user";
 
 const RECEIVE_CAMPSITE = 'campsites/RECEIVE_CAMPSITE';
 const RECEIVE_CAMPSITES = 'campsites/RECEIVE_CAMPSITES';
 
-const receiveCampsite = (campsite) => ({
+export const receiveCampsite = (campsite) => ({
     type: RECEIVE_CAMPSITE,
     payload: campsite
 });
@@ -59,6 +61,8 @@ export const fetchCampsite = (campsiteId) => async dispatch => {
     if (res.ok) {
         const campsite = await res.json();
         dispatch(receiveCampsite(campsite));
+        dispatch(addReviews(campsite.reviews)); //not sure if this is needed
+        dispatch(addUsers(campsite.users)); //not sure if this is needed
     }
 }
 

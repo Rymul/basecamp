@@ -7,6 +7,7 @@ import { GiCampingTent, GiSurferVan } from 'react-icons/gi'
 import { FaCaravan, FaBed } from 'react-icons/fa'
 import { IoMdWalk } from 'react-icons/io'
 import { MdNotAccessible } from 'react-icons/md'
+import { getCampsiteReviews } from '../../store/review';
 
 
 
@@ -19,8 +20,13 @@ const CampsiteShow = () => {
     },[campsiteId])
 
     const campsite = useSelector(getCampsite(campsiteId));
+    const sessionUser = useSelector(state => state.session.user);
+    const reviews = useSelector(getCampsiteReviews(campsiteId))
+    
     // if(!campsite) return null
-    // debugger
+    
+    const hasReviewed = sessionUser && reviews.some(review => review.authorId === sessionUser.id);
+
     if (campsite){
     return (
         <div className='campsite-parent'>
@@ -102,8 +108,8 @@ const CampsiteShow = () => {
                     <p>Response time: Within 5 hours</p>
                 </div>
             </div>
-            <div className='ratings'>
-                <h2>This is where the ratings will go</h2>
+            <div className='reviews'>
+                <h2>This is where the reviews will go</h2>
             </div>
         </div>
         </div>
