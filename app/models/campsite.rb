@@ -22,6 +22,8 @@ class Campsite < ApplicationRecord
               :price, :capacity, :site_type, :host_id, presence: true
     validates :name, uniqueness: true
 
+    belongs_to :host_id
     has_many_attached :photos
+
     
 end
