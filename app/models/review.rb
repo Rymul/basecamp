@@ -22,6 +22,7 @@ class Review < ApplicationRecord
     belongs_to :author,
     class_name: :User
 
+
     private
 
     def not_a_duplicate

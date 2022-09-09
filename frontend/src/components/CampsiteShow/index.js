@@ -8,6 +8,7 @@ import { FaCaravan, FaBed } from 'react-icons/fa'
 import { IoMdWalk } from 'react-icons/io'
 import { MdNotAccessible } from 'react-icons/md'
 import { getCampsiteReviews } from '../../store/review';
+import ReviewIndex from './ReviewIndex';
 
 
 
@@ -20,13 +21,10 @@ const CampsiteShow = () => {
     },[campsiteId])
 
     const campsite = useSelector(getCampsite(campsiteId));
-    const sessionUser = useSelector(state => state.session.user);
-    const reviews = useSelector(getCampsiteReviews(campsiteId))
+
     
     // if(!campsite) return null
     
-    const hasReviewed = sessionUser && reviews.some(review => review.authorId === sessionUser.id);
-
     if (campsite){
     return (
         <div className='campsite-parent'>
@@ -108,9 +106,11 @@ const CampsiteShow = () => {
                     <p>Response time: Within 5 hours</p>
                 </div>
             </div>
-            <div className='reviews'>
+            <div className='reviews-container'>
                 <h2>This is where the reviews will go</h2>
+                <ReviewIndex campsiteId={campsite.id} />
             </div>
+            
         </div>
         </div>
     )
