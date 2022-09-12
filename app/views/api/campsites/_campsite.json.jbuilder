@@ -7,7 +7,7 @@ end
   
 if (campsite.reviews.length != 0)  
     reviews = campsite.reviews
-    total_rating = (reviews.count { |el| el.recommended }) * 100.0 / reviews.length
+    total_rating = (reviews.count { |el| el.recomended }) * 100.0 / reviews.length
 else 
     total_rating = 0
 end

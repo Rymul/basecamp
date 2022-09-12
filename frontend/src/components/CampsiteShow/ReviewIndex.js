@@ -5,6 +5,7 @@ import { BiEdit } from 'react-icons/bi'
 import ReviewForm from './ReviewForm';
 import { getCampsite } from '../../store/campsite';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const ReviewIndex = ({ campsiteId }) => {
@@ -57,6 +58,8 @@ const ReviewIndex = ({ campsiteId }) => {
                 ))}
                 <div className='create-container'>
                     {/* {!hasReviewed && <LeaveReview campsite={campsite} />} */}
+                    {/* {!hasReviewed ? <Link to={`/new_review/${campsiteId}`} /> : null} */}
+                    <Link to={`/new_review/${campsiteId}`} >Leave a Review</Link> 
                 </div>
             </div>
         </div>
@@ -67,17 +70,17 @@ const ReviewIndex = ({ campsiteId }) => {
 export default ReviewIndex;
 
 
-const LeaveReview = ({ campsite }) => {
-    const [showReviewForm, setShowReviewForm] = useState(false)
+// const LeaveReview = ({ campsite }) => {
+//     const [showReviewForm, setShowReviewForm] = useState(false)
   
-    return showReviewForm ? (
-      <ReviewForm 
-        campsite={campsite} 
-        closeForm={() => setShowReviewForm(false)}
-      />
-    ) : (
-      <button className="leave-review-button" onClick={() => setShowReviewForm(true)}>
-        Leave a Review
-      </button>
-    );
-}
+//     return showReviewForm ? (
+//       <ReviewForm 
+//         campsite={campsite} 
+//         closeForm={() => setShowReviewForm(false)}
+//       />
+//     ) : (
+//       <button className="leave-review-button" onClick={() => setShowReviewForm(true)}>
+//         Leave a Review
+//       </button>
+//     );
+// }

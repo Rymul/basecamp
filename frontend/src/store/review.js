@@ -33,6 +33,7 @@ export const getCampsiteReviews = campsiteId => state => {
 
 
 export const createReview = (review) => async dispatch => {
+    // debugger
     const res = await csrfFetch('/api/reviews', {
         method: 'POST',
         headers: {
@@ -45,6 +46,7 @@ export const createReview = (review) => async dispatch => {
     dispatch(addReview(data.review));
     dispatch(addUser(data.user)); //not sure if this is needed
     dispatch(receiveCampsite(data.campsite)); //not sure if this is needed
+    // debugger
     return res;
 };
 
