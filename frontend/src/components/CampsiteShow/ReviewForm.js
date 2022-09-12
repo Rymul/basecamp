@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { getCampsite } from '../../store/campsite';
 import { createReview } from '../../store/review';
+import { login } from '../../store/session';
 import './ReviewForm.css'
 
 
@@ -26,7 +27,11 @@ const ReviewForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(createReview(review)).then(history(`/campsites/${campsiteId}`))
+        console.log(history)
+        dispatch(createReview(review)).then(()=> 
+        {
+            debugger 
+            history.goBack()})
         
     }
 
@@ -36,29 +41,14 @@ const ReviewForm = () => {
             let newReview = Object.assign({}, review, {[field]: e.currentTarget.value},{campsiteId: parseInt(campsiteId), authorId: authorId})
             setReview(newReview)
         }
-        // switch(e.target.id){
-            
-        //     case 'title-input':
-        //         let otherThing = Object.assign({}, review, {title:e.target.value})
-        //         setReview(otherThing);
-        //         case 'body-input':
-        //         debugger
-        //         let thing = Object.assign({}, review, {body: e.target.value})
-        //         setReview(thing);
-            // case 'rating-input':
-            //     setReview({ ...review, rating: e.target.value})
-            // case 'recommended-input':
-            //     setReview({ ...review, recomended: 'true'});
-        //     default:
-        //         return review
-        // }
-
     }
 
     return(
         <div className='reviewForm-component'>
-            <h2>Thank you for your stay at {`${campsite.name}`}.</h2>
-            <p>Your feedback is truly appreciated to make future camping better for all!</p>
+            <div className='title'>
+                <h1>Thank you for your stay at {`${campsite.name}`}.</h1>
+                <p>Your feedback is truly appreciated to make future camping better for all!</p>
+            </div>
             {/* {!sessionUser && <ReviewModal onClose={closeForm} />} */}
             <div className='review-form-container'>
                 <form onSubmit={handleSubmit} className='review-form'>

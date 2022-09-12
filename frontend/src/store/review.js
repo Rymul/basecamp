@@ -44,9 +44,7 @@ export const createReview = (review) => async dispatch => {
     });
     const data = await res.json();
     dispatch(addReview(data.review));
-    dispatch(addUser(data.user)); //not sure if this is needed
-    dispatch(receiveCampsite(data.campsite)); //not sure if this is needed
-    // debugger
+   
     return res;
 };
 
@@ -61,18 +59,17 @@ export const updateReview = (review) => async dispatch => {
     });
     const data = await res.json();
     dispatch(addReview(data.review));
-    dispatch(addUser(data.user)); //not sure if this is needed
-    dispatch(receiveCampsite(data.campsite)); //not sure if this is needed
+    
     return res;
 }
 
 export const deleteReview = (reviewId) => async dispatch => {
-    const res = await csrfFetch(`api/reviews/${reviewId}`, {
+    const res = await csrfFetch(`/api/reviews/${reviewId}`, {
         method: 'DELETE',
     });
     const data = await res.json();
     dispatch(removeReview(data.review));
-    dispatch(receiveCampsite(data.campsite)); //not sure if this is needed
+    // dispatch(receiveCampsite(data.campsite)); //not sure if this is needed
     return res;
 }
 
@@ -89,7 +86,7 @@ const reviewsReducer = (state = {}, action) => {
             return { ...newState, ...reviews };
         case REMOVE_REVIEW:
             const reviewId = action.payload;
-            delete newState[reviewId];
+            delete newState[reviewId.id];
             return newState;
         case RECEIVE_CAMPSITE:
             return { ...action.payload.reviews }
