@@ -24,7 +24,12 @@ class Campsite < ApplicationRecord
 
     belongs_to :host,
         class_name: :User
+
+    has_many :reviews
+
     has_many_attached :photos
+
+
 
     
 end

@@ -1,4 +1,4 @@
-import { receiveCampsite } from './campsite';
+import { receiveCampsite, RECEIVE_CAMPSITE } from './campsite';
 import csrfFetch from './csrf'
 import { addUser } from './user';
 
@@ -23,13 +23,14 @@ const removeReview = reviewId => ({
 });
   
 export const getCampsiteReviews = campsiteId => state => {
-    Object.values(state.reviews)
+    return Object.values(state.reviews)
         .filter(review => review.campsiteId === parseInt(campsiteId))
         .map(review => ({
-            ...review,
-            author: state.users[review.authorId]?.name
-        }));
+            ...review
+        }))
 }
+
+
 
 export const createReview = (review) => async dispatch => {
     const res = await csrfFetch('/api/reviews', {
@@ -88,6 +89,8 @@ const reviewsReducer = (state = {}, action) => {
             const reviewId = action.payload;
             delete newState[reviewId];
             return newState;
+        case RECEIVE_CAMPSITE:
+            return { ...action.payload.reviews }
         default:
             return state;
     }

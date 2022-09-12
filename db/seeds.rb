@@ -46,15 +46,18 @@ ApplicationRecord.transaction do
 
     c1 = Campsite.create!(name: 'Colfax Spring', location: 'Yosemite National Park', city: 'Groveland', state: 'California', lat: 28.5581, lng: 81.8512, description: "Welcome to Yosemite's Colfax Spring! Home to a basecamp for river rafting trips during the summertime, we are located 15 minutes driving distance to the entrance to Yosemite National Park. If you are staying with us between May - September and want to come rafting, ask us about our river trips! Our camp sits on a ridge with views down into the Tuolumne River Canyon. The Tuolumne River begins at 13,000 feet of elevation in the High Country of Tuolumne Meadows and provides drinking water for over 2.7 million people in San Francisco. With cedar and pine trees, manzanita bushes, and wildflowers in the spring, enjoy the Sierras' flora and fauna. Our family has been operating our river rafting company for nearly 50 years, the last 11 of those years being here at Colfax Spring. Conveniently located off Highway 120, we are in close proximity to countless swimming holes, hikes, and more.", price: 45, capacity: 10, site_type: 'tent', host_id: u1.id)
     # file = URI.open('https://base-camp-dev.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-van.jpg')
-    first = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-van.jpg'), filename: 'yosemite-colfax-spring-van.jpg'}
-    second = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-tent.jpg'), filename: 'yosemite-colfax-spring-tent.jpg'}
-    c1.photos.attach([first, second])
+    c1_p1 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-van.jpg'), filename: 'yosemite-colfax-spring-van.jpg'}
+    c1_p2 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-tent.jpg'), filename: 'yosemite-colfax-spring-tent.jpg'}
+    c1_p3 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-picnictable.jpg'), filename: 'yosemite-colfax-spring-picnictable.jpg'}
+    c1_p4 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-view.jpg'), filename: 'yosemite-colfax-spring-view.jpg'}
+    c1_p5 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-cabin-bathrooms.jpg'), filename: 'yosemite-colfax-spring-cabin-bathrooms.jpg'}
+    c1.photos.attach([c1_p1, c1_p2, c1_p3, c1_p4, c1_p5])
     
     
-    # c1.photos.attach(io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-tent.jpg'), filename: 'yosemite-colfax-spring-tent.jpg')
-    # c1.photos.attach(io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-picnictable.jpg'), filename: 'yosemite-colfax-spring-picnictable.jpg')
-    # c1.photos.attach(io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-view.jpg'), filename: 'yosemite-colfax-spring-view.jpg')
-    # c1.photos.attach(io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-cabin-bathrooms.jpg'), filename: 'yosemite-colfax-spring-cabin-bathrooms.jpg')
+    
+    
+    
+    
     #-----
     # c2 = Campsite.create!(name: 'Eel River', location: 'Mendocino National Forest', city: 'Cooks Valley', state: 'California', lat: 40.0024, lng: 123.7894, description: "This property is conveniently located in historic highway 101. It's 4.5 terraced acres overlooking the south fork Eel River. It is adjacent to the Reggae on the River and Northern Nights festival sites. It's less than a mile from the tourist attraction One Log house and Richardson Grove state park. The property is a permitted educational cannabis farm implementing regenerative agriculture practices. We have several accommodation options! You can stay in our fully furnished bell tent tucked away in a charming garden. It has a full bed with foam topper, charge station, lounge chair, fan or heater, wireless speaker, and wifi. The property has hot outdoor shower and viewing bluff overlooking Eel river. Enjoy convenient hwy 101 location close to state park and dispensary. Wake up, dine and stroll in this dreamy garden! We also have camping and  RV sites that have morning shade, and epic views and two levels of camping area.", price: 56, capacity: 12, site_type: 'tent', host_id: 3)
     # c2.photos.attach(io: URI.open('https://base-camp-dev.s3.us-west-1.amazonaws.com/eel-river-swinminghole.jpg'), filename: 'eel-river-swinminghole.jpg')

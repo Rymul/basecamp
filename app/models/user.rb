@@ -28,6 +28,11 @@ class User < ApplicationRecord
         foreign_key: :host_id,
         class_name: :Campsite,
         dependent: :destroy
+
+    has_many :reviews,
+        foreign_key: :author_id,
+        class_name: :Review,
+        dependent: :destroy
     # has_many :bookings,
     #     dependent: :destroy
 

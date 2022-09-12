@@ -42,9 +42,11 @@ const CampsiteShow = () => {
                 <p id='city'>{campsite.city},</p>
                 <p id='city'>{campsite.state}</p>
             </div>
-            {campsite.photoUrl.length && campsite.photoUrl.map(photo =>{
-               return <img key={`${campsite.id}a`} id='campsite-img-show' src={photo} alt={campsite.location} />
-            })}
+            <div className='image-container'>
+                {campsite.photoUrl.length && campsite.photoUrl.map(photo =>{
+                return <img key={`${campsite.id}a`} id='campsite-img-show' src={photo} alt={campsite.location} />
+                })}
+            </div>
             {/* add a link and component to view all photos in last grid box */}
             <div className='under-img-info'>
                 {/* <div id='num-stuff'>
@@ -108,7 +110,7 @@ const CampsiteShow = () => {
             </div>
             <div className='reviews-container'>
                 <h2>This is where the reviews will go</h2>
-                {/* <ReviewIndex campsiteId={campsite.id} /> */}
+                <ReviewIndex campsiteId={campsite.id} />
             </div>
             
         </div>
@@ -120,3 +122,5 @@ const CampsiteShow = () => {
 }
 
 export default CampsiteShow;
+
+

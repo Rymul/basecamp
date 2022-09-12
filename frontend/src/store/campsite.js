@@ -1,7 +1,7 @@
 import { addReviews } from "./review";
 import { addUsers } from "./user";
 
-const RECEIVE_CAMPSITE = 'campsites/RECEIVE_CAMPSITE';
+export const RECEIVE_CAMPSITE = 'campsites/RECEIVE_CAMPSITE';
 const RECEIVE_CAMPSITES = 'campsites/RECEIVE_CAMPSITES';
 
 export const receiveCampsite = (campsite) => ({
@@ -73,7 +73,7 @@ const campsitesReducer = (state = {}, action) => {
     const newState = { ...state }
     switch (action.type) {
         case RECEIVE_CAMPSITE:
-            newState[action.payload.id] = action.payload;
+            newState[action.payload.campsite.id] = action.payload.campsite;
             return newState;
         case RECEIVE_CAMPSITES:
             return { ...newState, ...action.payload}
