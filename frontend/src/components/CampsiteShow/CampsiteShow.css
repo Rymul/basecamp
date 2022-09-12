@@ -55,3 +55,76 @@
     color: #333333;
     font-size: 13px;
 }
+
+.image-container-parent {
+    width: 100%;
+    height: 35%;
+    margin-bottom: 30px;    
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(2, 50%);
+    width: 97%;
+    height: 97%;
+    gap: 10px;
+    justify-content: space-around;
+    margin-left: 1%;
+}
+
+.image-container :first-child {
+    grid-column: 1/3;
+    grid-row: 1/3;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px 0 0 30px;
+}
+
+#campsite-img-1 {
+    grid-column: 3;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+}
+
+#campsite-img-2 {
+    grid-column: 4;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 30px 0 0;
+}
+
+#campsite-img-3 {
+    grid-column: 3;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+}
+
+#campsite-img-4 {
+    grid-column: 4;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 30px 0;
+}
+
+.under-img-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+#under-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 75%;
+}
+
+#under-right {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+}

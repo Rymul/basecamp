@@ -42,10 +42,12 @@ const CampsiteShow = () => {
                 <p id='city'>{campsite.city},</p>
                 <p id='city'>{campsite.state}</p>
             </div>
-            <div className='image-container'>
-                {campsite.photoUrl.length && campsite.photoUrl.map(photo =>{
-                return <img key={`${campsite.id}a`} id='campsite-img-show' src={photo} alt={campsite.location} />
-                })}
+            <div className='image-container-parent'>
+                <div className='image-container'>
+                    {campsite.photoUrl.length && campsite.photoUrl.map((photo, i) =>{
+                    return <img key={i} id={`campsite-img-${i}`} src={photo} alt={campsite.location} />
+                    })}
+                </div>
             </div>
             {/* add a link and component to view all photos in last grid box */}
             <div className='under-img-info'>
@@ -53,18 +55,22 @@ const CampsiteShow = () => {
                     <p>Num acres</p>
                     <p>Num sites</p>
                 </div> */}
-                <div id='site-type'>
-                    <p>Campsite Type:</p>
-                    { campsite.site_type === 'tent' ? <p><img className='home-tent' src="tent-text-icon.png" /> Tent</p> : <><FaBed /><p>Lodging</p></>  }
+                <div id='under-left'>
+                    <div id='site-type'>
+                        <p>Campsite Type:</p>
+                        { campsite.site_type === 'tent' ? <p><img className='home-tent' src="tent-text-icon.png" /> Tent</p> : <><FaBed /><p>Lodging</p></>  }
+                    </div>
+                    <div id='description'>
+                        <p>{ campsite.description }</p>
+                    </div>
                 </div>
-                <div id='description'>
-                    <p>{ campsite.description }</p>
-                </div>
-                <div id='under-img-array'>
-                    <h2 id='section-title'>Activities</h2>
-                    {/* {campsite.activities.map(activity => {
-                        <li id='list-item'>{activity.icon}   {activity}</li>
-                    })} */}
+                <div id='under-right'>
+                    <div id='under-img-array'>
+                        <h2 id='section-title'>Activities</h2>
+                        {/* {campsite.activities.map(activity => {
+                            <li id='list-item'>{activity.icon}   {activity}</li>
+                        })} */}
+                    </div>
                 </div>
                 <div id='under-img-array'>
                     <h2 id='section-title'>Natural features</h2>

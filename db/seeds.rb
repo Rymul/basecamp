@@ -80,9 +80,9 @@ ApplicationRecord.transaction do
 
     puts "Creating reviews..."
 
-    r1 = Review.create!(title: 'Best time of our lives!', body: 'This campssite is amazing! My family and I had a wonderful time expolring the area and spending time in the woods. The host was so lovely, ask her about her soup!', rating: 5, recomended: true, author_id: 4, campsite_id: 1)
+    r1 = Review.create!(title: 'Best time of our lives!', body: 'This campsite is amazing! My family and I had a wonderful time exploring the area and spending time in the woods. The host was so lovely, ask her about her soup!', rating: 5, recomended: true, author_id: 4, campsite_id: 1)
     r2 = Review.create!(title: 'Go Here!', body: 'This place is truly amazing. Getting a chance to connect with nature like that was so refreshing.', rating: 5, recomended: true, author_id: 5, campsite_id: 1)
-    r3 = Review.create!(title: 'Great time, but so many bugs', body: "We had a wonderful time, if you forget about the swarms of mosquitos that attached us daily. if you go here make sure you bring bung spray.", rating: 4, recomended: true, author_id: 6, campsite_id: 1)
+    r3 = Review.create!(title: 'Great time, but so many bugs', body: "We had a wonderful time, if you forget about the swarms of mosquitos that attached us daily. If you go here make sure you bring a lot of bug spray.", rating: 4, recomended: true, author_id: 6, campsite_id: 1)
 
     # r1 = Review.create!(title: , body: , rating: , recomended: , author_id: , campsite_id: )
 
