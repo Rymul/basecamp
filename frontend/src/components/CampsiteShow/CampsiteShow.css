@@ -34,18 +34,29 @@ h2 {
     color: #222222;
     font-size: 25px;
     font-weight: 500;
+    margin: 20px 0 20px
 }
 
 h3, p {
-    color: #222222;
+    color: #454545;
     line-height: 20px;
+    font-size: 15px;
 }
 
 .location-container {
     display: flex;
-    justify-content: space-between;
-    width: 20%;
+    justify-content: flex-start;
+    width: 100%;
     margin-bottom: 20px;
+}
+
+.location-container p {
+    margin-right: .75%;
+}
+
+#review-thumb {
+    color: #40d9ac;
+    margin-right: .3%;
 }
 
 #review-per {
@@ -67,7 +78,7 @@ h3, p {
 
 .image-container-parent {
     width: 100%;
-    height: 30%;
+    height: 25%;
     margin-bottom: 30px;    
 }
 
@@ -136,13 +147,6 @@ h3, p {
     
 }
 
-#under-right {
-    width: 35%;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1.5%;
-}
-
 
 #site-type {
     display: flex;
@@ -156,17 +160,30 @@ h3, p {
         margin: 2% 2% 2% 0;
     }
 
-#site-type div {
+#types {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 3%;
 }
 
 #type-icon {
     color: #222222;
-    font-size: 30px;
-    size: 30px;
+    font-size: 50px;
+    size: 50px;
 }
+
+#capacity {
+    display: flex;
+    padding-left: 3%;
+    border-left: solid 1px #d5d5d5;
+    align-items: center;
+}
+
+#capacity p {
+    margin: 0 5%;
+}
+
 
 #description {
     display: -webkit-box;
@@ -179,15 +196,34 @@ h3, p {
     padding-bottom: 1px;
 }
 
-.amenities, .get-there, .campsite-map, .host {
+#under-right {
+    width: 35%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5%;
+}
+
+.amenities, .get-there, .campsite-map, .host, .reviews-container {
     display: flex;
     flex-direction: column;
     border-top: solid 1px #d5d5d5;
-    padding: 20px 0 20px
+    padding: 20px 0 20px;
+    width: 55%;
+}
+
+.get-there-info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 
-.get-there-left {
+/* .get-there-left {
+
+} */
+
+.get-there-right {
+    margin-left: 20%;
 
 }
 

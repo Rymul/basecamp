@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './CampsiteShow.css'
 import { fetchCampsite, getCampsite } from '../../store/campsite';
 import { GiCampingTent, GiSurferVan } from 'react-icons/gi'
-import { FaCaravan, FaBed } from 'react-icons/fa'
+import { FaCaravan, FaBed, FaThumbsUp } from 'react-icons/fa'
 import { IoMdWalk } from 'react-icons/io'
 import { MdNotAccessible } from 'react-icons/md'
 import { TbToiletPaper } from 'react-icons/tb'
@@ -21,7 +21,17 @@ const CampsiteShow = () => {
         dispatch(fetchCampsite(campsiteId));
     },[campsiteId])
 
-    const campsite = useSelector(getCampsite(campsiteId));
+    const campsite = useSelector(getCampsite(campsiteId))
+
+    // let hostDisplayName;
+    // useEffect(() => {
+    //     hostDisplayName = campsite.hostName.first_name + " "+ campsite.hostName.last_name[0] + ".";
+    // },[hostDisplayName])
+
+
+    // if(campsite.hostName){
+    //     const hostDisplayName = campsite.hostName.first_name + " "+ campsite.hostName.last_name[0] + "."
+    // }
 
     
     // if(!campsite) return null
@@ -38,6 +48,7 @@ const CampsiteShow = () => {
                 <h1 id='campsite-title'>{campsite.name}</h1>
             </div>
             <div className='location-container'>
+                < FaThumbsUp id='review-thumb'/>
                 <p id='review-per'>{campsite.rating}%</p>
                 <p id='review-num'>{campsite.numRating} reviews</p>
                 <p id='city'>{campsite.city}, {campsite.state}</p>
@@ -58,8 +69,12 @@ const CampsiteShow = () => {
                 <div id='under-left'>
                     <div id='site-type'>
                         <h3 id='c-type'>Campsite Type:</h3>
-                        <div>
+                        <div id='types'>
                             { campsite.site_type === 'tent' ? <p id='type-icon'><img className='home-tent' src="tent-text-icon.png" /> Tent</p> : <><FaBed /><p>Lodging</p></>  }
+                        </div>
+                        <div id='capacity'>
+                            <p>Sleeps </p> 
+                            <p>{campsite.capacity}</p>
                         </div>
                     </div>
                     <div id='description'>
@@ -89,18 +104,20 @@ const CampsiteShow = () => {
             </div>
             <div className='get-there'>
                 <h2>Getting there</h2>
-                <div className='get-there-left'>
-                    <p>Check in: After 4:00pm</p>
-                    <p>Check out: Before 12:00pm</p>
-                    <p>On arrival: Meet with Host</p>
-                    <p>Cancellation policy: Super Strict</p>
-                    <p>Minimum Nights: 2 nights</p>
-                    <p>Accepts bookings: 9 months out</p>
-                </div>
-                <div className='get-there-left'>
-                    <p><IoMdWalk /> Short Walk</p>
-                    <p><MdNotAccessible /> No wheelchair access</p>
-                    <p><GiSurferVan/> Max 1 vehicle</p>
+                <div className='get-there-info'>
+                    <div className='get-there-left'>
+                        <p>Check in: After 4:00pm</p>
+                        <p>Check out: Before 12:00pm</p>
+                        <p>On arrival: Meet with Host</p>
+                        <p>Cancellation policy: Super Strict</p>
+                        <p>Minimum Nights: 2 nights</p>
+                        <p>Accepts bookings: 9 months out</p>
+                    </div>
+                    <div className='get-there-right'>
+                        <p><IoMdWalk /> Short Walk</p>
+                        <p><MdNotAccessible /> No wheelchair access</p>
+                        <p><GiSurferVan/> Max 1 vehicle</p>
+                    </div>
                 </div>
             </div>
             <div className='campsite-map'>
@@ -108,7 +125,9 @@ const CampsiteShow = () => {
                 <p>cool google satellite map</p>
             </div>
             <div className='host'>
-                <h2>Hosted by {campsite.host_id}</h2>
+                <h2>Fix host name</h2>
+                {/* <h2>Hosted by { campsite.hostName.first_name + " "+ campsite.hostName.last_name[0] + "."}</h2> */}
+                {/* <h2>Hosted by {hostDisplayName}</h2> */}
                 <p>Joined in May 2015</p>
                 <div className='response-time'>
                     <p>Response rate: 100%</p>

@@ -12,6 +12,12 @@ json.campsite do
     end
     json.rating total_rating
     json.num_rating @campsite.reviews.length
+
+    json.host_name Campsite.joins(:host).select("users.first_name, users.last_name").first
+
+    # if @campsite.host_id == user.id
+    #     json.host_name user.first_name + " "+ user.last_name[0] + "."
+    # end
 end
 
 json.reviews do 
