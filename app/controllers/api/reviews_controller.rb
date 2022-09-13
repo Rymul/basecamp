@@ -1,12 +1,12 @@
 class Api::ReviewsController < ApplicationController
 
     before_action :require_logged_in
-    wrap_parameters include: Review.attribute_names + [:campsiteId, :authorId]
+    wrap_parameters include: Review.attribute_names + [:campsiteId] + [:authorId]
 
     def create
         # @review = current_user.reviews.new(review_params)
         @review = Review.new(review_params)
-        if @review.save!
+        if @review.save
           render :show
         else
           render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity
@@ -16,7 +16,7 @@ class Api::ReviewsController < ApplicationController
     def update
         @review = current_user.reviews.find(params[:id])
         if @review
-            if @review.update!(review_params)
+            if @review.update(review_params)
                 render :show 
             else
                 render json: @review.errors.full_messages, status: 422

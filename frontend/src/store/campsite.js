@@ -1,5 +1,4 @@
-import { addReviews } from "./review";
-import { addUsers } from "./user";
+
 
 export const RECEIVE_CAMPSITE = 'campsites/RECEIVE_CAMPSITE';
 const RECEIVE_CAMPSITES = 'campsites/RECEIVE_CAMPSITES';

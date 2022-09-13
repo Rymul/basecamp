@@ -80,7 +80,6 @@ export const deleteReview = (reviewId) => async dispatch => {
     });
     const data = await res.json();
     dispatch(removeReview(data.review));
-    // dispatch(receiveCampsite(data.campsite)); //not sure if this is needed
     return res;
 }
 

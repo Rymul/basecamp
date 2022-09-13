@@ -25,11 +25,11 @@ class Review < ApplicationRecord
         class_name: :User
 
 
-    private
+    # private
 
-    def not_a_duplicate
-        if Review.exists?(author_id: author_id, campsite_id: campsite_id)
-            errors.add(:base, message: "You have already left a review for this campsite.")
-        end
-    end
+    # def not_a_duplicate
+    #     if Review.exists?(author_id: author_id, campsite_id: campsite_id)
+    #         errors.add(:base, message: "You have already left a review for this campsite.")
+    #     end
+    # end
 end

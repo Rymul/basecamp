@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_09_143500) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_13_205015) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_143500) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "campsite_id", null: false
+    t.bigint "customer_id", null: false
+    t.bigint "host_id", null: false
+    t.integer "adults", default: 1, null: false
+    t.integer "children"
+    t.integer "pets"
+    t.float "price", null: false
+    t.datetime "checkin_date", null: false
+    t.datetime "checkout_date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campsite_id"], name: "index_bookings_on_campsite_id"
+    t.index ["customer_id"], name: "index_bookings_on_customer_id"
+    t.index ["host_id"], name: "index_bookings_on_host_id"
   end
 
   create_table "campsites", force: :cascade do |t|
@@ -89,6 +106,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_143500) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "campsites"
+  add_foreign_key "bookings", "users", column: "customer_id"
+  add_foreign_key "bookings", "users", column: "host_id"
   add_foreign_key "campsites", "users", column: "host_id"
   add_foreign_key "reviews", "campsites"
   add_foreign_key "reviews", "users", column: "author_id"

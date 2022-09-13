@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :campsites, only: [:index, :show]
     resources :reviews, only: [:create, :update, :destroy]
+    resources :bookings, only: [:index, :show, :create, :update, :destroy]
   end
 
   # keep this route at bottom

@@ -33,12 +33,16 @@ class User < ApplicationRecord
         foreign_key: :author_id,
         class_name: :Review,
         dependent: :destroy
-    # has_many :bookings,
-    #     dependent: :destroy
 
-    # has_many :booked_campsites,
-    #     through: :bookings,
-    #     source: :campsite
+    has_many :bookings,
+        foreign_key: :customer_id,
+        class_name: :Booking,
+        dependent: :destroy
+
+    has_many :booked_campsites,
+        foreign_key: :host_id,
+        class_name: :Booking,
+        dependent: :destroy
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
