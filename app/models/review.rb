@@ -16,7 +16,8 @@ class Review < ApplicationRecord
     validates :title, :body,  presence: true
     validates :rating, inclusion: { in: 1..5, message: "must be between 1 and 5" }
     validates_inclusion_of :recomended, in:[true, false]
-    validate :not_a_duplicate
+    # validate :not_a_duplicate
+    validates :author_id, presence: true, uniqueness: { scope: :campsite_id, message: "You have already left a review for this campsite."}
 
     belongs_to :campsite
 

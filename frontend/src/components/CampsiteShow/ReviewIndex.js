@@ -39,12 +39,15 @@ const ReviewIndex = ({ campsiteId }) => {
                         <p>{review.body}</p>
                         {review.authorId === sessionUser?.id && (
                             <div className='edit_buttons'>
-                                <button 
+                                <Link to={`/review/${campsiteId}/${review.id}`}>
+                                    <BiEdit />
+                                </Link>
+                                {/* <button 
                                     onClick={() => dispatch(updateReview(review))}
                                     className='edit-button'
                                 >
-                                    <BiEdit />
-                                </button>
+                                    
+                                </button> */}
                                 <button 
                                     onClick={() => dispatch(deleteReview(review.id))} 
                                     className='delete-button'
@@ -60,6 +63,7 @@ const ReviewIndex = ({ campsiteId }) => {
                     {/* {!hasReviewed && <LeaveReview campsite={campsite} />} */}
                     {/* {!hasReviewed ? <Link to={`/new_review/${campsiteId}`} /> : null} */}
                     <Link to={`/new_review/${campsiteId}`} >Leave a Review</Link> 
+                    {/* <Link to={`/new_review`} >Leave a Review</Link>  */}
                 </div>
             </div>
         </div>

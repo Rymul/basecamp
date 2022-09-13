@@ -136,6 +136,9 @@ const CampsiteShow = () => {
             </div>
             <div className='reviews-container'>
                 <h2>This is where the reviews will go</h2>
+                < FaThumbsUp id='review-thumb'/>
+                <p id='review-per'>{campsite.rating}%</p>
+                <p id='review-num'>{campsite.numRating} reviews</p>
                 <ReviewIndex campsiteId={campsite.id} />
             </div>
             

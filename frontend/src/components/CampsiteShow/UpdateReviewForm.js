@@ -2,26 +2,22 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { getCampsite } from '../../store/campsite';
-import { createReview } from '../../store/review';
-import { login } from '../../store/session';
+import { getReview, updateReview } from '../../store/review';
 import './ReviewForm.css'
 
 
 
-const ReviewForm = () => {
+const UpdateReviewForm = () => {
     // const ReviewForm = ({campsite, closeForm}) => {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     const history = useHistory();
     const { campsiteId } = useParams();
- 
-    const [review, setReview] = useState({
-        title: '',
-        body: '',
-        rating: 1,
-        recomended: 'false'
-
-    });
+    const { reviewId } = useParams();
+    const reviewData = useSelector(getReview(reviewId))
+    delete reviewData['authorName']
+    // const reviewData = {}
+    const [review, setReview] = useState(reviewData);
     const campsite = useSelector(getCampsite(campsiteId))
 
     // const [errors, setErrors] = useState([]);
@@ -29,7 +25,7 @@ const ReviewForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(history)
-        dispatch(createReview(review)).then(()=> 
+        dispatch(updateReview(review)).then(()=> 
         {
             // debugger 
             history.goBack()})
@@ -44,8 +40,11 @@ const ReviewForm = () => {
         }
     }
 
+    // if(!review) return null;
+
     return(
         <div className='reviewForm-component'>
+            {console.log(reviewData, "hellowwww")}
             <div className='title'>
                 <h1>Thank you for your stay at {`${campsite.name}`}.</h1>
                 <p>Your feedback is truly appreciated to make future camping better for all!</p>
@@ -68,13 +67,13 @@ const ReviewForm = () => {
                     <label id='recommended'>Recommended
                         <input id='recommended-input' type="checkbox" value={review.recomended} onChange={handleChange} />
                     </label>
-                    <button>Create Review</button>
+                    <button>Update Review</button>
                 </form>
             </div>
         </div>
     )
 }
 
-export default ReviewForm;
+export default UpdateReviewForm;
 
 

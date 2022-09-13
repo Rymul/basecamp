@@ -1,3 +1,4 @@
+import { BsNutFill } from 'react-icons/bs';
 import { receiveCampsite, RECEIVE_CAMPSITE } from './campsite';
 import csrfFetch from './csrf'
 import { addUser } from './user';
@@ -31,6 +32,16 @@ export const getCampsiteReviews = campsiteId => state => {
 }
 
 
+export const getReview = reviewId => state => {
+    if(!state) {
+        return null;
+    } else if (!state.reviews) {
+        return null;
+    } else {
+        return state.reviews[reviewId]
+    }
+}
+
 
 export const createReview = (review) => async dispatch => {
     // debugger
@@ -49,7 +60,7 @@ export const createReview = (review) => async dispatch => {
 };
 
 export const updateReview = (review) => async dispatch => {
-    const res = await csrfFetch('api/reviews', {
+    const res = await csrfFetch(`/api/reviews/${review.id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
