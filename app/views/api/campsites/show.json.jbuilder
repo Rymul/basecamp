@@ -3,7 +3,15 @@ json.campsite do
 
     json.extract! @campsite, :id, :name, :location, :city, :state, :lat, :lng, :description, :price, :capacity, :site_type, :host_id
     json.photoUrl @campsite.photos.map{|photo| photo.url}
-
+    
+    if (@campsite.reviews.length != 0)  
+        reviews = @campsite.reviews
+        total_rating = (reviews.count { |el| el.recomended }) * 100.0 / reviews.length
+    else 
+        total_rating = 0
+    end
+    json.rating total_rating
+    json.num_rating @campsite.reviews.length
 end
 
 json.reviews do 
@@ -15,12 +23,4 @@ json.reviews do
     end
 end
 
-if (@campsite.reviews.length != 0)  
-    reviews = @campsite.reviews
-    total_rating = (reviews.count { |el| el.recomended }) * 100.0 / reviews.length
-else 
-    total_rating = 0
-end
-
-json.rating total_rating
 

@@ -7,6 +7,7 @@ import { GiCampingTent, GiSurferVan } from 'react-icons/gi'
 import { FaCaravan, FaBed } from 'react-icons/fa'
 import { IoMdWalk } from 'react-icons/io'
 import { MdNotAccessible } from 'react-icons/md'
+import { TbToiletPaper } from 'react-icons/tb'
 import { getCampsiteReviews } from '../../store/review';
 import ReviewIndex from './ReviewIndex';
 
@@ -37,10 +38,9 @@ const CampsiteShow = () => {
                 <h1 id='campsite-title'>{campsite.name}</h1>
             </div>
             <div className='location-container'>
-                <p id='review-per'>Review %</p>
-                <p id='review-num'><strong>Num Reviews</strong></p>
-                <p id='city'>{campsite.city},</p>
-                <p id='city'>{campsite.state}</p>
+                <p id='review-per'>{campsite.rating}%</p>
+                <p id='review-num'>{campsite.numRating} reviews</p>
+                <p id='city'>{campsite.city}, {campsite.state}</p>
             </div>
             <div className='image-container-parent'>
                 <div className='image-container'>
@@ -57,8 +57,10 @@ const CampsiteShow = () => {
                 </div> */}
                 <div id='under-left'>
                     <div id='site-type'>
-                        <p>Campsite Type:</p>
-                        { campsite.site_type === 'tent' ? <p><img className='home-tent' src="tent-text-icon.png" /> Tent</p> : <><FaBed /><p>Lodging</p></>  }
+                        <h3 id='c-type'>Campsite Type:</h3>
+                        <div>
+                            { campsite.site_type === 'tent' ? <p id='type-icon'><img className='home-tent' src="tent-text-icon.png" /> Tent</p> : <><FaBed /><p>Lodging</p></>  }
+                        </div>
                     </div>
                     <div id='description'>
                         <p>{ campsite.description }</p>
@@ -66,35 +68,34 @@ const CampsiteShow = () => {
                 </div>
                 <div id='under-right'>
                     <div id='under-img-array'>
-                        <h2 id='section-title'>Activities</h2>
+                        <h3 id='section-title'>Activities</h3>
                         {/* {campsite.activities.map(activity => {
                             <li id='list-item'>{activity.icon}   {activity}</li>
                         })} */}
                     </div>
-                </div>
-                <div id='under-img-array'>
-                    <h2 id='section-title'>Natural features</h2>
-                    {/* {campsite.natFeatures.map(feature => {
-                        <li>{feature.icon}   {feature}</li>
-                    })} */}
+                    <div id='under-img-array'>
+                        <h3 id='section-title'>Natural features</h3>
+                        {/* {campsite.natFeatures.map(feature => {
+                            <li>{feature.icon}   {feature}</li>
+                        })} */}
+                    </div>
                 </div>
             </div>
             <div className='amenities'>
                 <h2>What this site offers</h2>
-                <p>this will be made from the tags table</p>
-                <p>tag.icon</p>
-                <p>tag.name</p>
+                <TbToiletPaper id='tag-icon' />
+                <h3>tag.name</h3>
                 <p>tag.description</p>
             </div>
             <div className='get-there'>
                 <h2>Getting there</h2>
                 <div className='get-there-left'>
-                    <p><strong>Check in:</strong> After 4:00pm</p>
-                    <p><strong>Check out:</strong> Before 12:00pm</p>
-                    <p><strong>On arrival:</strong> Meet with Host</p>
-                    <p><strong>Cancellation policy:</strong> Super Strict</p>
-                    <p><strong>Minimum Nights:</strong> 2 nights</p>
-                    <p><strong>Accepts bookings:</strong> 9 months out</p>
+                    <p>Check in: After 4:00pm</p>
+                    <p>Check out: Before 12:00pm</p>
+                    <p>On arrival: Meet with Host</p>
+                    <p>Cancellation policy: Super Strict</p>
+                    <p>Minimum Nights: 2 nights</p>
+                    <p>Accepts bookings: 9 months out</p>
                 </div>
                 <div className='get-there-left'>
                     <p><IoMdWalk /> Short Walk</p>

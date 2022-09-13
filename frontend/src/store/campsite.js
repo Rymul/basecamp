@@ -4,10 +4,11 @@ import { addUsers } from "./user";
 export const RECEIVE_CAMPSITE = 'campsites/RECEIVE_CAMPSITE';
 const RECEIVE_CAMPSITES = 'campsites/RECEIVE_CAMPSITES';
 
-export const receiveCampsite = (campsite) => ({
-    type: RECEIVE_CAMPSITE,
-    payload: campsite
-});
+export const receiveCampsite = (campsite) => {
+    // debugger
+    return {type: RECEIVE_CAMPSITE,
+    payload: campsite}
+};
 
 const receiveCampsites = (campsites) => {
     return {
@@ -61,8 +62,7 @@ export const fetchCampsite = (campsiteId) => async dispatch => {
     if (res.ok) {
         const campsite = await res.json();
         dispatch(receiveCampsite(campsite));
-        dispatch(addReviews(campsite.reviews)); //not sure if this is needed
-        dispatch(addUsers(campsite.users)); //not sure if this is needed
+        
     }
 }
 
