@@ -28,7 +28,7 @@ const ReviewForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(history)
+        // console.log(history)
         dispatch(createReview(review)).then(()=> 
         {
             // debugger 

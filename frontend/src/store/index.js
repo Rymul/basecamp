@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import bookingsReducer from './booking';
 import campsitesReducer from './campsite';
 import reviewsReducer from './review';
 import sessionReducer from './session';
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     session: sessionReducer,
     campsites: campsitesReducer,
     reviews: reviewsReducer,
-    users: usersReducer
+    users: usersReducer,
+    bookings: bookingsReducer
 })
 
 let enhancer;

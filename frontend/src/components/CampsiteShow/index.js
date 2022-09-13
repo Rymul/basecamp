@@ -10,6 +10,7 @@ import { MdNotAccessible } from 'react-icons/md'
 import { TbToiletPaper } from 'react-icons/tb'
 import { getCampsiteReviews } from '../../store/review';
 import ReviewIndex from './ReviewIndex';
+import BookingForm from '../Booking/BookingForm';
 
 
 
@@ -102,6 +103,9 @@ const CampsiteShow = () => {
                 <h3>tag.name</h3>
                 <p>tag.description</p>
             </div>
+            <div className='booking-container'>
+                <BookingForm campsiteId={campsiteId} />
+            </div>
             <div className='get-there'>
                 <h2>Getting there</h2>
                 <div className='get-there-info'>
@@ -141,7 +145,7 @@ const CampsiteShow = () => {
                 <p id='review-num'>{campsite.numRating} reviews</p>
                 <ReviewIndex campsiteId={campsite.id} />
             </div>
-            
+           
         </div>
         </div>
     )
