@@ -6,7 +6,7 @@
 
 
 
-.login-form {
+.review-form-container {
     /* border: solid 1px red; */
     padding: 15px;
     display: flex;
@@ -31,10 +31,10 @@
     font-size: 1.2rem;
 }
 
-.login-container {
+.review-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     width: 30%;
 
@@ -44,33 +44,39 @@
     color: #333333;
 }
 
-.session-form-control {
+#review-form-title {
     box-sizing: border-box;
-    height: 68px;
+    height: 2rem;
     width: 100%;
     border: solid 1px #333333;
     margin-bottom: 10px;
-    padding: 16px;
-    font-weight: 600;
     font-size: 1rem;
     color: #555555;
+    font-family: inherit;
     outline: none;
 }
 
-
-.forgot{
-    font-size: 0.9rem;
-    color: #757575;
-    text-decoration: none;
-    border-bottom: 1px solid #e1e1e1;
-    align-self: flex-end;
+#review-form-body {
+    box-sizing: border-box;
+    height: 10rem;
+    width: 100%;
+    border: solid 1px #333333;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555555;
+    font-family: inherit;
+    outline: none;
 }
 
-.forgot:hover{
-    border-bottom: 1px solid #333333;
+.rating {
+    margin-bottom: 10px;
 }
 
-.login-button {
+#recommended {
+    margin-bottom: 10px;
+}
+
+#submit-button {
     display: block;
     box-sizing: border-box;
     border: #f9f9f9;
@@ -84,37 +90,13 @@
     border-radius: 5px;
 }
 
-.login-button:hover {
+#submit-button:hover {
     cursor: pointer;
     box-shadow: 0px 1px 3px #888888;
 }
 
 
-.demo-login{
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.login-component-footer{
-    box-sizing: border-box;
-    text-align: center;
-    padding: 15px;
-    /* background-color: #f9f9f9; */
-}
-
-.to-signup-button {
-    text-decoration: none;
-    color: #333333;
-    font-weight: 700;
-    border-bottom: 1px solid #e1e1e1;
-}
-
-
-.to-signup-button:hover{
-    border-bottom: 1px solid #333333;
-} 
 
 .errors {
     display: flex;
