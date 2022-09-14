@@ -1,5 +1,9 @@
 class Api::BookingsController < ApplicationController
 
+    before_action :require_logged_in
+    wrap_parameters include: Booking.attribute_names + [:campsiteId] + [:customerId] + [:hostId] + [:checkinDate] + [:checkoutDate]
+
+
     def index
         @bookings = Booking.all
         render :index
@@ -12,6 +16,7 @@ class Api::BookingsController < ApplicationController
 
     def create
         @booking = Booking.new(booking_params)
+        debugger
         if @booking.save
             render :show
         else

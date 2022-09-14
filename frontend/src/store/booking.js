@@ -34,6 +34,7 @@ export const getBooking = bookingId => state => {
 
 
 export const createBooking = (booking) => async dispatch => {
+    debugger
     const res = await csrfFetch('/api/bookings', {
         method: 'POST',
         headers: {

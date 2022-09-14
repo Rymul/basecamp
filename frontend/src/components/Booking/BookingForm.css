@@ -1,9 +1,65 @@
 
+
+
 .booking-container {
-    
+    width: 35%;
+    background-color: rgb(240, 239, 239);
+    box-shadow: 2px 1px 5px 3px #888888;
+    border-radius: 30px;
+    height: 25rem;
+    position: sticky;
+    top: 20%;
+    left: 60%;
+    padding: 1rem;
+    display: flex;
+
 } 
 
 .booking-component {
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    border-radius: 30px;
+    /* background-color: rgb(222, 222, 222); */
+    background-color: rgb(39, 80, 175);
+    
+}
+
+#booking-title {
+    display: flex;
+}
+
+#input-title {
 
 }
 
+.rdrDefinedRangesWrapper {
+    display: none;
+}
+.rdrInputRanges {
+    display: none;
+}
+
+
+#selected-dates {
+
+}
+
+#guest-number {
+
+}
+
+
+#book-button {
+    display: block;
+    box-sizing: border-box;
+    border: #f9f9f9;
+    color: #f9f9f9;
+    width: 100%;
+    height: 68px;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: #40d9ac;
+    padding: 14px;
+    border-radius: 30px;
+}

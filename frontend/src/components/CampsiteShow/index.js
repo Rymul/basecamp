@@ -97,15 +97,16 @@ const CampsiteShow = () => {
                     </div>
                 </div>
             </div>
+            <div className='booking-container'>
+                <BookingForm campsiteId={campsiteId} />
+            </div>
             <div className='amenities'>
                 <h2>What this site offers</h2>
                 <TbToiletPaper id='tag-icon' />
                 <h3>tag.name</h3>
                 <p>tag.description</p>
             </div>
-            <div className='booking-container'>
-                <BookingForm campsiteId={campsiteId} />
-            </div>
+        
             <div className='get-there'>
                 <h2>Getting there</h2>
                 <div className='get-there-info'>

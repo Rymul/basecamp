@@ -203,6 +203,11 @@ h3, p {
     margin-top: 1.5%;
 }
 
+.position-booking {
+    display: flex;
+    justify-content: space-between;
+}
+
 .amenities, .get-there, .campsite-map, .host, .reviews-container {
     display: flex;
     flex-direction: column;
