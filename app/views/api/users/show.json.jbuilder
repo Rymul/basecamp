@@ -11,3 +11,5 @@ json.bookings do
         end
     end
 end
+
+# json.campsites do

@@ -5,7 +5,7 @@ class Api::BookingsController < ApplicationController
 
 
     def index
-        @bookings = Booking.all
+        @bookings = current_user.bookings
         render :index
     end
 
@@ -16,7 +16,6 @@ class Api::BookingsController < ApplicationController
 
     def create
         @booking = Booking.new(booking_params)
-        debugger
         if @booking.save
             render :show
         else

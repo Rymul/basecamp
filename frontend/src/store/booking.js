@@ -12,10 +12,12 @@ return { type: ADD_BOOKING,
     payload: booking }
 };
 
-export const addBookings = bookings => ({
+export const addBookings = bookings => {
+    debugger
+    return {
     type: ADD_BOOKINGS,
-    payload: bookings
-});
+    payload: bookings }
+    };
   
 const removeBooking = bookingId => ({
     type: REMOVE_BOOKING,
@@ -58,6 +60,18 @@ export const fetchBooking = (bookingId) => async dispatch => {
     }
 }
 
+export const fetchBookings = () => async dispatch => {
+    const res = await fetch(`/api/bookings`,{
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    });
+    if (res.ok) {
+        const bookings = await res.json();
+        dispatch(addBookings(bookings));
+    }
+}
 
 export const createBooking = (booking) => async dispatch => {
     const res = await csrfFetch('/api/bookings', {
@@ -103,11 +117,13 @@ const bookingsReducer = (state = {}, action) => {
     const newState = { ...state }
     switch(action.type) {
         case ADD_BOOKING:
-            const booking = action.payload.booking;
+            // const booking = action.payload.booking;
+            const booking = action.payload;
             newState[booking.id] = booking;
+            debugger
             return newState;
         case ADD_BOOKINGS:
-            const bookings = action.payload;
+            const bookings = action.payload.bookings;
             return { ...newState, ...bookings };
         case REMOVE_BOOKING:
             const bookingId = action.payload;

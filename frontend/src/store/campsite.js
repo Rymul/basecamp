@@ -1,4 +1,4 @@
-import { ADD_BOOKING } from "./booking";
+import { ADD_BOOKING, ADD_BOOKINGS } from "./booking";
 
 
 export const RECEIVE_CAMPSITE = 'campsites/RECEIVE_CAMPSITE';
@@ -78,10 +78,18 @@ const campsitesReducer = (state = {}, action) => {
             return newState;
         case RECEIVE_CAMPSITES:
             return { ...newState, ...action.payload}
-        case ADD_BOOKING:
-            const campsite = action.payload.campsite;
-            newState[campsite.id] = campsite;
-            return newState;
+        // case ADD_BOOKING:
+            // const campsite = action.payload.campsite;
+            // const campsite = action.payload;
+            // debugger
+            // newState[campsite.id] = campsite;
+            // const booking = action.payload;
+            // debugger
+            // newState[booking.id] = booking;
+            // return newState;
+        case ADD_BOOKINGS:
+            const campsites = action.payload.campsites;
+            return { ...newState, ...campsites };
         default:
             return state;
     }
