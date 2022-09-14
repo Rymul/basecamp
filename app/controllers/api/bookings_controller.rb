@@ -10,7 +10,7 @@ class Api::BookingsController < ApplicationController
     end
 
     def show
-        @booking = booking.find_by(id: params[:id])
+        @booking = Booking.find_by(id: params[:id])
         render :show
     end
 

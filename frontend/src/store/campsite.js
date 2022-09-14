@@ -1,3 +1,4 @@
+import { ADD_BOOKING } from "./booking";
 
 
 export const RECEIVE_CAMPSITE = 'campsites/RECEIVE_CAMPSITE';
@@ -18,6 +19,7 @@ const receiveCampsites = (campsites) => {
 
 
 export const getCampsite = campsiteId => state => {
+    if (!campsiteId) return state.campsites
     if(!state) {
         return null;
     } else if (!state.campsites) {
@@ -76,6 +78,10 @@ const campsitesReducer = (state = {}, action) => {
             return newState;
         case RECEIVE_CAMPSITES:
             return { ...newState, ...action.payload}
+        case ADD_BOOKING:
+            const campsite = action.payload.campsite;
+            newState[campsite.id] = campsite;
+            return newState;
         default:
             return state;
     }

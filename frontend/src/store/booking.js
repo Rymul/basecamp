@@ -1,14 +1,16 @@
 import csrfFetch from "./csrf";
+import { SET_CURRENT_USER } from "./session";
+import { ADD_USER } from "./user";
 
 
-const ADD_BOOKING = 'bookings/ADD_BOOKING';
-const ADD_BOOKINGS = 'bookings/ADD_BOOKINGS';
-const REMOVE_BOOKING = 'bookings/REMOVE_BOOKINGS';
+export const ADD_BOOKING = 'bookings/ADD_BOOKING';
+export const ADD_BOOKINGS = 'bookings/ADD_BOOKINGS';
+export const REMOVE_BOOKING = 'bookings/REMOVE_BOOKINGS';
 
-const addBooking = booking => ({
-    type: ADD_BOOKING,
-    payload: booking
-});
+const addBooking = booking => {
+return { type: ADD_BOOKING,
+    payload: booking }
+};
 
 export const addBookings = bookings => ({
     type: ADD_BOOKINGS,
@@ -32,9 +34,32 @@ export const getBooking = bookingId => state => {
     }
 }
 
+export const getBookings = state => {
+    if(!state) {
+        return [];
+    } else if (!state.bookings) {
+        return [];
+    } else {
+        return Object.values(state.bookings);
+    }
+}
+
+export const fetchBooking = (bookingId) => async dispatch => {
+    const res = await fetch(`/api/bookings/${bookingId}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    });
+    if (res.ok) {
+        const booking = await res.json();
+        dispatch(addBooking(booking));
+        
+    }
+}
+
 
 export const createBooking = (booking) => async dispatch => {
-    debugger
     const res = await csrfFetch('/api/bookings', {
         method: 'POST',
         headers: {
@@ -78,7 +103,7 @@ const bookingsReducer = (state = {}, action) => {
     const newState = { ...state }
     switch(action.type) {
         case ADD_BOOKING:
-            const booking = action.payload;
+            const booking = action.payload.booking;
             newState[booking.id] = booking;
             return newState;
         case ADD_BOOKINGS:
@@ -88,6 +113,10 @@ const bookingsReducer = (state = {}, action) => {
             const bookingId = action.payload;
             delete newState[bookingId.id];
             return newState;
+        // case SET_CURRENT_USER:
+        //     return { ... action.payload.bookings}
+        case ADD_USER:
+            return { ... action.payload.bookings}
         default:
             return state;
     }

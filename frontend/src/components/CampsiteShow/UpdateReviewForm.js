@@ -44,7 +44,7 @@ const UpdateReviewForm = () => {
 
     return(
         <div className='reviewForm-component'>
-            {console.log(reviewData, "hellowwww")}
+            {/* {console.log(reviewData, "hellowwww")} */}
             <div className='title'>
                 <h1>Thank you for your stay at {`${campsite.name}`}.</h1>
                 <p>Your feedback is truly appreciated to make future camping better for all!</p>

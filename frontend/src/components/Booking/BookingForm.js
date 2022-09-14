@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
 import { DateRangePicker } from 'react-date-range';
-// import { DayPicker } from 'react-day-picker';
-
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import './BookingForm.css'
 import { useState } from "react";
 import { createBooking } from "../../store/booking";
 import { getCampsite } from "../../store/campsite";
+import CalendarModal from "./CalendarModal";
+import { useEffect } from "react";
 
 
 
@@ -20,21 +20,30 @@ const BookingForm = ({campsiteId}) => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const bookedPrice = campsite.price
-
+    
     const [booking, setBooking] = useState({
-        campsiteId: campsite.id,
-        customerId: sessionUser.id,
-        hostId: campsite.hostId,
+        // campsiteId: ,
+        // customerId: null,
+        // hostId: null,
         adults: 1,
         children: 0,
         pets: 0,
-        price: bookedPrice,
+        // price: null,
         checkinDate: startDate,
         checkoutDate: endDate
     });
 
-    
+    useEffect(() => {
+        setBooking({...booking, campsiteId: campsite.id, customerId: sessionUser.id, hostId: campsite.hostId, price: campsite.price})
+    },[campsite])
 
+
+    // const [showModal, setShowModal] = useState(false);
+
+    // const openModal = () => {
+    //     // setShowModal(prev => !prev)
+    //     showModal === 'false' ? setShowModal(true) : setShowModal(false)
+    // }
 
     const selectedDates = {
         startDate: startDate,
@@ -46,20 +55,20 @@ const BookingForm = ({campsiteId}) => {
     const handleDateChange = (ranges) => {
         setStartDate(ranges.selection.startDate);
         setEndDate(ranges.selection.endDate);
-        console.log(ranges.selection.startDate)
+
     }
 
     const handleChange = (field) => {
         return (e)=>{
             // let customerId = parseInt(sessionUser.id)
             let newBooking = Object.assign({}, booking, {[field]: e.currentTarget.value},
-                {campsiteId: campsite.id, customerId: sessionUser.id, hostId: campsite.hostId, price: campsite.price, checkinDate: startDate, checkoutDate: endDate})
+                { checkinDate: startDate, checkoutDate: endDate})
             setBooking(newBooking)
         }
     }
 
     const handleSubmit = (e) => {
-        console.log(campsite.hostId, "HOSTID")
+        // console.log(campsite.hostId, "HOSTID")
         e.preventDefault();
         dispatch(createBooking(booking)).then(()=> { history.push(`/campsite/${campsiteId}`) })
     }
@@ -73,8 +82,11 @@ const BookingForm = ({campsiteId}) => {
                 <p>${campsite.price}</p>
                 <p>/ night</p>
             </div>
+                {/* <button onClick={openModal}>Enter Dates</button>
+                <CalendarModal showModal={showModal} setShowModal={setShowModal}/> */}
             <form onSubmit={handleSubmit}>
                 <label id='input-title'>DATES</label>
+                {/* <CalendarModal showModal={showModal} setShowModal={setShowModal}/> */}
                     <DateRangePicker 
                         id='calendar'
                         editableDateInputs={true}

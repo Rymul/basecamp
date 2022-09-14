@@ -1,6 +1,6 @@
 import csrfFetch from "./csrf.js";
 
-const SET_CURRENT_USER = 'session/setCurrentUser';
+export const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 
 const setCurrentUser = (user) => ({
