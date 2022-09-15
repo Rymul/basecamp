@@ -91,7 +91,7 @@ const BookingForm = ({campsiteId}) => {
                 {/* <button onClick={openModal}>Enter Dates</button>
                 <CalendarModal showModal={showModal} setShowModal={setShowModal}/> */}
                 <form onSubmit={handleSubmit} className="input-holder">
-                    <label id='input-title'>DATES</label>
+                    <label id='book-input-title'>DATES</label>
                     {/* <CalendarModal showModal={showModal} setShowModal={setShowModal}/> */}
                         <DateRangePicker 
                             id='calendar'
@@ -117,7 +117,7 @@ const BookingForm = ({campsiteId}) => {
                             onChange={handleChange('checkoutDate')}
                         />
                     </label> */}
-                    <label id='input-title'>GUESTS
+                    <label id='book-guests-title'>GUESTS
                         <input 
                             id='guest-number' 
                             type="number" 

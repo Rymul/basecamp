@@ -72,7 +72,7 @@ const CampsiteShow = () => {
                     <div id='site-type'>
                         <h3 id='c-type'>Campsite Type:</h3>
                         <div id='types'>
-                            { campsite.site_type === 'tent' ? <p id='type-icon'><img className='home-tent' src="tent-text-icon.png" /> Tent</p> : <><FaBed /><p>Lodging</p></>  }
+                            { campsite.site_type === 'tent' ? <p id='type-icon'><GiCampingTent /> Tent</p> : <p id='type-icon'><FaBed id='type-icon'/>Lodging</p>  }
                         </div>
                         <div id='capacity'>
                             <p>Sleeps </p> 

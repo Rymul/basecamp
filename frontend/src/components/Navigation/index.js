@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
 import * as sessionActions from '../../store/session';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'

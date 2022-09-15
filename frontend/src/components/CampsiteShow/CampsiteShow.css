@@ -147,6 +147,10 @@ h3, p {
     
 }
 
+#c-type {
+    font-size: 1rem;
+    font-weight: 500;
+}
 
 #site-type {
     display: flex;
@@ -169,15 +173,16 @@ h3, p {
 
 #type-icon {
     color: #222222;
-    font-size: 50px;
-    size: 50px;
+    font-size: 15px;
+
+    border-right: solid 1px #d5d5d5;
 }
 
 #capacity {
     display: flex;
-    padding-left: 3%;
-    border-left: solid 1px #d5d5d5;
     align-items: center;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 #capacity p {
@@ -193,7 +198,8 @@ h3, p {
     -webkit-box-orient: vertical;
     margin-bottom: 12px;
     white-space: pre-line;
-    padding-bottom: 1px;
+    padding: 20px 0 20px;
+    border-top: solid 1px #d5d5d5;
 }
 
 #under-right {
@@ -209,7 +215,7 @@ h3, p {
 }
 
 #under-img-array {
-
+    width: 50%;
 }
 
 #section-title {
@@ -229,12 +235,21 @@ h3, p {
     margin-right: 1%;
 }
 
-.amenities, .get-there, .campsite-map, .host, .reviews-container {
+.campsite-map, .host, .reviews-container {
     display: flex;
     flex-direction: column;
     border-top: solid 1px #d5d5d5;
     padding: 20px 0 20px;
     width: 55%;
+}
+
+.amenities {
+    display: flex;
+    flex-direction: column;
+    border-top: solid 1px #d5d5d5;
+    padding: 20px 0 20px;
+    width: 55%;
+    float: left;
 }
 
 .amenities h3 {
@@ -246,6 +261,15 @@ h3, p {
 .amenities p {
     margin-left: 7%;
     margin-bottom: 2%;
+}
+
+.get-there {
+    display: flex;
+    flex-direction: column;
+    border-top: solid 1px #d5d5d5;
+    padding: 20px 0 20px;
+    width: 55%;
+    float: left;
 }
 
 .get-there-info {
