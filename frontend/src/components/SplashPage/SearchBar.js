@@ -8,42 +8,42 @@ import { BsFillPersonFill } from 'react-icons/bs'
 const HomeSearchBar = () => {
 
     return (
-        <form className='home-searchBar'>
-            <div className='home-location'>
-                <p className='input-title'>WHERE TO?</p>
-                <div className='input-holder'>
-                    <BiSearchAlt2 className='input-icons icon' />
+        <form className='search-home-searchBar'>
+            <div className='search-home-location'>
+                <p className='search-input-title'>WHERE TO?</p>
+                <div className='search-input-holder'>
+                    <BiSearchAlt2 className='search-input-icons icon' />
                     <input 
-                        className='location-input'
+                        className='search-location-input'
                         type="text" 
                         placeholder='Try Yosemite, Napa, Moab...' 
                     />
                 </div>
             </div>
-            <div className='home-date'>
-                <p className='input-title'>DATES</p>
-                <div className='input-holder'>
-                    <BsFillCalendarFill className='input-icons icon' />
+            <div className='search-home-date'>
+                <p className='search-input-title'>DATES</p>
+                <div className='search-input-holder'>
+                    <BsFillCalendarFill className='search-input-icons icon' />
                     <input 
-                        className='date-input'
+                        className='search-date-input'
                         type="text" 
                         placeholder='Enter dates'
                     />
                 </div>
             </div>
-            <div className='home-guests'>
-                <p className='input-title'>GUESTS</p>
-                <div className='input-holder'>
-                    <BsFillPersonFill className='input-icons icon' />
+            <div className='search-home-guests'>
+                <p className='search-input-title'>GUESTS</p>
+                <div className='search-input-holder'>
+                    <BsFillPersonFill className='search-input-icons icon' />
                     <input 
-                        className='guest-input'
+                        className='search-guest-input'
                         type="text"
                         placeholder='Add guests'
                     />
                 </div>
             </div> 
-            <div className='home-search'>
-                <button className='home-search-button'>
+            <div className='search-home-search'>
+                <button className='search-home-search-button'>
                     <BiSearchAlt2 className='home-mag-icon'/>
                 </button>
 

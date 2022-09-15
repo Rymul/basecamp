@@ -6,6 +6,7 @@ import ReviewForm from './ReviewForm';
 import { getCampsite } from '../../store/campsite';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './ReviewIndex.css'
 
 
 const ReviewIndex = ({ campsiteId }) => {
@@ -26,21 +27,24 @@ const ReviewIndex = ({ campsiteId }) => {
     return (
         <div className='review component'>
             <div className='rating'>
-                <h2>This will be the Total-review</h2>
+                {/* <h2>This will be the Total-review</h2>
                 <p>Num Ratings</p>
-                <p>Num Reviews</p>
+                <p>Num Reviews</p> */}
             </div>
             <div className='reviews'>
                 {reviews.map(review => (
-                    <div className="review" key={review.id}>
-                        <h2 id="author-name">{review.authorName}</h2>
-                        {review.recommended ? <p id="author-name">recommends</p> : null }
-                        <p>{review.title}</p>
-                        <p>{review.body}</p>
+                    <div className="single-review" key={review.id}>
+                        <div className='author'>
+                            <h4 id="author-name">{review.authorName}</h4>
+                            {review.recomended ? <p id='rec'>recommends</p> : null}
+                        </div>
+                        <p id='rev-date'>{review.createdAt.slice(5, 7)}-{review.createdAt.slice(8, 10)}-{review.createdAt.slice(0, 4)}</p>
+                        <p id='rev-title'>{review.title}</p>
+                        <p id='rev-body'>{review.body}</p>
                         {review.authorId === sessionUser?.id && (
                             <div className='edit_buttons'>
-                                <Link to={`/review/${campsiteId}/${review.id}`}>
-                                    <BiEdit />
+                                <Link to={`/review/${campsiteId}/${review.id}`} >
+                                    <BiEdit id='update-button'/>
                                 </Link>
                                 {/* <button 
                                     onClick={() => dispatch(updateReview(review))}
@@ -50,7 +54,7 @@ const ReviewIndex = ({ campsiteId }) => {
                                 </button> */}
                                 <button 
                                     onClick={() => dispatch(deleteReview(review.id))} 
-                                    className='delete-button'
+                                    id='delete-button'
                                 >
                                     <AiOutlineDelete />
                                 </button>
@@ -59,10 +63,10 @@ const ReviewIndex = ({ campsiteId }) => {
                         )}
                     </div>
                 ))}
-                <div className='create-container'>
+                <div className='create-rev-container'>
                     {/* {!hasReviewed && <LeaveReview campsite={campsite} />} */}
                     {/* {!hasReviewed ? <Link to={`/new_review/${campsiteId}`} /> : null} */}
-                    <Link to={`/new_review/${campsiteId}`} >Leave a Review</Link> 
+                    <Link to={`/new_review/${campsiteId}`} id='create-rev'>Leave a Review</Link> 
                     {/* <Link to={`/new_review`} >Leave a Review</Link>  */}
                 </div>
             </div>

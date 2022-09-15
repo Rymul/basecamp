@@ -85,50 +85,51 @@ const BookingForm = ({campsiteId}) => {
             <div id='booking-title'>
                 <p>from</p>
                 <p>${campsite.price}</p>
-                <p>/ night</p>
+                <p>/</p>
+                <p>night</p>
             </div>
                 {/* <button onClick={openModal}>Enter Dates</button>
                 <CalendarModal showModal={showModal} setShowModal={setShowModal}/> */}
-            <form onSubmit={handleSubmit}>
-                <label id='input-title'>DATES</label>
-                {/* <CalendarModal showModal={showModal} setShowModal={setShowModal}/> */}
-                    <DateRangePicker 
-                        id='calendar'
-                        editableDateInputs={true}
-                        moveRangeOnFirstSelection={false}
-                        ranges={[selectedDates]}
-                        minDate= {new Date()}
-                        // staticRanges={[]}
-                        // inputRanges={[]}
-                        onChange={handleDateChange}
+                <form onSubmit={handleSubmit} className="input-holder">
+                    <label id='input-title'>DATES</label>
+                    {/* <CalendarModal showModal={showModal} setShowModal={setShowModal}/> */}
+                        <DateRangePicker 
+                            id='calendar'
+                            editableDateInputs={true}
+                            moveRangeOnFirstSelection={false}
+                            ranges={[selectedDates]}
+                            minDate= {new Date()}
+                            // staticRanges={[]}
+                            // inputRanges={[]}
+                            onChange={handleDateChange}
 
-                    />
-                    {/* <input 
-                        type="date" 
-                        id="selected-dates"
-                        onChange={handleChange('checkinDate')}
-                    /> */}
-                
-                {/* <label id='input-title'>CHECKOUT DATE
-                    <input 
-                        type="date" 
-                        id="selected-dates"
-                        onChange={handleChange('checkoutDate')}
-                    />
-                </label> */}
-                <label id='input-title'>GUESTS
-                    <input 
-                        id='guest-number' 
-                        type="number" 
-                        min='1' 
-                        max={campsite.capacity} 
-                        placeholder='1'
-                        onChange={handleChange('adults')}
-                    />
-                </label>
-                <button id='book-button'>Book</button>
-                <p>You won't be charged yet</p>
-            </form>
+                        />
+                        {/* <input 
+                            type="date" 
+                            id="selected-dates"
+                            onChange={handleChange('checkinDate')}
+                        /> */}
+                    
+                    {/* <label id='input-title'>CHECKOUT DATE
+                        <input 
+                            type="date" 
+                            id="selected-dates"
+                            onChange={handleChange('checkoutDate')}
+                        />
+                    </label> */}
+                    <label id='input-title'>GUESTS
+                        <input 
+                            id='guest-number' 
+                            type="number" 
+                            min='1' 
+                            max={campsite.capacity} 
+                            placeholder='1'
+                            onChange={handleChange('adults')}
+                        />
+                    </label>
+                    <button id='book-button'>Book</button>
+                    <p>You won't be charged yet</p>
+                </form>
         </div>
     )
 }

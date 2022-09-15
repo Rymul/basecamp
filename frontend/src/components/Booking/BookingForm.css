@@ -6,30 +6,43 @@
     background-color: rgb(240, 239, 239);
     box-shadow: 2px 1px 5px 3px #888888;
     border-radius: 30px;
-    height: 25rem;
+    height: 32rem;
     position: sticky;
-    top: 20%;
+    top: 80%;
     left: 60%;
     padding: 1rem;
     display: flex;
+    transform: translateY(-450px);
 
 } 
 
 .booking-component {
     width: 100%;
     height: 100%;
-    border: 1px solid red;
-    border-radius: 30px;
-    /* background-color: rgb(222, 222, 222); */
-    background-color: rgb(39, 80, 175);
+    border-radius: 30px;    
     
+}
+
+.input-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #booking-title {
     display: flex;
 }
 
+#booking-title p {
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: 1%;
+}
+
 #input-title {
+    font-size: 20px;
+    font-weight: 400;
 
 }
 
@@ -55,11 +68,21 @@
     box-sizing: border-box;
     border: #f9f9f9;
     color: #f9f9f9;
-    width: 100%;
+    width: 75%;
     height: 68px;
     font-weight: 500;
     font-size: 16px;
-    background-color: #40d9ac;
-    padding: 14px;
+    background-color: #00C585;
+    padding: 12px;
     border-radius: 30px;
+    transition: all .25s ease-in-out;
+    margin: 2% 0 2%;
+}
+
+
+#book-button:hover {
+    border: 1px solid #00C585;
+    background-color: #f9f9f9;
+    color:#00C585;
+    cursor: pointer;
 }

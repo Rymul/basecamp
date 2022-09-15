@@ -34,7 +34,7 @@ const UserShow = () => {
                     </div>
                     <div className="email-verification">
                         <p>Trusted Basecamper</p>
-                        <p><AiOutlineCheckCircle /> Email address</p>
+                        <p><AiOutlineCheckCircle id='check-icon'/> Email address</p>
                     </div>
                     <div className="base-cash">
                         <div id="balance">
@@ -44,7 +44,7 @@ const UserShow = () => {
                         <p>Earn Basecash</p>
                     </div>
                     <div className="build-profile">
-                        <AiOutlinePlusCircle />
+                        <AiOutlinePlusCircle id='plus-icon'/>
                         <p>Continue building out your Basecamp profile by adding places you have camped</p>
                     </div>
                 </div>
@@ -52,33 +52,37 @@ const UserShow = () => {
                     <h3 id="total-bookings">{bookings.length} Trips</h3>
                     {bookings.map(booking => (
                         <div className="single-booking">
-                            <div className="dates">
-                                <p id="dates">DATES: {booking.checkinDate.slice(5, 7)}-{booking.checkinDate.slice(8, 10)}-{booking.checkinDate.slice(0, 4)} through {booking.checkoutDate.slice(5, 7)}-{booking.checkoutDate.slice(8, 10)}-{booking.checkoutDate.slice(0, 4)}</p>
-                            </div>
-                            <div className="location-info">
-                                <div className="location">
-                                    <p>{campsites[booking.campsiteId].name}</p>
-                                    <p>{campsites[booking.campsiteId].location}</p>
+                            <div className="booking-img-container">
+                                <img id='img' src={campsites[booking.campsiteId].photoUrl[0]} alt=""/>
+                            </div>  
+                            <div className="info">
+                                <div className="dates">
+                                    <p id="dates">DATES: {booking.checkinDate.slice(5, 7)}-{booking.checkinDate.slice(8, 10)}-{booking.checkinDate.slice(0, 4)} through {booking.checkoutDate.slice(5, 7)}-{booking.checkoutDate.slice(8, 10)}-{booking.checkoutDate.slice(0, 4)}</p>
                                 </div>
-                                <div className="city">
-                                    <p>{campsites[booking.campsiteId].city}</p>
-                                    <p>{campsites[booking.campsiteId].state}</p>
+                                <div className="location-info">
+                                    <div className="location">
+                                        <p>{campsites[booking.campsiteId].name}</p>
+                                        <p>{campsites[booking.campsiteId].location}</p>
+                                    </div>
+                                    <div className="city">
+                                        <p>{campsites[booking.campsiteId].city},</p>
+                                        <p>{campsites[booking.campsiteId].state}</p>
+                                    </div>
                                 </div>
+                                <div className="booking-info">
+                                    <p>${booking.price} per night</p>
+                                    <p>{booking.adults} Guests</p>
+                                </div>
+                                <Link to={`/booking/${booking.id}`} id='update-link'>
+                                    <BiEdit />
+                                </Link>
+                                <button 
+                                    onClick={() => dispatch(deleteBooking(booking.id))} 
+                                    id='delete-button'
+                                >
+                                    <AiOutlineDelete />
+                                </button>
                             </div>
-                            <div className="booking-info">
-                                <p>${booking.price} per night</p>
-                                <p>{booking.adults} Guests</p>
-                            </div>
-                            <img src={campsites[booking.campsiteId].photoUrl[0]} alt=""/>
-                            <Link to={`/booking/${booking.id}`}>
-                                <BiEdit />
-                            </Link>
-                            <button 
-                                onClick={() => dispatch(deleteBooking(booking.id))} 
-                                className='delete-button'
-                            >
-                                <AiOutlineDelete />
-                            </button>
                         </div>
                     ))}
                 </div>

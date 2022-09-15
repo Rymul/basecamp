@@ -55,12 +55,12 @@ h3, p {
 }
 
 #review-thumb {
-    color: #40d9ac;
+    color: #00C585;
     margin-right: .3%;
 }
 
 #review-per {
-    color: #40d9ac;
+    color: #00C585;
 
 }
 
@@ -208,12 +208,44 @@ h3, p {
     justify-content: space-between;
 }
 
+#under-img-array {
+
+}
+
+#section-title {
+    font-size: 1rem;
+    font-weight: 500;
+
+}
+
+#under-img-array p {
+    font-size: 16px;
+
+}
+
+#under-icon {
+    height: 30px;
+    width: 30px;
+    margin-right: 1%;
+}
+
 .amenities, .get-there, .campsite-map, .host, .reviews-container {
     display: flex;
     flex-direction: column;
     border-top: solid 1px #d5d5d5;
     padding: 20px 0 20px;
     width: 55%;
+}
+
+.amenities h3 {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 2%;
+}
+
+.amenities p {
+    margin-left: 7%;
+    margin-bottom: 2%;
 }
 
 .get-there-info {
@@ -232,3 +264,25 @@ h3, p {
 
 }
 
+.reviews-container {
+
+}
+
+#rate-percent {
+    display: flex;
+    align-items: center;
+}
+
+#rev-per {
+    color: #00C585;
+    margin: 0 1% 2% 0;
+    font-size: 23px;
+
+}
+
+#rev-num {
+    color: #222222;
+    font-size: 23px;
+    font-weight: 500;
+    margin-bottom: 2%;
+}

@@ -3,11 +3,12 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './CampsiteShow.css'
 import { fetchCampsite, getCampsite } from '../../store/campsite';
-import { GiCampingTent, GiSurferVan } from 'react-icons/gi'
-import { FaCaravan, FaBed, FaThumbsUp } from 'react-icons/fa'
+import { GiCampingTent, GiSurferVan, GiFishing, GiHummingbird, GiTap, GiPineTree, GiCampfire } from 'react-icons/gi'
+import { FaCaravan, FaBed, FaThumbsUp, FaMountain, FaDog } from 'react-icons/fa'
 import { IoMdWalk } from 'react-icons/io'
-import { MdNotAccessible } from 'react-icons/md'
+import { MdNotAccessible, MdDirectionsBike, MdHiking, MdHotTub } from 'react-icons/md'
 import { TbToiletPaper } from 'react-icons/tb'
+import { BiWater } from 'react-icons/bi'
 import { getCampsiteReviews } from '../../store/review';
 import ReviewIndex from './ReviewIndex';
 import BookingForm from '../Booking/BookingForm';
@@ -85,27 +86,43 @@ const CampsiteShow = () => {
                 <div id='under-right'>
                     <div id='under-img-array'>
                         <h3 id='section-title'>Activities</h3>
+                            <p><MdDirectionsBike id='under-icon'/> Biking</p>
+                            <p><GiFishing id='under-icon'/> Fishing</p>
+                            <p><MdHiking id='under-icon'/> Hiking</p>
+                            <p><GiHummingbird id='under-icon'/> Wildlife watching</p>
                         {/* {campsite.activities.map(activity => {
                             <li id='list-item'>{activity.icon}   {activity}</li>
                         })} */}
                     </div>
                     <div id='under-img-array'>
                         <h3 id='section-title'>Natural features</h3>
+                        <p><BiWater id='under-icon'/> River, stream, or creek</p>
+                        <p><FaMountain id='under-icon'/> Mountainous</p>
+                        <p><MdHotTub id='under-icon'/> Hot spring</p>
+                        <p><GiPineTree id='under-icon'/> Forest</p>
                         {/* {campsite.natFeatures.map(feature => {
                             <li>{feature.icon}   {feature}</li>
                         })} */}
                     </div>
                 </div>
             </div>
-            <div className='booking-container'>
-                <BookingForm campsiteId={campsiteId} />
-            </div>
-            <div className='amenities'>
-                <h2>What this site offers</h2>
-                <TbToiletPaper id='tag-icon' />
-                <h3>tag.name</h3>
-                <p>tag.description</p>
-            </div>
+            {/* <div className='booking-amenities'> */}
+                
+                <div className='amenities'>
+                    <h2>What this site offers</h2>
+                    <h3><GiCampfire id='under-icon'/> Campfires allowed</h3>
+                    <p>Firepit. Outdoor fires are typically allowed from October - May, depending on local burn bans.</p>
+                    <h3><TbToiletPaper id='under-icon' /> Toilet available</h3>
+                    <p>Flush toilet, portable toilet. Please pack out your waste baggies upon departure. There is a dump station at the bottom of our property.</p>
+                    <h3><FaDog id='under-icon'/>Pets allowed</h3>
+                    <p>On leash. Please bring a dog bed or a blanket, and be respectful of neighbors and other animals in the area.</p>
+                    <h3><GiTap id='under-icon'/>Potable water available</h3>
+                    <p>Garden Hose is up the hill for camper's use.</p>
+                </div>
+                <div className='booking-container'>
+                    <BookingForm campsiteId={campsiteId} />
+                </div>
+            {/* </div> */}
         
             <div className='get-there'>
                 <h2>Getting there</h2>
@@ -130,20 +147,22 @@ const CampsiteShow = () => {
                 <p>cool google satellite map</p>
             </div>
             <div className='host'>
-                <h2>Fix host name</h2>
+                <h2>Hosted by {campsite.hostName}</h2>
                 {/* <h2>Hosted by { campsite.hostName.first_name + " "+ campsite.hostName.last_name[0] + "."}</h2> */}
                 {/* <h2>Hosted by {hostDisplayName}</h2> */}
-                <p>Joined in May 2015</p>
+                <p>Joined in Sept 2022</p>
                 <div className='response-time'>
                     <p>Response rate: 100%</p>
                     <p>Response time: Within 5 hours</p>
                 </div>
             </div>
             <div className='reviews-container'>
-                <h2>This is where the reviews will go</h2>
-                < FaThumbsUp id='review-thumb'/>
-                <p id='review-per'>{campsite.rating}%</p>
-                <p id='review-num'>{campsite.numRating} reviews</p>
+                {/* <h2>This is where the reviews will go</h2> */}
+                <div id='rate-percent'>
+                    < FaThumbsUp id='rev-per'/>
+                    <p id='rev-per'>{campsite.rating}%</p>
+                </div>
+                <p id='rev-num'>{campsite.numRating} reviews</p>
                 <ReviewIndex campsiteId={campsite.id} />
             </div>
            

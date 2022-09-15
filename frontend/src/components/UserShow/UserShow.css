@@ -47,7 +47,7 @@
     font-size: 1rem;
     line-height: 90%;
     margin-top: 0;
-    color: #252525;
+    color: #757575;
 }
 
 
@@ -62,7 +62,9 @@
     border: solid 1px #d5d5d5;
     margin-bottom: 10%;
 }
-
+.email-verification :first-child{
+    color: #757575;
+}
 .email-verification :last-child {
     margin-top: 5%;
 }
@@ -84,10 +86,15 @@
     margin-bottom: 5%;
 }
 
+#balance :first-child {
+    margin-right: 5px;
+}
+
 .build-profile {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: flex-start;
+    padding: 10% 8%;
     /* text-align: center; */
     align-items: center;
     height: 25%;
@@ -95,9 +102,17 @@
     margin-bottom: 10%;
 }
 
+#plus-icon {
+    margin-right: 5%;
+    height: 60px;
+    width: 60px;
+
+}
+
 .bookings-show-container {
     display: flex;
     flex-direction: column;
+    width: 75%;
     
 }
 
@@ -112,6 +127,24 @@
 
 .single-booking {
     margin-bottom: 10%;
+    display: flex;
+    justify-content: flex-start;
+    height: 10rem;
+
+}
+
+.info {
+
+}
+
+.booking-img-container {
+    height: 100%;
+    margin-right: 5%;
+
+}
+
+#img {
+    height: 100%;
 }
 
 .dates {
@@ -120,4 +153,42 @@
 
 #dates {
 
+}
+
+.location-info {
+
+}
+
+.location {
+
+}
+
+.city {
+    display: flex;
+}
+
+.city :first-child {
+    margin-right: 3px;
+}
+
+.booking-info {
+
+}
+
+
+
+#update-link :first-child {
+    height: 13%;
+    width: 8%;
+
+}
+
+#delete-button {
+    border: none;
+    background-color: transparent;
+}
+
+#delete-button :first-child {
+    height: 20px;
+    width: 100%;
 }

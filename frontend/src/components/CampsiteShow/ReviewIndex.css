@@ -1,0 +1,75 @@
+
+
+.single-review {
+    margin-bottom: 6%;
+}
+
+.author {
+    display: flex;
+    
+}
+
+#author-name {
+    font-size: 17px;
+    font-weight: 500;
+    color: #757575;
+    margin-right: 1%;
+
+}
+
+#rec {
+    color: #757575;
+}
+
+#rev-date {
+    margin-bottom: 2%;
+    color: #757575
+}
+
+#rev-title {
+    color: #222222;
+    margin-bottom: 2%;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+#rev-body {
+    margin-bottom: 2%;
+}
+
+#update-button {
+    height: 10%;
+    width: 3%;
+    color: #222222;
+
+}
+
+#delete-button {
+    border: none;
+    background-color: transparent;
+    color: #222222;
+}
+
+#delete-button :first-child {
+    height: 20px;
+    width: 100%;
+}
+
+.create-rev-container {
+    margin-bottom: 10%;
+}
+
+#create-rev {
+    text-decoration: none;
+    background-color: #00C585;
+    color: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: all .25s ease-in-out;
+}
+
+#create-rev:hover {
+    border: 1px solid #00C585;
+    background-color: #f9f9f9;
+    color:#00C585
+}

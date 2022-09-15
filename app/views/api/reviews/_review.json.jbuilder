@@ -1,4 +1,4 @@
-json.extract! review, :id, :author_id, :campsite_id, :title, :body, :rating, :recomended
+json.extract! review, :id, :author_id, :campsite_id, :title, :body, :rating, :recomended, :created_at
 # json.author_name review.author.first_name + " "+ review.author.last_name[0] + "."
 
 # if (review.author) 
