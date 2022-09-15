@@ -13,7 +13,7 @@ return { type: ADD_BOOKING,
 };
 
 export const addBookings = bookings => {
-    debugger
+    // debugger
     return {
     type: ADD_BOOKINGS,
     payload: bookings }
@@ -120,7 +120,7 @@ const bookingsReducer = (state = {}, action) => {
             // const booking = action.payload.booking;
             const booking = action.payload;
             newState[booking.id] = booking;
-            debugger
+            // debugger
             return newState;
         case ADD_BOOKINGS:
             const bookings = action.payload.bookings;

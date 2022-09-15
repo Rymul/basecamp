@@ -58,7 +58,7 @@ const BookingForm = ({campsiteId}) => {
     const handleDateChange = (ranges) => {
         setStartDate(ranges.selection.startDate);
         setEndDate(ranges.selection.endDate);
-        console.log(startDate.toString().split(' '), "START")
+        console.log(startDate.toString().slice(0, 15), "START")
         console.log(new Date(Date.parse(startDate)), "START PARSE")
 
     }

@@ -39,6 +39,16 @@ export const getCampsites = state => {
     }
 }
 
+export const getCampsites2 = state => {
+    if(!state) {
+        return null;
+    } else if (!state.campsites) {
+        return null;
+    } else {
+        return state.campsites;
+    }
+}
+
 
 export const fetchCampsites = () => async dispatch => {
     const res = await fetch(`api/campsites`,{
