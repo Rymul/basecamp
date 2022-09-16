@@ -146,13 +146,3 @@ ApplicationRecord.transaction do
 
     # b1 = Booking.create!(campsite_id: , customer_id: , host_id: ,adults:  ,children: 0, pets: 0, price: , checkin_date: , checkin_date: )
 end
-
-#  campsite_id   :bigint           not null
-#  customer_id   :bigint           not null
-#  host_id       :bigint           not null
-#  adults        :integer          default(1), not null
-#  children      :integer
-#  pets          :integer
-#  price         :float            not null
-#  checkin_date  :datetime         not null
-#  checkout_date

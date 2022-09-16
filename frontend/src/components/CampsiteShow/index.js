@@ -24,6 +24,7 @@ const CampsiteShow = () => {
     
     useEffect(() => {
         dispatch(fetchCampsite(campsiteId));
+        window.scrollTo(0, 0);
     },[campsiteId])
 
     const campsite = useSelector(getCampsite(campsiteId))

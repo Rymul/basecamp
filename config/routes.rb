@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :show]
     resource :session, only: [:show, :create, :destroy]
-    resources :campsites, only: [:index, :show]
+    resources :campsites, only: [:index, :show] do
+      collection do
+        get 'search/:query', to: 'campsites#search', as: 'search'
+      end
+    end
     resources :reviews, only: [:create, :update, :destroy]
     resources :bookings, only: [:index, :show, :create, :update, :destroy]
   end

@@ -50,6 +50,10 @@ export const getCampsites2 = state => {
     }
 }
 
+// export const getSearchCampsites = (query) => async dispatch => {
+
+// }
+
 
 export const fetchCampsites = () => async dispatch => {
     const res = await fetch(`api/campsites`,{

@@ -15,6 +15,15 @@ class Api::CampsitesController < ApplicationController
         end
     end
 
+    def search
+        query = params[:query]
+        @product = Product.where('name ILIKE ? ')
+        if @product.length > 0
+            render :index
+        else
+            # render json error sldfjnsljfnslfjnsdlfjn
+        end
+    end
 
     private
 
