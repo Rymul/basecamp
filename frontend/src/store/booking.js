@@ -117,11 +117,16 @@ const bookingsReducer = (state = {}, action) => {
     const newState = { ...state }
     switch(action.type) {
         case ADD_BOOKING:
+            if(action.payload.booking){
+                const booking = action.payload.booking;
+                newState[booking.id] = booking;
+                // debugger
+                return newState;
+
+            }
+            newState[action.payload.id] = action.payload
+            return newState
             // const booking = action.payload.booking;
-            const booking = action.payload;
-            newState[booking.id] = booking;
-            // debugger
-            return newState;
         case ADD_BOOKINGS:
             const bookings = action.payload.bookings;
             return { ...newState, ...bookings };

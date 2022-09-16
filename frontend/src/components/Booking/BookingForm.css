@@ -3,7 +3,7 @@
 
 .booking-container {
     width: 35%;
-    background-color: rgb(240, 239, 239);
+    /* background-color: rgb(195, 34, 34); */
     box-shadow: 2px 1px 5px 3px #888888;
     border-radius: 30px;
     height: 32rem;
@@ -30,6 +30,13 @@
     justify-content: center;
 }
 
+#booking-title-container {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    margin-bottom: 5%;
+}
+
 #booking-title {
     display: flex;
 }
@@ -45,11 +52,26 @@
     font-weight: 400;
 }
 
-.rdrDefinedRangesWrapper {
+/* .rdrDefinedRangesWrapper {
     display: none;
 }
 .rdrInputRanges {
     display: none;
+} */
+
+.rdrCalendarWrapper {
+    border-radius: 50px;
+    /* background-color: #00C585; */
+}
+
+
+.rdrDateRangeWrapper {
+    border-radius: 50px;
+    background-color: rgb(243, 242, 239);
+}
+
+.rdrDateDisplayWrapper {
+
 }
 
 

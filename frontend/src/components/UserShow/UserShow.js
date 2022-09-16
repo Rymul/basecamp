@@ -56,12 +56,13 @@ const UserShow = () => {
                                 <img id='img' src={campsites[booking.campsiteId].photoUrl[0]} alt=""/>
                             </div>  
                             <div className="info">
+                                    <p id='camp-name'>{campsites[booking.campsiteId].name}</p>
                                 <div className="dates">
                                     <p id="dates">DATES: {booking.checkinDate.slice(5, 7)}-{booking.checkinDate.slice(8, 10)}-{booking.checkinDate.slice(0, 4)} through {booking.checkoutDate.slice(5, 7)}-{booking.checkoutDate.slice(8, 10)}-{booking.checkoutDate.slice(0, 4)}</p>
                                 </div>
                                 <div className="location-info">
                                     <div className="location">
-                                        <p>{campsites[booking.campsiteId].name}</p>
+                                        {/* <p>{campsites[booking.campsiteId].name}</p> */}
                                         <p>{campsites[booking.campsiteId].location}</p>
                                     </div>
                                     <div className="city">
@@ -70,7 +71,8 @@ const UserShow = () => {
                                     </div>
                                 </div>
                                 <div className="booking-info">
-                                    <p>${booking.price} per night</p>
+                                    <p>Total Price: ${booking.price}</p>
+                                    <p>${campsites[booking.campsiteId].price} per night</p>
                                     <p>{booking.adults} Guests</p>
                                 </div>
                                 <Link to={`/booking/${booking.id}`} id='update-link'>

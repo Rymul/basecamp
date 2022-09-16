@@ -22,7 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	color: #28400C; /* ONLY HOME PAGE */
-	background-color: rgb(243, 242, 239);
+	/* background-color: rgb(243, 242, 239); */
 	font-family: 'Poppins', sans-serif;
 	vertical-align: baseline;
 }

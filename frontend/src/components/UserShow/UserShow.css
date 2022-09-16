@@ -133,8 +133,14 @@
 
 }
 
-.info {
+#camp-name {
+    color: #222222;
+    font-size: 1.2rem;
+    margin-bottom: 2%;
+}
 
+.info {
+    
 }
 
 .booking-img-container {

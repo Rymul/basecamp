@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { fetchBooking, getBooking, updateBooking } from '../../store/booking';
 import { getCampsites } from '../../store/campsite';
 import './UpdateBookingForm.css'
@@ -14,12 +14,14 @@ import 'react-date-range/dist/theme/default.css'
 const UpdateBookingForm = () => {
 
     const { bookingId } = useParams();
+    const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const bookingData = useSelector(getBooking(bookingId))
     const [booking, setBooking] = useState(bookingData)
     const campsite = useSelector(getCampsites)[0]
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
+    const history = useHistory()
 
     const selectedDates = {
         startDate: startDate,
@@ -39,7 +41,7 @@ const UpdateBookingForm = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateBooking(booking))
+        dispatch(updateBooking(booking)).then(()=> history.push(`/user/${sessionUser.id}`))
     }
     
     const handleDateChange = (ranges) => {
@@ -59,12 +61,34 @@ const UpdateBookingForm = () => {
 
     return(
         <div className='bookingUpdate-component'>
-            <h1>Update Booking For {campsite.name}</h1>
-            <h2>{booking.checkinDate}</h2>
-            <img src={campsite.photoUrl[0]} alt={campsite.name}/>
-            <div className='bookingUpdate-container'>
+            <div className='bookingUpdate-info'>    
+                <div className="booking-img-container">
+                    <img id='update-img' src={campsite.photoUrl[0]} alt=""/>
+                </div>  
+                <div className="update-info">
+                        <p id='update-camp-name'>{campsite.name}</p>
+                    <div className="update-dates">
+                        <p id="update-dates">DATES: {booking.checkinDate.slice(5, 7)}-{booking.checkinDate.slice(8, 10)}-{booking.checkinDate.slice(0, 4)} through {booking.checkoutDate.slice(5, 7)}-{booking.checkoutDate.slice(8, 10)}-{booking.checkoutDate.slice(0, 4)}</p>
+                    </div>
+                    <div className="update-location-info">
+                        <div className="update-location">
+                            <p>{campsite.location}</p>
+                        </div>
+                        <div className="update-city">
+                            <p>{campsite.city},</p>
+                            <p>{campsite.state}</p>
+                        </div>
+                    </div>
+                    <div className="update-booking-info">
+                        <p>Total Price: ${booking.price}</p>
+                        <p>${campsite.price} per night</p>
+                        <p>{booking.adults} Guests</p>
+                    </div>
+                </div>
+            </div>
+            <div className='update-bookingUpdate-container'>
                 <form onSubmit={handleSubmit}>
-                <label id='input-title'>DATES</label>
+                <label id='update-input-title'>DATES</label>
                     <DateRangePicker 
                         id='calendar'
                         editableDateInputs={true}
@@ -76,7 +100,7 @@ const UpdateBookingForm = () => {
                         onChange={handleDateChange}
 
                     />
-                    <label id='input-title'>Adult
+                    <label id='update-input-title'>GUESTS
                         <input 
                             type="number"
                             value={booking.adults} 
@@ -102,7 +126,8 @@ const UpdateBookingForm = () => {
                             onChange={handleChange('pets')}
                         />
                     </label> */}
-                    <button id='submit-button'>Update Booking</button>
+                    <button id='update-submit-button'>Update Booking</button>
+                    <button id='update-cancel-button'>Cancel</button>
                 </form>
             </div>
         </div>

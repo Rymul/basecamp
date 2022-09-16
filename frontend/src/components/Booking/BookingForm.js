@@ -50,10 +50,11 @@ const BookingForm = ({campsiteId}) => {
         startDate: startDate,
         endDate: endDate,
         // color: '#40d9ac',
-        color: '#00A699',
-        rangeColors: '#66E2DA',
+        // color: '#00A699',
+        // rangeColors: '#66E2DA',
         key: 'selection'
     };
+    console.log(selectedDates)
 
     const handleDateChange = (ranges) => {
         setStartDate(ranges.selection.startDate);
@@ -63,10 +64,18 @@ const BookingForm = ({campsiteId}) => {
 
     }
 
+    const dayDif = () => {
+        return(endDate.getTime() - startDate.getTime()) / 86400000
+    }
+    console.log(dayDif , "SJFBKSJDOSD")
+
+
+
+
     const handleChange = (field) => {
         return (e)=>{
             let newBooking = Object.assign({}, booking, {[field]: e.currentTarget.value},
-                { checkinDate: startDate, checkoutDate: endDate})
+                { checkinDate: startDate, checkoutDate: endDate, price: campsite.price * dayDif()})
             setBooking(newBooking)
         }
     }
@@ -82,11 +91,17 @@ const BookingForm = ({campsiteId}) => {
     return(
         
         <div className='booking-component'>
-            <div id='booking-title'>
-                <p>from</p>
-                <p>${campsite.price}</p>
-                <p>/</p>
-                <p>night</p>
+            <div id='booking-title-container'>
+                <div id='booking-title'>
+                    <p>from</p>
+                    <p>${campsite.price}</p>
+                    <p>/</p>
+                    <p>night</p>
+                </div>
+                <div id='booking-title'>
+                    <p>Total</p>
+                    <p>${campsite.price * dayDif()}</p>
+                </div>
             </div>
                 {/* <button onClick={openModal}>Enter Dates</button>
                 <CalendarModal showModal={showModal} setShowModal={setShowModal}/> */}

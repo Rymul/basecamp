@@ -1,3 +1,4 @@
+import { AiFillExclamationCircle } from "react-icons/ai";
 import { ADD_BOOKING, ADD_BOOKINGS } from "./booking";
 
 
@@ -88,15 +89,18 @@ const campsitesReducer = (state = {}, action) => {
             return newState;
         case RECEIVE_CAMPSITES:
             return { ...newState, ...action.payload}
-        // case ADD_BOOKING:
-            // const campsite = action.payload.campsite;
-            // const campsite = action.payload;
-            // debugger
-            // newState[campsite.id] = campsite;
+        case ADD_BOOKING:
+            if (action.payload.booking){
+
+                const campsite = action.payload.campsite;
+                // const campsite = action.payload;
+                // debugger
+                newState[campsite.id] = campsite;
+                return newState;
+            }
             // const booking = action.payload;
             // debugger
             // newState[booking.id] = booking;
-            // return newState;
         case ADD_BOOKINGS:
             const campsites = action.payload.campsites;
             return { ...newState, ...campsites };

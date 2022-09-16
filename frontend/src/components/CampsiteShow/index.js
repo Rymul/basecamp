@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './CampsiteShow.css'
 import { fetchCampsite, getCampsite } from '../../store/campsite';
@@ -15,9 +15,12 @@ import BookingForm from '../Booking/BookingForm';
 
 
 
+
 const CampsiteShow = () => {
     const { campsiteId } = useParams();
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user)
+    const history = useHistory()
     
     useEffect(() => {
         dispatch(fetchCampsite(campsiteId));
@@ -25,19 +28,9 @@ const CampsiteShow = () => {
 
     const campsite = useSelector(getCampsite(campsiteId))
 
-    // let hostDisplayName;
-    // useEffect(() => {
-    //     hostDisplayName = campsite.hostName.first_name + " "+ campsite.hostName.last_name[0] + ".";
-    // },[hostDisplayName])
-
-
-    // if(campsite.hostName){
-    //     const hostDisplayName = campsite.hostName.first_name + " "+ campsite.hostName.last_name[0] + "."
-    // }
-
-    
-    // if(!campsite) return null
-    
+    if (!sessionUser) {
+        history.push('/')
+    }
     if (campsite){
     return (
         <div className='campsite-parent'>
@@ -50,8 +43,8 @@ const CampsiteShow = () => {
                 <h1 id='campsite-title'>{campsite.name}</h1>
             </div>
             <div className='location-container'>
-                < FaThumbsUp id='review-thumb'/>
-                <p id='review-per'>{campsite.rating}%</p>
+                <FaThumbsUp id='review-thumb'/>
+                <p id='review-per'>{Math.floor(campsite.rating)}%</p>
                 <p id='review-num'>{campsite.numRating} reviews</p>
                 <p id='city'>{campsite.city}, {campsite.state}</p>
             </div>
@@ -128,17 +121,17 @@ const CampsiteShow = () => {
                 <h2>Getting there</h2>
                 <div className='get-there-info'>
                     <div className='get-there-left'>
-                        <p>Check in: After 4:00pm</p>
-                        <p>Check out: Before 12:00pm</p>
-                        <p>On arrival: Meet with Host</p>
-                        <p>Cancellation policy: Super Strict</p>
-                        <p>Minimum Nights: 2 nights</p>
-                        <p>Accepts bookings: 9 months out</p>
+                        <p><strong>Check in:</strong> After 4:00pm</p>
+                        <p><strong>Check out:</strong> Before 12:00pm</p>
+                        <p><strong>On arrival:</strong> Meet with Host</p>
+                        <p><strong>Cancellation policy:</strong> Super Strict</p>
+                        <p><strong>Minimum Nights:</strong> 2 nights</p>
+                        <p><strong>Accepts bookings:</strong> 9 months out</p>
                     </div>
                     <div className='get-there-right'>
-                        <p><IoMdWalk /> Short Walk</p>
-                        <p><MdNotAccessible /> No wheelchair access</p>
-                        <p><GiSurferVan/> Max 1 vehicle</p>
+                        <p><IoMdWalk id='get-there-icon'/> Short Walk</p>
+                        <p><MdNotAccessible id='get-there-icon'/> No wheelchair access</p>
+                        <p><GiSurferVan id='get-there-icon'/> Max 1 vehicle</p>
                     </div>
                 </div>
             </div>
@@ -147,20 +140,19 @@ const CampsiteShow = () => {
                 <p>cool google satellite map</p>
             </div>
             <div className='host'>
-                <h2>Hosted by {campsite.hostName}</h2>
-                {/* <h2>Hosted by { campsite.hostName.first_name + " "+ campsite.hostName.last_name[0] + "."}</h2> */}
-                {/* <h2>Hosted by {hostDisplayName}</h2> */}
-                <p>Joined in Sept 2022</p>
+                <div className='host-join-container'>
+                    <h2>Hosted by {campsite.hostName}</h2>
+                    <p>Joined in Sept 2022</p>
+                </div>
                 <div className='response-time'>
-                    <p>Response rate: 100%</p>
-                    <p>Response time: Within 5 hours</p>
+                    <p><strong>Response rate:</strong> 100%</p>
+                    <p><strong>Response time:</strong> Within 5 hours</p>
                 </div>
             </div>
             <div className='reviews-container'>
-                {/* <h2>This is where the reviews will go</h2> */}
                 <div id='rate-percent'>
                     < FaThumbsUp id='rev-per'/>
-                    <p id='rev-per'>{campsite.rating}%</p>
+                    <p id='rev-per'>{Math.floor(campsite.rating)}%</p>
                 </div>
                 <p id='rev-num'>{campsite.numRating} reviews</p>
                 <ReviewIndex campsiteId={campsite.id} />

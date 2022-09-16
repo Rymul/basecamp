@@ -3,7 +3,11 @@
     justify-content: space-around;
     align-items: center;
     width: 90%;
+    background-color: rgb(243, 242, 239);
+}
 
+.searchBar-component {
+    background-color: rgb(243, 242, 239);
 }
 
 ::placeholder{

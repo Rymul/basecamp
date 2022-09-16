@@ -10,12 +10,13 @@ require 'open-uri'
 ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
+    Booking.destroy_all
     Review.destroy_all
     Campsite.destroy_all
     User.destroy_all
   
     puts "Resetting primary keys..."
-    %w(reviews campsites users).each do |table_name|    
+    %w(bookings reviews campsites users).each do |table_name|    
         ApplicationRecord.connection.reset_pk_sequence!(table_name)
     end
     
@@ -52,7 +53,6 @@ ApplicationRecord.transaction do
     puts "Creating campsites..."
 
     c1 = Campsite.create!(name: 'Colfax Spring', location: 'Yosemite National Park', city: 'Groveland', state: 'California', lat: 28.5581, lng: 81.8512, description: "Welcome to Yosemite's Colfax Spring! Home to a basecamp for river rafting trips during the summertime, we are located 15 minutes driving distance to the entrance to Yosemite National Park. If you are staying with us between May - September and want to come rafting, ask us about our river trips! Our camp sits on a ridge with views down into the Tuolumne River Canyon. The Tuolumne River begins at 13,000 feet of elevation in the High Country of Tuolumne Meadows and provides drinking water for over 2.7 million people in San Francisco. With cedar and pine trees, manzanita bushes, and wildflowers in the spring, enjoy the Sierras' flora and fauna. Our family has been operating our river rafting company for nearly 50 years, the last 11 of those years being here at Colfax Spring. Conveniently located off Highway 120, we are in close proximity to countless swimming holes, hikes, and more.", price: 45, capacity: 10, site_type: 'tent', host_id: u1.id)
-    # file = URI.open('https://base-camp-dev.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-van.jpg')
     c1_p1 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-van.jpg'), filename: 'yosemite-colfax-spring-van.jpg'}
     c1_p2 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-tent.jpg'), filename: 'yosemite-colfax-spring-tent.jpg'}
     c1_p3 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/yosemite-colfax-spring-picnictable.jpg'), filename: 'yosemite-colfax-spring-picnictable.jpg'}
@@ -61,12 +61,12 @@ ApplicationRecord.transaction do
     c1.photos.attach([c1_p1, c1_p2, c1_p3, c1_p4, c1_p5])
     #-----
     
-    c2 = Campsite.create!(name: 'Eel River', location: 'Mendocino National Forest', city: 'Cooks Valley', state: 'California', lat: 40.0024, lng: 123.7894, description: "This property is conveniently located in historic highway 101. It's 4.5 terraced acres overlooking the south fork Eel River. It is adjacent to the Reggae on the River and Northern Nights festival sites. It's less than a mile from the tourist attraction One Log house and Richardson Grove state park. The property is a permitted educational cannabis farm implementing regenerative agriculture practices. We have several accommodation options! You can stay in our fully furnished bell tent tucked away in a charming garden. It has a full bed with foam topper, charge station, lounge chair, fan or heater, wireless speaker, and wifi. The property has hot outdoor shower and viewing bluff overlooking Eel river. Enjoy convenient hwy 101 location close to state park and dispensary. Wake up, dine and stroll in this dreamy garden! We also have camping and  RV sites that have morning shade, and epic views and two levels of camping area.", price: 56, capacity: 12, site_type: 'tent', host_id: 3)
+    c2 = Campsite.create!(name: 'Eel River', location: 'Mendocino National Forest', city: 'Cooks Valley', state: 'California', lat: 40.0024, lng: 123.7894, description: "This property is conveniently located in historic highway 101. It's 4.5 terraced acres overlooking the south fork Eel River. It is adjacent to the Reggae on the River and Northern Nights festival sites. It's less than a mile from the tourist attraction One Log house and Richardson Grove state park. The property is a permitted educational cannabis farm implementing regenerative agriculture practices. We have several accommodation options! You can stay in our fully furnished bell tent tucked away in a charming garden. It has a full bed with foam topper, charge station, lounge chair, fan or heater, wireless speaker, and wifi. The property has hot outdoor shower and viewing bluff overlooking Eel river. Enjoy convenient hwy 101 location close to state park and dispensary. Wake up, dine and stroll in this dreamy garden! We also have camping and  RV sites that have morning shade, and epic views and two levels of camping area.", price: 56, capacity: 8, site_type: 'tent', host_id: 3)
     c2_p1 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/eel-river-swinminghole.jpg'), filename: 'eel-river-swinminghole.jpg'}
     c2_p2 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/eel-river-forest.jpg'), filename: 'eel-river-forest.jpg'}
     c2_p3 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/eel-river-meadow.jpg'), filename: 'eel-river-meadow.jpg'}
     c2_p4 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/eel-river-river.jpg'), filename: 'eel-river-river.jpg'}
-    c2_p5 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/eel-river-tent.jpg'), filename: 'eel-river-tent.jpg'}
+    c2_p5 = {io: URI.open('https://base-camp-seed.s3.us-west-1.amazonaws.com/eel-river-tent-2.jpg'), filename: 'eel-river-tent-2.jpg'}
     c2.photos.attach([c2_p1, c2_p2, c2_p3, c2_p4, c2_p5])
     #-----
 
@@ -113,11 +113,46 @@ ApplicationRecord.transaction do
     r2 = Review.create!(title: 'Go Here!', body: 'This place is truly amazing. Getting a chance to connect with nature like that was so refreshing.', rating: 5, recomended: true, author_id: 5, campsite_id: 1)
     r3 = Review.create!(title: 'Great time, but so many bugs', body: "We had a wonderful time, if you forget about the swarms of mosquitos that attached us daily. If you go here make sure you bring a lot of bug spray.", rating: 4, recomended: true, author_id: 6, campsite_id: 1)
     # reviews for c2
-
+    r4 = Review.create!(title: 'Wow', body: "Best camping experience by far. The river right next to the site is what did it for me. The water is crystal clear and the sound of gushing water while you sleep is very relaxing.", rating: 5, recomended: true, author_id: 2, campsite_id: 2)
+    r5 = Review.create!(title: 'Was not very clean', body: 'I was told this would be a glamping experience. Instead, I had to sleep on the ground there was dirt and bugs everywhere.', rating: 3, recomended: false, author_id: 1, campsite_id: 2)
+    r6 = Review.create!(title: "Truly Amazing", body: "This was a truly magical place. The camping spot was beautiful, level, and the water could be seen and heard from the spot. This is an ideal location for campers looking for a safe place to unhook and be outside.", rating: 5, recomended: true, author_id: 6, campsite_id: 2)
+    # reviews for c3
+    r7 = Review.create!(title: "Not what we exprected", body: "The site was not what we expected, there seemed to be belongings around and in the hut we were staying in. Seems like it could have been a great stay but wasn not quite ready for guests.", rating: 2, recomended: false, author_id: 3, campsite_id: 3)
+    r8 = Review.create!(title: "Glamping in the Woods", body: "I could not be more satisfied with this stay, my girlfriend and I were looking for somewhere to escape the upcoming bay area heat wave and found this little spot. It was all just perfect, our cabin was super clean, and everything was so well thought out. ", rating: 5, recomended: true, author_id: 4, campsite_id: 3)
+    r9 = Review.create!(title: "Incredible", body: "The property is beautiful such a nice place to wander, feel free and find some peace away from the cities!", rating: 5, recomended: true, author_id: 1, campsite_id: 3)
+    # reviews for c4
+    r10 = Review.create!(title: "Beautiful", body: "Had an awesome time. Will def. come back again.", rating: 5, recomended: true, author_id: 1, campsite_id: 4)
+    r11 = Review.create!(title: "Great Views!", body: "Epic views, epic oak tree, all the camping basics you need (picnic table, drinking water, outhouse), easy access to the ocean. Loved our stay.", rating: 5, recomended: true, author_id: 2, campsite_id: 4)
+    r12 = Review.create!(title: "Our second time", body: "The Lost Coast Escape is an absolutely incredible site! We enjoyed our time and couldnt get over the views, hiking and just absolute tranquility.", rating: 5, recomended: true, author_id: 8, campsite_id: 4)
+    # reviews for c5
+    r13 = Review.create!(title: "Great escape close to home", body: "Very nice and quiet place to be relaxed. Close to bay area.", rating: 4, recomended: true, author_id: 6, campsite_id: 5)
+    r14 = Review.create!(title: "Such a beautiful place!", body: "A fun place to camp for a few nights. You definitely need 4w drive and high ground clearance to get to the sites. Lots of nice trails to walk. Recommend wearing pants and long sleeves since there can be some longer grass to walk through for some trails.", rating: 5, recomended: true, author_id: 1, campsite_id: 5)
+    r15 = Review.create!(title:"Camping with kids", body: "We love camping at Salmon Creek! This was our second time. It is very private, covered with trees. It is perfect to camp with kids and dogs.", rating: 5, recomended: true, author_id: 4, campsite_id: 5)
+    # reviews for c6
+    r16 = Review.create!(title: "Camping in a meadow", body: "What a great experience! Less than a minute from a state highway but still very private. Lots of nooks and crannies to explore, a beautiful stream, lovely mountain views.", rating: 4, recomended: true, author_id: 3, campsite_id: 6)
+    r17 = Review.create!(title: "Great Place", body: "Lovely location right near the creek. Plenty of space and a very welcoming host! Totally plan on camping here again.", rating: 5, recomended: true, author_id: 7, campsite_id: 6)
+    r18 = Review.create!(title: "Will definitely come back", body: "I enjoyed my time here. It was quiet for being near a road. I woke up briefly in the middle of the night was was very happy with how peaceful it was.", rating: 5, recomended: true, author_id: 1, campsite_id: 6)
     
     # r1 = Review.create!(title: , body: , rating: , recomended: , author_id: , campsite_id: )
 
 
     puts "Creating bookings..."
 
+    b1 = Booking.create!(campsite_id: 1, customer_id: 1, host_id: c1.host_id, adults: 10,children: 0, pets: 0, price: c1.price*5, checkin_date: "2022-09-20", checkout_date: "2022-09-25")
+    b1 = Booking.create!(campsite_id: 2, customer_id: 1, host_id: c2.host_id, adults: 8,children: 0, pets: 0, price: c2.price*4, checkin_date: "2022-10-05", checkout_date: "2022-10-09")
+    b1 = Booking.create!(campsite_id: 3, customer_id: 1, host_id: c3.host_id, adults: 2,children: 0, pets: 0, price: c3.price*3, checkin_date: "2022-04-10", checkout_date: "2022-04-13")
+    b1 = Booking.create!(campsite_id: 4, customer_id: 1, host_id: c4.host_id, adults: 3,children: 0, pets: 0, price: c3.price*4, checkin_date: "2022-06-09", checkout_date: "2022-06-12")
+    
+
+    # b1 = Booking.create!(campsite_id: , customer_id: , host_id: ,adults:  ,children: 0, pets: 0, price: , checkin_date: , checkin_date: )
 end
+
+#  campsite_id   :bigint           not null
+#  customer_id   :bigint           not null
+#  host_id       :bigint           not null
+#  adults        :integer          default(1), not null
+#  children      :integer
+#  pets          :integer
+#  price         :float            not null
+#  checkin_date  :datetime         not null
+#  checkout_date
