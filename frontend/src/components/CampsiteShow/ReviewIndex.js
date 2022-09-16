@@ -66,7 +66,7 @@ const ReviewIndex = ({ campsiteId }) => {
                 <div className='create-rev-container'>
                     {/* {!hasReviewed && <LeaveReview campsite={campsite} />} */}
                     {/* {!hasReviewed ? <Link to={`/new_review/${campsiteId}`} /> : null} */}
-                    <Link to={`/new_review/${campsiteId}`} id='create-rev'>Leave a Review</Link> 
+                    {sessionUser ? <Link to={`/new_review/${campsiteId}`} id='create-rev'>Leave a Review</Link> : null}
                     {/* <Link to={`/new_review`} >Leave a Review</Link>  */}
                 </div>
             </div>

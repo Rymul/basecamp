@@ -28,9 +28,9 @@ const CampsiteShow = () => {
 
     const campsite = useSelector(getCampsite(campsiteId))
 
-    if (!sessionUser) {
-        history.push('/')
-    }
+    // if (!sessionUser) {
+    //     history.push('/')
+    // }
     if (campsite){
     return (
         <div className='campsite-parent'>
@@ -99,7 +99,7 @@ const CampsiteShow = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className='booking-amenities'> */}
+           
                 
                 <div className='amenities'>
                     <h2>What this site offers</h2>
@@ -112,10 +112,11 @@ const CampsiteShow = () => {
                     <h3><GiTap id='under-icon'/>Potable water available</h3>
                     <p>Garden Hose is up the hill for camper's use.</p>
                 </div>
+                {sessionUser ?
                 <div className='booking-container'>
-                    <BookingForm campsiteId={campsiteId} />
-                </div>
-            {/* </div> */}
+                     <BookingForm campsiteId={campsiteId} /> 
+                </div> : null }
+            
         
             <div className='get-there'>
                 <h2>Getting there</h2>
