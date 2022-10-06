@@ -58,39 +58,6 @@ Reviews:
 * If they have left a review, they will be able to edit or remove said review.
 
 
-Implementation Timeline:
----
----
-
-1. Hosing on Heroku (09/02/2022)
-
-2. New account creation, login, and guest/demo login (09/03/2022, 2 Days)
-* Users can sign up, sign in, and log out
-* Users can use a demo login to try the site
-* Users will have a currentUser show page that displays their bookings while allowing them to create, edit, and delete bookings
-* Users can't use certain feature without logging in (bookings/reviews)
-
-3. Campgrounds (09/05/2022, 3 Days)
-* Users can search for and reserve campgrounds
-* Campgrounds will show information such a description, list of amenities, price, availability, etc.
-
-4. Bookings (09/07/2022, 2 Days)
-* Logged in users can reserve campgrounds
-* Users can create, update, edit, and destroy reservations
-
-5. Reviews (09/09/2022 2, Days)
-* Logged in users can create reviews, update, edit, and destroy reviews
-* Users can indicate if the campground is recommended (boolean)
-* Each review will display the users first name and first character of their last name
-* Each campground will indicate a total number of reviews 
-
-6. Campground Search using Google Maps (09/11/2022, 2 Days)
-* Users can search by location to find campsites
-* Searching for a campsite will display its location on google maps
-
-7. Production README (09/13/2022, 0.5 Days) 
-
-
 Bonus Features:
 ---
 ---
