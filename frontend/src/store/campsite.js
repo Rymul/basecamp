@@ -50,9 +50,18 @@ export const getCampsites2 = state => {
     }
 }
 
-// export const getSearchCampsites = (query) => async dispatch => {
-
-// }
+export const getSearchedCampsites = (query) => async dispatch => {
+    const res = await fetch(`api/campsites/search/${query}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    });
+    if (res.ok) {
+        const campsites = await res.json();
+        dispatch(receiveCampsites(campsites))
+    }
+}
 
 
 export const fetchCampsites = () => async dispatch => {

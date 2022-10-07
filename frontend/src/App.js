@@ -6,6 +6,7 @@ import ReviewForm from "./components/CampsiteShow/ReviewForm";
 import UpdateReviewForm from "./components/CampsiteShow/UpdateReviewForm";
 import LoginFormPage from "./components/LoginFormPage/index";
 import Navigation from "./components/Navigation";
+import SearchIndex from "./components/SearchIndex/SearchIndex";
 import SignupForm from "./components/SignupFormPage";
 import SplashPage from "./components/SplashPage";
 import UserShow from "./components/UserShow/UserShow";
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path='/booking/:bookingId'>
             <UpdateBookingForm />
+          </Route>
+          <Route path='/search-results'>
+            <SearchIndex />
           </Route>
           <Route path='/'>
             <SplashPage />

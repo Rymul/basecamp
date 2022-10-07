@@ -2,21 +2,49 @@ import './HomeSearchBar.css'
 import { BiSearchAlt2 } from 'react-icons/bi'
 import { BsFillCalendarFill } from 'react-icons/bs'
 import { BsFillPersonFill } from 'react-icons/bs'
+import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { getSearchedCampsites } from '../../store/campsite';
 
-// DataRangePicker
 
 const HomeSearchBar = () => {
+    const [query, setQuery] = useState("");
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(getSearchedCampsites);
+        history.push("/search-results")
+    }
+
+    const handleChange = (field) => {
+        return e => {
+            switch (field) {
+                case 'query':
+                    setQuery(e.target.value)
+                    break;
+                default:
+                    console.log('Field name error.');
+                    break;     
+            }
+        }
+    }
 
     return (
-        <form className='search-home-searchBar'>
+        <form onSubmit={handleSubmit} className='search-home-searchBar'>
             <div className='search-home-location'>
                 <p className='search-input-title'>WHERE TO?</p>
                 <div className='search-input-holder'>
                     <BiSearchAlt2 className='search-input-icons icon' />
                     <input 
                         className='search-location-input'
-                        type="text" 
-                        placeholder='Try Yosemite, Napa, Moab...' 
+                        // type="text"
+                        autoFocus='autofocus'
+                        value={query}
+                        placeholder='Try Yosemite, Napa, Moab...'
+                        onChange={handleChange('query')}
                     />
                 </div>
             </div>
@@ -52,4 +80,4 @@ const HomeSearchBar = () => {
     )
 }
 
-export default HomeSearchBar
+export default HomeSearchBar;
