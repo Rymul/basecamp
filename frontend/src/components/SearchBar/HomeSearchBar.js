@@ -1,4 +1,4 @@
-import './SearchBar.css'
+import './HomeSearchBar.css'
 import { BiSearchAlt2 } from 'react-icons/bi'
 import { BsFillCalendarFill } from 'react-icons/bs'
 import { BsFillPersonFill } from 'react-icons/bs'

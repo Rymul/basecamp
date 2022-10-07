@@ -1,0 +1,865 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:100%;
+    background-color: rgb(243, 242, 239);
+    justify-content: center;
+    }
+
+.SplashContainer {
+    background-color: rgb(243, 242, 239);
+    padding-top: 70px;
+    width: 1232px;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.SplashContainer > div:last-of-type {
+    width: 100%;
+    text-align:left;
+    padding: 100px 0 30px 0;
+}
+
+.SplashTextContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding:60px 0;
+    color: rgb(40, 64, 12);
+    font-weight: 800;
+    width: 100%;
+}
+
+.SplashTextContainer h1 {
+    font-size: 60px;  
+}
+
+.SplashTextContainer h2 {
+    padding-top:15px;
+    max-width: 450px;
+    text-align: center;
+    line-height: 35px;
+    font-weight: 500;
+}
+
+.SearchContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:95%
+}
+
+.SplashSearchBarContainer {
+    box-sizing: border-box;
+    display: flex;
+    font-size: 12px;
+    padding: 20px 50px;
+    line-height: 25px;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    background-color: rgb(243, 242, 239);
+    border: 1px solid rgb(229, 234, 223);
+    border-radius: 200px;
+    z-index: 10;
+}
+.splashSearchInputs {
+    display: flex;
+    width: 100%;
+}
+
+.DateSelectorContainer,
+.GuestsSelectorContainer,
+.SearchInputContainer {
+    width: 100%;
+    padding-left: 10px;
+    position: relative;
+}
+
+#splashDatesSelectorButton,
+#splashGuestsSelectorButton,
+#SearchSelectorButton {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    border-radius: 20px;
+    border: 1px solid rgb(222, 222, 222);
+    height: 45px;
+    background-color:rgb(255,255,255);
+    width: 100%;
+    justify-content: left;
+    font-size: 16px;
+    align-items: center;
+    color: rgb(60, 60, 60);
+}
+
+#DatesSelectorButton i,
+#GuestsSelectorButton i {
+    padding: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.DateSelectorContainer.splash,
+.GuestsSelectorContainer.splash {
+    width: 25%;
+}
+
+.SearchInputContainer {
+    width: 50%;
+}
+.splashSearchInputs i {
+    padding-left: 5px;
+}
+
+.searchPill {
+    display: flex;
+    font-size: 18px;
+    margin-left: 10px;
+    justify-content: center;
+    background-color: rgb(0, 197, 133);
+    color: rgb(255, 255, 255);
+    width: 45px;
+    text-align: center;
+    height: 45px;
+    border-radius: 100px;
+    align-items: center;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease-in-out,border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.searchPill:hover {
+    background-color: rgb(255,255,255);
+    border-color: rgb(0, 197, 133);
+    color: rgb(0, 197, 133);
+}
+
+.imageContainer {
+    width: 100%;
+    margin-top: -55px;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.searchImage {
+    width:100%;
+    z-index:0;
+    overflow: hidden;
+    margin-top: -40px;
+}
+
+.SplashDoubleContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.DoubleItemImage img {
+    height: 405px;
+
+}
+
+
+.DoubleItemContainer {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width:802px;
+    overflow: hidden;
+    width: 604px;
+    height: 420px;
+    border-radius: 24px;
+}
+
+.DoubleItemLabel {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(224, 80, 40);
+    padding: 24px 32px;
+    color:rgb(255, 255, 255);
+    margin-top: -140px;
+    z-index: 100;
+}
+
+.DoubleItemLabelText {
+    display: flex;
+    flex-direction: column;
+    width:50%
+}
+
+.DoubleItemLabelText h3 {
+    font-size: 13px;
+    padding-bottom: 15px;
+}
+
+.DoubleItemLabelText p {
+    font-size: 18px;
+    line-height: 30px;
+    padding-bottom: 15px;
+}
+
+.DoubleItemContainer button {
+    border:none;
+    border-radius: 100px;
+    padding:16px 50px;
+    font-size: 18px;
+    color: rgb(224, 80, 40);
+    align-self: center;
+}
+
+
+.SplashDateModalContainer {
+    position: absolute;
+    top: 80px;
+    right: -350px;
+    z-index: 1000;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 16%) 0px 2px 4px 0px;
+    border-radius: 12px;
+}
+
+.DateSelectorContainer.splash i , .GuestsSelectorContainer.splash i, .SearchInputContainer i {
+    padding: 0 10px
+}
+
+.SplashGuestsModalList {
+    display: flex;
+    flex-direction: column;
+}
+
+.SplashGuestsModalContainer {
+    position: absolute;
+    top: 80px;
+    z-index: 1000;
+    box-shadow: rgb(0 0 0 / 16%) 0px 2px 4px 0px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    right: 0;
+    left: 0
+}
+
+.SplashGuestsModalList>li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+    border-bottom: 1px solid rgb(222, 222, 222)
+}
+
+#SearchSelectorButton input {
+    height:100%;
+    width: 100%;
+    border:none;
+    font-size: 20px;
+}
+
+#SearchSelectorButton input:focus {
+    outline-width: 0;
+}
+
+#SearchSelectorButton {
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.react-calendar {
+    width: 350px;
+    max-width: 100%;
+    background: white;
+    border: 1px solid #a0a096;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.125em;
+}
+
+.react-calendar--doubleView {
+    width: 700px;
+    padding: 30px;
+    border: 1px solid rgb(222, 222, 222);
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+    display: flex;
+    margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer>* {
+    width: 50%;
+    margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.react-calendar button {
+    margin: 0;
+    border: 1px solid rgb(222, 222, 222);
+    outline:none;
+}
+
+.react-calendar__navigation__arrow {
+    border-radius: 3px;  
+}
+
+
+
+.react-calendar__navigation__label {
+    border-style: none !important;
+    background-color: transparent !important;
+    color: rgb(72, 72, 72);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.react-calendar button:enabled:hover {
+    cursor: pointer;
+}
+
+.react-calendar__navigation {
+    display: flex;
+    height: 44px;
+    margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+    min-width: 44px;
+    background: none;
+}
+
+.react-calendar__navigation button:disabled {
+    background-color: #f0f0f0;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+    background-color: #e6e6e6;
+}
+
+.react-calendar__month-view__weekdays {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.75em;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+    padding: 0.5em;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+/* .react-calendar__month-view__days__day--weekend {
+    color: #d10000;
+} */
+
+.react-calendar__month-view__days__day--neighboringMonth {
+    border-color: transparent !important;
+    background-color: transparent !important;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth abbr {
+    color: transparent;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+    padding: 2em 0.5em;
+}
+
+.react-calendar__tile {
+    max-width: 100%;
+    padding: 10px 6.6667px;
+    background: none;
+    text-align: center;
+    line-height: 16px;
+}
+
+.react-calendar__tile:disabled {
+    background-color: #f0f0f0;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+    background-color: #e6e6e6;
+}
+
+/* .react-calendar__tile--now {
+    background: #ffff76;
+} */
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+    background: #ffffa9;
+}
+
+.react-calendar__tile--hasActive {
+    background: #76baff;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+    background: #a9d4ff;
+}
+
+.react-calendar__tile--active {
+    background: rgb(0, 197, 133);
+    color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+    background: rgb(130, 191, 172);
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+    background-color: #e6e6e6;
+}
+
+
+
+
+
+
+
+.spotContainer {
+    max-width: 1232px;
+    margin: 0 auto;
+}
+
+.headerName {
+    font-weight: 700;
+    font-size: 28px;
+    padding-top: 20px;
+}
+
+.reviewsLocationContainer {
+    margin: 15px 0;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.recommended {
+    color: rgb(0, 197, 133);
+}
+
+.spotImagesContainer {
+    display: flex;
+    overflow: hidden;
+    align-items: flex-start;
+    background-color: #000000;
+    margin: -px;
+    box-sizing: border-box;
+    border-radius: 8px
+    ;
+}
+
+.spotImagesLeft {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    overflow: hidden;
+    border-right: 4px solid white;
+    height: min(464px,37.7vw);
+}       
+
+#spotImagesLeft {
+    
+    box-sizing: border-box;
+    
+    overflow: hidden;
+    
+}
+
+.spotImagesRightContainer {
+    width:50%;
+    display:flex;
+    flex-wrap: wrap;
+    height: min(464px, 37.7vw);
+    border-left: 4px solid white;
+}
+
+.spotImagesRightContainer img {
+    width:120%;
+    height: auto;
+    align-self: center;
+
+}
+
+.spotImagesRightContainer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 50%;
+}
+
+#spotImagesRightLeftTop {
+    
+    border-right: 4px solid white;
+    border-bottom: 4px solid white;
+    box-sizing: border-box;
+    width:50%;
+}
+
+#spotImagesRightRightTop {
+    border-left: 4px solid white;
+    border-bottom: 4px solid white;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+#spotImagesRightLeftBottom {
+    border-right: 4px solid white;
+    border-top: 4px solid white;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+#spotImagesRightRightBottom {
+    box-sizing: border-box;
+    border-left: 4px solid white;
+    border-top: 4px solid white;
+    width: 50%;
+}
+
+.spotSizeTypeContainer {
+    display: flex;
+    justify-content:left;
+    padding: 20px 20px 20px 0;
+    align-content: center;
+
+}
+
+.acres {
+    padding: 20px 50px 20px 0;
+    border-right: 1px solid rgb( 222, 222, 222);
+    font-size: 22px; 
+   
+}
+.type {
+    text-align: center;
+    line-height: 30px;
+    padding: 0px 50px 0px 50px;
+}
+
+.SpotDescriptionContainer {
+    display: flex;
+    padding: 20px 100px 20px 0;
+    line-height: 28px;
+
+}
+
+.InfoContainer {
+    display: flex;
+    padding-bottom: 30px;
+    
+}
+.InfoContainer > div {
+    width: 700px
+}
+
+.SpotTagContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 25px;
+    text-align: left;
+}
+
+.SpotTagContainer li:first-of-type {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.SpotTagContainer li {
+    padding: 13px;
+    font-size: 17px;
+}
+.SpotTagContainer i {
+    padding: 0 5px;
+    font-size: 20px;
+}
+
+.SpotTagContainer button {
+    border-style: none;
+    background-color: transparent;
+    color: rgb(0, 197, 133);
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.SpotAvailabilityContainer {
+    padding: 40px 0 40px 0
+    
+}
+
+.SpotAvailabilitySelectorsContainer {
+    display: flex;
+    font-size: 12px;
+    padding-top: 20px;
+    line-height: 25px;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* width: 80%; */
+}
+
+.SpotDateSelectorContainer , .SpotGuestsSelectorContainer{
+    width: 100%;
+    padding-left:10px;
+    position: relative;
+}
+
+.checkAvailibilityPill {
+    display: flex;
+    margin-left: 10px;
+    justify-content: center;
+    background-color: rgb(0, 197, 133);
+    color: rgb(255,255,255);
+    width: 350px;
+    text-align: center;
+    height: 45px;
+    border-radius: 100px;
+    align-items: center;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+#SpotDatesSelectorButton, #SpotGuestsSelectorButton {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    border-radius: 20px;
+    border: 1px solid rgb(222,222,222);
+    height: 45px;
+    width:100%;
+    justify-content:left;
+    font-size: 16px;
+    align-items: center;
+    color: rgb(60, 60, 60);
+}
+
+#SpotDatesSelectorButton i , #SpotGuestsSelectorButton i{
+    padding: 10px;
+    color: rgb(0,0,0);
+}
+
+.SpotDateModalContainer {
+    position:absolute;
+    top: 80px;
+    z-index: 1000;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 16%) 0px 2px 4px 0px;
+    border-radius: 12px;
+}
+.SpotGuestsModalContainer {
+    position: absolute;
+    top: 80px;
+    z-index: 1000;
+    box-shadow: rgb(0 0 0 / 16%) 0px 2px 4px 0px;
+    background-color: rgb(255,255,255);
+    border-radius: 12px;
+    right: 0;
+    left: 0
+}
+.SpotGuestsModalList > li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+    border-bottom: 1px solid rgb(222,222,222)
+}
+
+li.children {
+    border-bottom:initial;
+}
+
+
+.SpotGuestsModalList{
+    display: flex;
+    flex-direction: column;
+}
+ 
+.titlesContainer {
+    display: flex;
+    flex-direction: column;
+    
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.guestDescription {
+    font-size: 16px;;
+}
+.togglesContainer {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.toggle::selection {
+    background-color: transparent;
+}
+
+.toggle {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    padding:0;
+    border-radius: 100px;
+    border:2px solid rgb(40, 64, 12);
+    width: 30px;
+    height:30px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+}
+
+.toggle:not(.greyToggle):hover {
+background-color: rgb(230, 239, 217)
+}
+
+.greyToggle {
+    border-color: rgb(151, 151, 151);
+    background-color: rgb(222, 222, 222);
+    color: rgb(151, 151, 151);
+    z-index: 50;
+}
+
+.googleMap {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    position:static;
+    max-width: 1232px;
+    height: 500px;
+}
+
+
+.priceContainer {
+    padding: 30px 0 0 0;
+    color: rgb(60,60,60);
+    display: flex;
+    align-items: center;
+}
+
+.guestsContainer {
+    color: rgb(60, 60, 60);
+    padding-top: 8px;
+}
+
+.priceContainer > div {
+    font-weight: 500;
+    font-size: 28px;
+    color:rgb(0,0,0);
+    padding: 0 5px;
+}
+
+.SpotLocationContainer {
+    margin: 50px 0 ;
+}
+
+
+.SpotLocationContainer p {
+    font-weight: 500;
+}
+
+.spotReviewItems {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%
+}
+
+.SpotReviewItemContainer {
+    width: 600px
+}
+
+.SpotReviewsContainer {
+    margin: 30px 0 50px 0
+}
+
+.SpotReviewHeader {
+    padding:0 0 20px 0;
+}
+
+.SpotReviewHeader li:first-of-type {
+    padding: 10px 0;
+    color:rgb(0, 197, 133);
+}
+
+.SpotReviewItemCustomerHeader {
+    display: flex;
+}
+
+.SpotReviewItemCustomerHeader ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    justify-content: space-around;
+}
+
+.SpotReviewItemCustomerHeader ul li:first-of-type {
+    font-weight: bold;
+}
+
+
+.SpotReviewItemContainer p {
+    padding: 30px 20px 0 0;
+    line-height: 26px;
+    ;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.SpotReviewItemContainer {
+    padding-bottom: 30px;
+}

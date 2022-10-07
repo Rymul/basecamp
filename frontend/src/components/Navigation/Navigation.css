@@ -31,18 +31,23 @@
 
 .user-div {
     border: 1px solid #28400C;
-    height: 115%;
-    width: 23%;
-    border-radius: 50px;
+    /* height: 100%;
+    width: 23%; */
+    height: 37px;
+    width: 37px;
+    border: none;
+    /* border-radius: 50px; */
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 1px;
     background-color: #f9f9f9;
+    clip-path: circle();
 }
 
 .user-div:hover {
-    border: 1px solid #f9f9f9;
+    /* border: 1px solid #f9f9f9; */
+    border: none;
     background-color: #00C585;
     
 }
