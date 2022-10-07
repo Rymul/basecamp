@@ -47,9 +47,6 @@ const SignupForm = () => {
         <div className="signup-component">
             
             <form className="signup-form" onSubmit={handleSubmit}>
-                <ul className="errors">
-                    {errors.map((error) => <li className="error" key={error}>{error}</li>)}
-                </ul>
                 <div className="title">
                     <h1>Join Basecamp!</h1>
                     <p>Discover the best camping near me</p>
@@ -102,6 +99,9 @@ const SignupForm = () => {
             <div className="signup-component-footer">
                 <span>Have an account?</span>
                 <Link className="to-login-button" to={'/login'}> Sign in</Link>
+            </div>
+            <div className="errors">
+                    {errors.map((error) => <li className="error" key={error}>{error}</li>)}
             </div>
         
         </div>

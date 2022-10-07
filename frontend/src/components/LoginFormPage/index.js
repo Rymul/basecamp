@@ -51,7 +51,7 @@ const LoginFormPage = () => {
                     
                 // const x = Object.values(errors)[0]
                 // console.log(x.slice(12,x.length-4), "errors")
-                console.log(data, 'data')
+                // console.log(data, 'data')
                 
                 // errors.map(error => console.log(error[0], 'error'));
                 // Object.values(data).map(error => console.log(error, 'error'));
@@ -62,9 +62,6 @@ const LoginFormPage = () => {
     return (
         <div className="login-component">  
             <form className="login-form" onSubmit={handleSubmit}>
-                <ul className="errors">
-                    {errors.map(error => <li className="error" key={error}>{error}</li>)}
-                </ul>
                 <div className="title">
                     <h1>Welcome Back!</h1>
                     <p>Let's get you outside.</p>
@@ -98,6 +95,9 @@ const LoginFormPage = () => {
             <div className="login-component-footer">
                 <span>Don't have a Basecamp account?</span>
                 <Link className="to-signup-button" to={'/signup'}> Sign up!</Link>
+            </div>
+            <div className="errors">
+                    {errors.map(error => <li className="error" key={error}>{error}</li>)}
             </div>
         </div>
 

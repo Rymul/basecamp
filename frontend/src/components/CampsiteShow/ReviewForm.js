@@ -24,15 +24,40 @@ const ReviewForm = () => {
     });
     const campsite = useSelector(getCampsite(campsiteId))
 
-    // const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setErrors([]);
         // console.log(history)
-        dispatch(createReview(review)).then(()=> 
-        {
-            // debugger 
-            history.goBack()})
+        dispatch(createReview(review))
+        .catch(async (res) => {
+            let data;
+            try {
+                data = await res.close().json().then(()=> {history.goBack()});
+            } catch {
+                data = await res.text();
+            }
+            if (data?.errors) {
+                setErrors(data.errors);
+            } else if (data) {
+                // const newError = Object.values([data])[0]
+                // setErrors([newError.slice(12,newError.length-4)])
+                const newError = JSON.parse(data)
+                setErrors(newError.errors)
+                // setErrors([data]);
+            } else {
+                setErrors([res.statusText]);
+            }
+                
+            // const x = Object.values(errors)[0]
+            // console.log(x.slice(12,x.length-4), "errors")
+            // console.log(data, 'data')
+            
+            // errors.map(error => console.log(error[0], 'error'));
+            // Object.values(data).map(error => console.log(error, 'error'));
+        })
+        
         
     }
 
@@ -46,9 +71,6 @@ const ReviewForm = () => {
 
     return(
         <div className='reviewForm-component'>
-            {/* <ul className="errors">
-                {errors.map(error => <li className="error" key={error}>{error}</li>)}
-            </ul> */}
             <div className='title'>
                 <h1>Thank you for your stay at {`${campsite.name}`}.</h1>
                 <p>Your feedback is truly appreciated to make future camping better for all!</p>
@@ -58,16 +80,16 @@ const ReviewForm = () => {
                 <form onSubmit={handleSubmit} className='review-form'>
                     {/* <label id='title'>Title:  */}
                         <input 
-                            id='review-form-title'
+                            className='review-form-title'
                             placeholder='Title...' 
                             type='text' 
                             value={review.title} 
                             onChange={handleChange("title")} 
                         />
                     {/* </label> */}
-                    {/* <label id='body'>Body: */}
+                    {/* <label className='body'>Body: */}
                         <textarea 
-                            id='review-form-body' 
+                            className='review-form-body' 
                             placeholder='Body...' 
                             maxLength="200" cols="50" rows="4" 
                             value={review.body} 
@@ -75,18 +97,21 @@ const ReviewForm = () => {
                         </textarea>
                     {/* </label> */}
                     <div className='rating'>
-                        <label id='rating'>Rating:</label>
-                            <input type="radio" name="rating" id="rating-input" value='1' onChange={handleChange}/>1 
-                            <input type="radio" name="rating" id="rating-input" value='2' onChange={handleChange}/>2 
-                            <input type="radio" name="rating" id="rating-input" value='3' onChange={handleChange}/>3 
-                            <input type="radio" name="rating" id="rating-input" value='4' onChange={handleChange}/>4 
-                            <input type="radio" name="rating" id="rating-input" value='5' onChange={handleChange}/>5 
+                        <label className='rating'>Rating:</label>
+                            <input type="radio" name="rating" className="rating-input" value='1' onChange={handleChange}/>1 
+                            <input type="radio" name="rating" className="rating-input" value='2' onChange={handleChange}/>2 
+                            <input type="radio" name="rating" className="rating-input" value='3' onChange={handleChange}/>3 
+                            <input type="radio" name="rating" className="rating-input" value='4' onChange={handleChange}/>4 
+                            <input type="radio" name="rating" className="rating-input" value='5' onChange={handleChange}/>5 
                     </div>
-                    <label id='recommended'>Recommended
-                        <input id='recommended-input' type="checkbox" value={review.recomended} onChange={handleChange} />
+                    <label className='recommended'>Recommended
+                        <input className='recommended-input' type="checkbox" value={review.recomended} onChange={handleChange} />
                     </label>
-                    <button id='submit-button'>Create Review</button>
+                    <button className='submit-button'>Create Review</button>
                 </form>
+                <div className="errors">
+                    {errors.map(error => <li className="error" key={error}>{error}</li>)}
+                </div>
             </div>
         </div>
     )

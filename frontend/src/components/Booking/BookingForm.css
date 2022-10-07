@@ -6,9 +6,9 @@
     /* background-color: rgb(195, 34, 34); */
     box-shadow: 2px 1px 5px 3px #888888;
     border-radius: 30px;
-    height: 32rem;
+    height: 34rem;
     position: sticky;
-    top: 25%;
+    top: 20%;
     left: 60%;
     padding: 1rem;
     display: flex;
@@ -30,24 +30,34 @@
     justify-content: center;
 }
 
-#booking-title-container {
+.booking-title-container {
     display: flex;
     /* flex-direction: column; */
     justify-content: space-around;
     margin-bottom: 5%;
 }
 
-#booking-title {
+.booking-title-per-night {
     display: flex;
 }
 
-#booking-title p {
+.booking-title-per-night p {
     font-size: 20px;
     font-weight: 400;
     margin-right: 1%;
 }
 
-#book-input-title {
+.booking-title-total {
+    display: flex;
+}
+
+.booking-title-total p {
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: 5%;
+}
+
+.book-input-title {
     font-size: 20px;
     font-weight: 400;
 }
@@ -75,22 +85,22 @@
 }
 
 
-#selected-dates {
+.selected-dates {
 
 }
 
-#book-guests-title {
+.book-guests-title {
     font-size: 20px;
     font-weight: 400;
     width: 30%;
 }
 
-#guest-number {
+.guest-number {
     margin-left: 5%;
 }
 
 
-#book-button {
+.book-button {
     display: block;
     box-sizing: border-box;
     border: #f9f9f9;
@@ -107,7 +117,7 @@
 }
 
 
-#book-button:hover {
+.book-button:hover {
     border: 1px solid #00C585;
     background-color: #f9f9f9;
     color:#00C585;

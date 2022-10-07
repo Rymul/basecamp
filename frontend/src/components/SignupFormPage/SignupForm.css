@@ -4,6 +4,7 @@
 
 .signup-form {
     /* border: solid 1px red; */
+    width: 100%;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -100,7 +101,7 @@
 .signup-component-footer{
     box-sizing: border-box;
     text-align: center;
-    padding: 15px;
+    margin: 15px;
 }
 
 .to-login-button {

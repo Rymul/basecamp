@@ -91,25 +91,25 @@ const BookingForm = ({campsiteId}) => {
     return(
         
         <div className='booking-component'>
-            <div id='booking-title-container'>
-                <div id='booking-title'>
+            <div className='booking-title-container'>
+                <div className='booking-title-per-night'>
                     <p>from</p>
                     <p>${campsite.price}</p>
                     <p>/</p>
                     <p>night</p>
                 </div>
-                <div id='booking-title'>
-                    <p>Total</p>
+                <div className='booking-title-total'>
+                    <p>Total </p>
                     <p>${campsite.price * dayDif()}</p>
                 </div>
             </div>
                 {/* <button onClick={openModal}>Enter Dates</button>
                 <CalendarModal showModal={showModal} setShowModal={setShowModal}/> */}
                 <form onSubmit={handleSubmit} className="input-holder">
-                    <label id='book-input-title'>DATES</label>
+                    <label className='book-input-title'>DATES</label>
                     {/* <CalendarModal showModal={showModal} setShowModal={setShowModal}/> */}
                         <DateRangePicker 
-                            id='calendar'
+                            className='calendar'
                             editableDateInputs={true}
                             moveRangeOnFirstSelection={false}
                             ranges={[selectedDates]}
@@ -121,20 +121,20 @@ const BookingForm = ({campsiteId}) => {
                         />
                         {/* <input 
                             type="date" 
-                            id="selected-dates"
+                            className="selected-dates"
                             onChange={handleChange('checkinDate')}
                         /> */}
                     
-                    {/* <label id='input-title'>CHECKOUT DATE
+                    {/* <label className='input-title'>CHECKOUT DATE
                         <input 
                             type="date" 
-                            id="selected-dates"
+                            className="selected-dates"
                             onChange={handleChange('checkoutDate')}
                         />
                     </label> */}
-                    <label id='book-guests-title'>GUESTS
+                    <label className='book-guests-title'>GUESTS
                         <input 
-                            id='guest-number' 
+                            className='guest-number' 
                             type="number" 
                             min='1' 
                             max={campsite.capacity} 
@@ -142,7 +142,7 @@ const BookingForm = ({campsiteId}) => {
                             onChange={handleChange('adults')}
                         />
                     </label>
-                    <button id='book-button'>Book</button>
+                    <button className='book-button'>Book</button>
                     <p>You won't be charged yet</p>
                 </form>
         </div>
