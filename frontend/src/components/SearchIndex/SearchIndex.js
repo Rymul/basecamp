@@ -21,7 +21,7 @@ const SearchIndex = () => {
             <div className="search-index-container">
                 {campsites.map(campsite => {
                     return(
-                        <div key={`${campsite.id}`} className='single-campsite'>
+                        <div key={`${campsite.id}`} className='campsite-item-single-campsite'>
                            <CampsiteItem campsite={campsite} />
                         </div>   
                     )

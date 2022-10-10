@@ -13,31 +13,37 @@ const CampsiteItem = ({campsite}) => {
     
 
     return (
-        <div className="campsite-info-container">
-            <Link key={`${campsite.id}1`} id='single-campsite-link' to={`/campsites/${campsite.id}`}>
-                <img key={`${campsite.id}2`} id='campsite-img' src={campsite.photoUrl[0]} alt={campsite.location} />
+        <div className="campsite-item-info-container">
+            <Link key={`${campsite.id}1`} className='campsite-item-campsite-link' to={`/campsites/${campsite.id}`}>
+                <img key={`${campsite.id}2`} className='campsite-item-img' src={campsite.photoUrl[0]} alt={campsite.location} />
             </Link>
-            <FaThumbsUp id='review-thumb'/>
-            <p id='review-per'>{Math.floor(campsite.rating)}%</p>
-            <p id='review-num'>{campsite.numRating} reviews</p>
-            <div className='campsite-title-container'>
-                <h1 id='campsite-title'>{campsite.name}</h1>
+
+            <div className="campsite-item-rating">
+                <FaThumbsUp className='campsite-item-review-thumb'/>
+                <p className='campsite-item-review-per'>{Math.floor(campsite.rating)}%</p>
+                <p className='campsite-item-review-num'>({campsite.numRating})</p>
             </div>
-            <div id='site-type'>
-                <h3 id='c-type'>Campsite Type:</h3>
-                <div id='types'>
-                    { campsite.site_type === 'tent' ? <p id='type-icon'><GiCampingTent /> Tent</p> : <p id='type-icon'><FaBed id='type-icon'/>Lodging</p>  }
+            <div className='campsite-item-title-container'>
+                <Link key={`${campsite.id}11`} className='campsite-item-campsite-link' to={`/campsites/${campsite.id}`}>
+                    <p className='campsite-item-campsite-title'>{campsite.name}</p>
+                </Link>
+            </div>
+            <div className='campsite-item-capacity-site-type'>
+                <p className='campsite-item-capacity'>Capacity:</p>
+                <p className='campsite-item-capacity'>{campsite.capacity}</p>
+                <div className='campsite-item-types'>
+                    { campsite.site_type === 'tent' ? <p className='campsite-item-type'>Tent</p> : <p className='campsite-item-type'>Lodging</p>  }
                 </div>
-                <div id='capacity'>
+                {/* <div className='campsite-item-capacity'>
                     <p>Sleeps </p> 
                     <p>{campsite.capacity}</p>
-                </div>
+                </div> */}
             </div>
-            <div className='booking-title-per-night'>
-                <p>from</p>
-                <p>${campsite.price}</p>
-                <p>/</p>
-                <p>night</p>
+            <div className='campsite-item-price-per-night'>
+                <p className="campsite-item-from">from</p>
+                <p className="campsite-item-price">${campsite.price}</p>
+                <p className="campsite-item-price-text">/</p>
+                <p className="campsite-item-price-text">night</p>
             </div>
         </div>
     )
