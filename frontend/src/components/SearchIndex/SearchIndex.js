@@ -2,6 +2,7 @@ import { useSelector } from "react-redux"
 import { getCampsites } from "../../store/campsite"
 import CampsiteItem from "./CampsiteItems"
 import "./SearchIndex.css"
+import SearchMapWrapper from "./SearchMapWrapper"
 
 
 const SearchIndex = () => {
@@ -29,6 +30,9 @@ const SearchIndex = () => {
                             </div>   
                         )
                     })}
+                </div>
+                <div className="search-index-map">
+                    <SearchMapWrapper apiKey={process.env.REACT_APP_MAPS_API_KEY} campsites={Object.values(campsites)}/>
                 </div>
             </div>
         )
