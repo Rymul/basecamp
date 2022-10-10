@@ -57,10 +57,11 @@ search-index-results-container {
     border-radius: 15px;
     transition: all .15s ease-in-out;
     margin-bottom: 2%;
+    object-fit: cover;
 }
 
 .campsite-item-img:hover {
-transform: translateY(-5px);
+transform: translateY(-10px);
 box-shadow: 0px 1px 3px #888888;
 }
 

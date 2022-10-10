@@ -54,6 +54,7 @@
 }
 .img-container {
     height: 45%;
+    height: 600px;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -64,5 +65,6 @@
     border-radius: 20px;
     height: 100%;
     width: 81%;
+    object-fit: cover;
 
 }
