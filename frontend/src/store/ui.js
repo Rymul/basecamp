@@ -7,21 +7,21 @@ const TOGGLE_SPLASH_GUESTS_MODAL = 'ui/TOGGLE_SPLASH_GUESTS_MODAL'
 const TOGGLE_BOOKING_PAGE_MODAL = 'ui/TOGGLE_BOOKING_PAGE_MODAL'
 const HIDE_ALL_BOOKINGS_PAGE_MODALS = 'ui/HIDE_ALL_BOOKINGS_PAGE_MODALS'
 
-export const toggleLoginModal = (value) => ({
-    type: TOGGLE_LOGIN_MODAL, payload:value
-})
+// export const toggleLoginModal = (value) => ({
+//     type: TOGGLE_LOGIN_MODAL, payload:value
+// })
 
-export const toggleHamburgerMenuModal = (value) => ({
-    type: TOGGLE_HAMBURGER_MENU_MODAL, payload: value
-})
+// export const toggleHamburgerMenuModal = (value) => ({
+//     type: TOGGLE_HAMBURGER_MENU_MODAL, payload: value
+// })
 
-export const toggleSpotDatesModal = (value) => ({
-    type: TOGGLE_SPOT_DATES_MODAL, payload: value
-})
+// export const toggleSpotDatesModal = (value) => ({
+//     type: TOGGLE_SPOT_DATES_MODAL, payload: value
+// })
 
-export const toggleSpotGuestsModal = (value) => ({
-    type: TOGGLE_SPOT_GUESTS_MODAL, payload: value
-})
+// export const toggleSpotGuestsModal = (value) => ({
+//     type: TOGGLE_SPOT_GUESTS_MODAL, payload: value
+// })
 
 export const toggleSearchGuestModal = (value) => ({
     type: TOGGLE_SPLASH_GUESTS_MODAL, payload: value
@@ -31,14 +31,14 @@ export const toggleSearchDateModal = (value) => ({
     type: TOGGLE_SPLASH_DATES_MODAL, payload: value
 })
 
-export const toggleBookingPageModal = (value, bookingId) => ({
-    type: TOGGLE_BOOKING_PAGE_MODAL, payload: {value, bookingId}
-})
+// export const toggleBookingPageModal = (value, bookingId) => ({
+//     type: TOGGLE_BOOKING_PAGE_MODAL, payload: {value, bookingId}
+// })
 
 
-export const hideAllBookingsPageModals = () => ({
-    type: HIDE_ALL_BOOKINGS_PAGE_MODALS
-})
+// export const hideAllBookingsPageModals = () => ({
+//     type: HIDE_ALL_BOOKINGS_PAGE_MODALS
+// })
 
 const uiReducer = (state = { loginModal: false, hamburgerMenuModal: false, showSpotDatesModal: false, showSpotGuestsModal: false, showSearchDateModal: false, showSearchGuestModal: false, showBookingPageModal :null} , action) => {
     Object.freeze(state);

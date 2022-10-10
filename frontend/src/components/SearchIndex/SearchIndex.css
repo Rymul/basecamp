@@ -1,0 +1,136 @@
+.search-index-component {
+    padding-top: 5%;
+    width: 100vw;
+    
+}
+
+.search-index-error-results-container {
+    display: flex;
+    justify-content: center;
+}
+
+.search-index-error-container {
+    
+}
+
+.search-index-error {
+
+}
+
+search-index-results-container {
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.search-index-container {
+    width: 48%;
+    /* display: flex;
+    flex-direction: column;
+    align-content: center; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4%;
+    row-gap: 5%;
+    margin-left: 1%;
+}
+
+.campsite-item-single-campsite {
+    /* width: 24%;
+    height: 17%; */
+    width: 100%;
+    height: 100%;
+    /* margin-bottom: 5vh; */
+}
+
+.campsite-item-info-container {
+
+}
+
+.campsite-item-campsite-link {
+    text-decoration: none;
+}
+
+.campsite-item-img {
+    width: 100%;
+    height: 22vh;
+    border-radius: 15px;
+    transition: all .15s ease-in-out;
+    margin-bottom: 2%;
+    object-fit: cover;
+}
+
+.campsite-item-img:hover {
+transform: translateY(-10px);
+box-shadow: 0px 1px 3px #888888;
+}
+
+.campsite-item-rating {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2%;
+}
+
+.campsite-item-review-thumb {
+    color: #00C585;
+    margin-right: 1%;
+}
+
+.campsite-item-review-per {
+    margin-right: 1%;
+    color: #00C585;
+}
+
+.campsite-item-review-num {
+    color: #757575;
+    font-size: 13px;
+}
+
+.campsite-item-title-container {
+    margin-bottom: 2%;
+}
+
+.campsite-item-campsite-title {
+    color: #222222;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.campsite-item-capacity-site-type {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.campsite-item-capacity {
+    color: #757575;
+    margin-right: 1%;
+}
+
+.campsite-item-types {
+    width: 100%;
+    margin-left: 2%;
+}
+
+.campsite-item-type {
+    color: #757575;
+}
+
+.campsite-item-price-per-night {
+    display: flex;
+    width: 100%;
+}
+
+.campsite-item-from {
+    color: #757575;
+    margin-right: 1%;
+}
+
+.campsite-item-price {
+    color: #222222;
+    font-weight: 600;
+}
+
+.campsite-item-price-text {
+    color: #222222;
+}

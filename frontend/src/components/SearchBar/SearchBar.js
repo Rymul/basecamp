@@ -7,6 +7,7 @@ import "./SearchBar.css"
 
 
 
+
 function SearchBar () {
     const history = useHistory();
     const handleClick = () => {

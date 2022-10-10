@@ -145,12 +145,16 @@
 
 .booking-img-container {
     height: 100%;
+    width: 23%;
     margin-right: 5%;
 
 }
 
 #img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 .dates {
@@ -186,6 +190,7 @@
 #update-link :first-child {
     height: 13%;
     width: 8%;
+    color: #28400C
 
 }
 
@@ -197,4 +202,5 @@
 #delete-button :first-child {
     height: 20px;
     width: 100%;
+    color: #28400C
 }
