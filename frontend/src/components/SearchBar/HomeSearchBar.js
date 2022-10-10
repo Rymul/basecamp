@@ -15,7 +15,7 @@ const HomeSearchBar = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(getSearchedCampsites);
+        dispatch(getSearchedCampsites(query));
         history.push("/search-results")
     }
 

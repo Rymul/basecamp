@@ -7,9 +7,10 @@ import "./SearchIndex.css"
 const SearchIndex = () => {
 
     const campsites = useSelector(getCampsites)
+    // let campsites = useSelector(state => Object.values(state.campsites));
     
     let component;
-    if (campsites.length <=0 ) {
+    if (campsites.length <= 0) {
         component = (
             <div className="search-index-error-container">
                 <h1 className="search-index-error">No Campsites Found!</h1>

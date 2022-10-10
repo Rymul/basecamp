@@ -6,7 +6,6 @@ export const RECEIVE_CAMPSITE = 'campsites/RECEIVE_CAMPSITE';
 const RECEIVE_CAMPSITES = 'campsites/RECEIVE_CAMPSITES';
 
 export const receiveCampsite = (campsite) => {
-    // debugger
     return {type: RECEIVE_CAMPSITE,
     payload: campsite}
 };
@@ -59,9 +58,9 @@ export const getSearchedCampsites = (query) => async dispatch => {
     });
     if (res.ok) {
         const campsites = await res.json();
-        dispatch(receiveCampsites(campsites))
+        dispatch(receiveCampsites(campsites));
     }
-}
+};
 
 
 export const fetchCampsites = () => async dispatch => {
@@ -93,7 +92,6 @@ export const fetchCampsite = (campsiteId) => async dispatch => {
 
 
 const campsitesReducer = (state = {}, action) => {
-    // debugger
     Object.freeze(state)
     const newState = { ...state }
     switch (action.type) {
@@ -101,18 +99,16 @@ const campsitesReducer = (state = {}, action) => {
             newState[action.payload.campsite.id] = action.payload.campsite;
             return newState;
         case RECEIVE_CAMPSITES:
-            return { ...newState, ...action.payload}
+            // return { ...newState, ...action.payload}
+            return {...action.payload}
         case ADD_BOOKING:
             if (action.payload.booking){
-
                 const campsite = action.payload.campsite;
                 // const campsite = action.payload;
-                // debugger
                 newState[campsite.id] = campsite;
                 return newState;
             }
             // const booking = action.payload;
-            // debugger
             // newState[booking.id] = booking;
         case ADD_BOOKINGS:
             const campsites = action.payload.campsites;

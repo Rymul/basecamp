@@ -17,11 +17,12 @@ class Api::CampsitesController < ApplicationController
 
     def search
         query = params[:query]
-        @product = Product.where('location ILIKE ?', '%#{query}%')
-        if @product.length > 0
+        @campsites = Campsite.where("location ILIKE ? OR name ILIKE ? OR city ILIKE ? OR state ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%")
+        if @campsites.length > 0
             render :index
         else
-            render json: { errors: 'Campsite not found'}, status: 404
+            render json: {}
+            # render json: { errors: 'Campsite not found'}, status: 404
         end
     end
 
