@@ -51,7 +51,7 @@ const UserShow = () => {
                 <div className="bookings-show-container">
                     <h3 id="total-bookings">{bookings.length} Trips</h3>
                     {bookings.map(booking => (
-                        <div className="single-booking">
+                        <div key={booking.id} className="single-booking">
                             <div className="booking-img-container">
                                 <img id='img' src={campsites[booking.campsiteId].photoUrl[0]} alt=""/>
                             </div>  
