@@ -70,7 +70,6 @@ To Do:
 ---
 ---
 
-* Make Search bar functional
 * Add Mapping on campsite show and search results
 * Fix guest dropdown to include toggling numbers for adults, children, and pets
 * Make date select dropdown a modal
