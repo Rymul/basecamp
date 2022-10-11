@@ -35,7 +35,7 @@ const HomeSearchBar = () => {
                     setQuery(e.target.value)
                     break;
                 default:
-                    console.log('Field name error.');
+                    // console.log('Field name error.');
                     break;     
             }
         }

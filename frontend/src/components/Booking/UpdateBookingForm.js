@@ -56,7 +56,6 @@ const UpdateBookingForm = () => {
             setBooking(newBooking)
         }
     }
-    console.log(bookingData)
     if(!booking) return null
 
     return(

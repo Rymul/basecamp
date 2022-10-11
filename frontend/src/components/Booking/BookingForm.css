@@ -69,6 +69,13 @@
     display: none;
 } */
 
+.rdrDefinedRangesWrapper {
+    display: none;
+}
+.rdrInputRanges {
+    display: none;
+}
+
 .rdrCalendarWrapper {
     border-radius: 50px;
     /* background-color: #00C585; */

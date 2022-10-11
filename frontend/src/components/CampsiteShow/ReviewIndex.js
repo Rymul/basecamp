@@ -14,8 +14,7 @@ const ReviewIndex = ({ campsiteId }) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const campsite = useSelector(getCampsite(campsiteId));
-    const reviews = useSelector(getCampsiteReviews(campsiteId))
-    console.log(reviews, "reviews")
+    const reviews = useSelector(getCampsiteReviews(campsiteId));
     // const [button, setButton] = useState("Add Review");
     // const [openForm, setForm] = useState(false);
     // const [formType, setFormType] = useState("create");

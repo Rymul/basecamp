@@ -7,7 +7,6 @@ import './BookingForm.css'
 import { useState } from "react";
 import { createBooking } from "../../store/booking";
 import { getCampsite } from "../../store/campsite";
-import CalendarModal from "./CalendarModal";
 import { useEffect } from "react";
 
 
@@ -54,20 +53,18 @@ const BookingForm = ({campsiteId}) => {
         // rangeColors: '#66E2DA',
         key: 'selection'
     };
-    console.log(selectedDates)
+
 
     const handleDateChange = (ranges) => {
         setStartDate(ranges.selection.startDate);
         setEndDate(ranges.selection.endDate);
-        console.log(startDate.toString().slice(0, 15), "START")
-        console.log(new Date(Date.parse(startDate)), "START PARSE")
 
     }
 
     const dayDif = () => {
         return(endDate.getTime() - startDate.getTime()) / 86400000
     }
-    console.log(dayDif , "SJFBKSJDOSD")
+   
 
 
 
@@ -81,7 +78,6 @@ const BookingForm = ({campsiteId}) => {
     }
 
     const handleSubmit = (e) => {
-        // console.log(campsite.hostId, "HOSTID")
         e.preventDefault();
         dispatch(createBooking(booking)).then(()=> { history.push(`/user/${sessionUser.id}`) })
     }

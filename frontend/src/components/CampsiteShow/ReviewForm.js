@@ -29,7 +29,6 @@ const ReviewForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
-        // console.log(history)
         dispatch(createReview(review))
         .catch(async (res) => {
             let data;
