@@ -33,11 +33,11 @@ const SplashPage = () => {
                 </div>
             </div>
             <div className='img-container'>
-                <img className='splash-img' src="woman_and_dog_in_tent.jpg" alt="picture of a woman and a dog in a tent"/>
+                <img className='splash-img' src="woman_and_dog_in_tent.jpg" alt="woman and a dog in a tent"/>
             </div>
-            {/* <div className='campsite-idx'>
+            <div className='campsite-idx'>
                 <CampsiteIndex />
-            </div> */}
+            </div>
         </div>
     )
 
