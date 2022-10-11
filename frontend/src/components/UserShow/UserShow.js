@@ -53,7 +53,9 @@ const UserShow = () => {
                     {bookings.map(booking => (
                         <div key={booking.id} className="single-booking">
                             <div className="booking-img-container">
+                            {/* <Link key={`${campsites[booking.campsiteId]}1`} className='campsite-item-campsite-link' to={`/campsites/${campsites[booking.campsiteId]}`}> */}
                                 <img id='img' src={campsites[booking.campsiteId].photoUrl[0]} alt=""/>
+                            {/* </Link> */}
                             </div>  
                             <div className="info">
                                     <p id='camp-name'>{campsites[booking.campsiteId].name}</p>
@@ -76,13 +78,13 @@ const UserShow = () => {
                                     <p>{booking.adults} Guests</p>
                                 </div>
                                 <Link to={`/booking/${booking.id}`} id='update-link'>
-                                    <BiEdit />
+                                    <BiEdit id='user-show-update'/>
                                 </Link>
                                 <button 
                                     onClick={() => dispatch(deleteBooking(booking.id))} 
                                     id='delete-button'
                                 >
-                                    <AiOutlineDelete />
+                                    <AiOutlineDelete id='user-show-delete-button'/>
                                 </button>
                             </div>
                         </div>

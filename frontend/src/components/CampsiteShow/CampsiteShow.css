@@ -311,6 +311,22 @@ h3, p {
     color: #222222;
 }
 
+.CampsiteMapContainer {
+    /* margin: 50px 0 ; */
+}
+
+.CampsiteMapContainer p {
+    font-weight: 500;
+}
+
+.googleMap {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    position:static;
+    max-width: 1232px;
+    height: 500px;
+}
+
 .host-join-container h2 {
     margin-bottom: .5%;
 }

@@ -56,7 +56,7 @@ const ReviewIndex = ({ campsiteId }) => {
                                     onClick={() => dispatch(deleteReview(review.id))} 
                                     id='delete-button'
                                 >
-                                    <AiOutlineDelete />
+                                    <AiOutlineDelete id='delete-button-icon'/>
                                 </button>
 
                             </div>

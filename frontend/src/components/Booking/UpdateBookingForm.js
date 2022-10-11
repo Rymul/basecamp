@@ -87,7 +87,7 @@ const UpdateBookingForm = () => {
                 </div>
             </div>
             <div className='update-bookingUpdate-container'>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className='update-booking-form'>
                 <label id='update-input-title'>DATES</label>
                     <DateRangePicker 
                         id='calendar'
@@ -100,16 +100,17 @@ const UpdateBookingForm = () => {
                         onChange={handleDateChange}
 
                     />
-                    <label id='update-input-title'>GUESTS
-                        <input 
-                            type="number"
-                            value={booking.adults} 
-                            id="adults"
-                            min='1' 
-                            max={campsite.capacity} 
-                            onChange={handleChange('adults')}
-                        />
-                    </label>
+                    <div className='update-guest-number'>
+                        <label id='update-input-title'>GUESTS</label>
+                            <input 
+                                type="number"
+                                value={booking.adults} 
+                                id="adults"
+                                min='1' 
+                                max={campsite.capacity} 
+                                onChange={handleChange('adults')}
+                            />
+                    </div>
                     {/* <label id='input-title'>Children
                         <input 
                             type="number" 

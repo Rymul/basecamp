@@ -12,6 +12,7 @@ import { BiWater } from 'react-icons/bi'
 import { getCampsiteReviews } from '../../store/review';
 import ReviewIndex from './ReviewIndex';
 import BookingForm from '../Booking/BookingForm';
+import CampsiteMapWrapper from './CampsiteMapWrapper';
 
 
 
@@ -139,7 +140,7 @@ const CampsiteShow = () => {
             </div>
             <div className='campsite-map'>
                 <h2>Site map</h2>
-                <p>cool google satellite map</p>
+                <CampsiteMapWrapper campsite={campsite} apiKey={process.env.REACT_APP_MAPS_API_KEY} />
             </div>
             <div className='host'>
                 <div className='host-join-container'>

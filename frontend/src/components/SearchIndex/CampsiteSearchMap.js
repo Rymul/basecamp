@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react"
-import tent from "../../camping-tent.png"
+import greenPin from "../../green-pin.png"
+import blackPin from "../../black-pin.png"
+import darkGreenPin from "../../darkGreen-pin.png"
 
 
 const CampsiteSearchMap = ({ campsites }) => {
@@ -46,7 +48,7 @@ const CampsiteSearchMap = ({ campsites }) => {
                 map: map,
                 animation: window.google.maps.Animation.DROP,
                 icon: {
-                    url: tent,
+                    url: blackPin,
                     scaledSize: new window.google.maps.Size(30, 30),
                     origin: new window.google.maps.Point(0, 0)
                 }
