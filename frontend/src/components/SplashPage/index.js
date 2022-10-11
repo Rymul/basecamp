@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { toggleSearchDateModal, toggleSearchGuestModal } from '../../store/ui';
-import SearchBar from '../SearchBar/SearchBar';
 import CampsiteIndex from './CampsiteIndex';
 import HomeSearchBar from '../SearchBar/HomeSearchBar';
 import './SplashPage.css';
@@ -10,8 +9,8 @@ const SplashPage = () => {
     
     const dispatch = useDispatch()
     const hideModal = (event) => {
-        const dateModal = document.getElementById("SplashDateModal")
-        const guestModal = document.getElementById("SplashGuestsModal")
+        const dateModal = document.getElementById("SearchDateModal")
+        const guestModal = document.getElementById("SearchGuestModal")
         if (dateModal && !dateModal.contains(event.target)) {
             dispatch(toggleSearchDateModal(false))
         }
@@ -28,9 +27,6 @@ const SplashPage = () => {
                     <p>Discover and book tent camping, RV parks, cabins, treehouses, and glamping.</p>
                 </div>
             </div>
-            {/* <div className='searchBar'>
-                <SearchBar />
-            </div> */}
             <div className='searchBar-container'>
                 <div className="searchBar-component">
                     <HomeSearchBar />
@@ -39,9 +35,9 @@ const SplashPage = () => {
             <div className='img-container'>
                 <img className='splash-img' src="woman_and_dog_in_tent.jpg" alt="picture of a woman and a dog in a tent"/>
             </div>
-            <div className='campsite-idx'>
+            {/* <div className='campsite-idx'>
                 <CampsiteIndex />
-            </div>
+            </div> */}
         </div>
     )
 

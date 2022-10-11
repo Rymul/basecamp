@@ -22,7 +22,7 @@ function SplashDateModal() {
 
     return (
         <>
-            <div id="SplashDateModal" className="SplashDateModalContainer" >
+            <div id="SearchDateModal" className="SearchDateModalContainer" >
                 <Calendar
                     onChange={onChange}
                     showDoubleView={true}
