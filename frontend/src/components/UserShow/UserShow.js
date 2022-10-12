@@ -53,12 +53,14 @@ const UserShow = () => {
                     {bookings.map(booking => (
                         <div key={booking.id} className="single-booking">
                             <div className="booking-img-container">
-                            {/* <Link key={`${campsites[booking.campsiteId]}1`} className='campsite-item-campsite-link' to={`/campsites/${campsites[booking.campsiteId]}`}> */}
+                            <Link key={`${campsites[booking.campsiteId]}3`} className='campsite-item-campsite-link' to={`/campsites/${booking.campsiteId}`}>
                                 <img id='img' src={campsites[booking.campsiteId].photoUrl[0]} alt=""/>
-                            {/* </Link> */}
+                            </Link>
                             </div>  
                             <div className="info">
+                                <Link key={`${campsites[booking.campsiteId]}3`} className='campsite-item-campsite-link' to={`/campsites/${booking.campsiteId}`}>
                                     <p id='camp-name'>{campsites[booking.campsiteId].name}</p>
+                                </Link>
                                 <div className="dates">
                                     <p id="dates">DATES: {booking.checkinDate.slice(5, 7)}-{booking.checkinDate.slice(8, 10)}-{booking.checkinDate.slice(0, 4)} through {booking.checkoutDate.slice(5, 7)}-{booking.checkoutDate.slice(8, 10)}-{booking.checkoutDate.slice(0, 4)}</p>
                                 </div>
