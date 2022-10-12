@@ -19,7 +19,7 @@ class Api::ReviewsController < ApplicationController
             if @review.update(review_params)
                 render :show 
             else
-                render json: @review.errors.full_messages, status: 422
+                render json: { errors: @review.errors.full_messages }, status: 422
             end
         else 
             render json: "Review is not found", status: 422

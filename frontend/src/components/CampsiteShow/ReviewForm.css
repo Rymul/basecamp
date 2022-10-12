@@ -98,19 +98,17 @@
 
 
 
-.errors {
+.review-errors {
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
     border: 1px solid transparent;
     width: 30%;
-    
-
-    
+    margin-top: 10px;
 }
 
-.error {
+.review-error {
     display: flex;
     justify-content: flex-start;
     text-align: left;
@@ -120,7 +118,6 @@
     color: #c44841;
     background-color: #ecd4d1;
     padding: 15px 0px 15px 10px;
-    width: 100%;
+    width: 98%;
     margin: auto;
-
 }

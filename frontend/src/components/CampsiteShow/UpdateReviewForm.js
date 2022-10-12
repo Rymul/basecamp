@@ -19,14 +19,28 @@ const UpdateReviewForm = () => {
     // const reviewData = {}
     const [review, setReview] = useState(reviewData);
     const campsite = useSelector(getCampsite(campsiteId))
-
-    // const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateReview(review)).then(()=> 
-        {
-            history.goBack()})
+        setErrors([]);
+        dispatch(updateReview(review)).then(()=> { if(review){ history.push(`/campsites/${campsiteId}`)} })
+        .catch(async (res) => {
+            let data;
+            try {
+                data = await res.close().json();
+            } catch {
+                data = await res.text();
+            }
+            if (data?.errors) {
+                setErrors(data.errors);
+            } else if (data) {
+                const newError = JSON.parse(data)
+                setErrors(newError.errors)
+            } else {
+                setErrors([res.statusText]);
+            }
+        })
     }
 
     const handleChange = (field) => {
@@ -77,6 +91,9 @@ const UpdateReviewForm = () => {
                     </label>
                     <button className='submit-button'>Update Review</button>
                 </form>
+                <div className="review-errors">
+                    {errors.map(error => <li className="review-error" key={error}>{error}</li>)}
+                </div>
             </div>
         </div>
     )
