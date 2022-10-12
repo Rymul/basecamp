@@ -38,7 +38,11 @@ const UpdateBookingForm = () => {
         if(!bookingData) return
         setBooking(bookingData)
     },[bookingData])
-    
+
+    const dayDif = () => {
+        return(endDate.getTime() - startDate.getTime()) / 86400000
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(updateBooking(booking)).then(()=> history.push(`/user/${sessionUser.id}`))
@@ -50,13 +54,29 @@ const UpdateBookingForm = () => {
 
     }
 
+    // const handleChange = (field) => {
+    //     return(e) => {
+    //         let newBooking = Object.assign({}, booking, {[field]: e.currentTarget.value})
+    //         setBooking(newBooking)
+    //     }
+    // }
+
     const handleChange = (field) => {
-        return(e) => {
-            let newBooking = Object.assign({}, booking, {[field]: e.currentTarget.value})
+        return (e)=>{
+            let newBooking = Object.assign({}, booking, {[field]: e.currentTarget.value},
+                { checkinDate: startDate, checkoutDate: endDate, price: campsite.price * dayDif()})
             setBooking(newBooking)
         }
     }
+
+    
     if(!booking) return null
+    // let firstDate;
+    // let lastDate;
+    // if(booking.checkinDate && booking.checkoutDate) {
+    //     firstDate = new Date(booking.checkinDate).toString().slice(0, 15)
+    //     lastDate = new Date(booking.checkoutDate).toString().slice(0, 15)
+    // }
 
     return(
         <div className='bookingUpdate-component'>
@@ -67,7 +87,9 @@ const UpdateBookingForm = () => {
                 <div className="update-info">
                         <p id='update-camp-name'>{campsite.name}</p>
                     <div className="update-dates">
-                        <p id="update-dates">DATES: {booking.checkinDate.slice(5, 7)}-{booking.checkinDate.slice(8, 10)}-{booking.checkinDate.slice(0, 4)} through {booking.checkoutDate.slice(5, 7)}-{booking.checkoutDate.slice(8, 10)}-{booking.checkoutDate.slice(0, 4)}</p>
+                        {/* <p id="update-dates">DATES: {firstDate} through {lastDate}</p> */}
+                        <p id="update-dates">DATES: {new Date(booking.checkinDate).toString().slice(0, 15)} - {new Date(booking.checkoutDate).toString().slice(0, 15)}</p>
+
                     </div>
                     <div className="update-location-info">
                         <div className="update-location">

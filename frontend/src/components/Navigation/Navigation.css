@@ -30,11 +30,12 @@
 
 
 .user-div {
-    border: 1px solid #28400C;
+    /* border: 1px solid #28400C; */
     /* height: 100%;
     width: 23%; */
     height: 37px;
     width: 37px;
+    padding: 2px;
     border: none;
     /* border-radius: 50px; */
     display: flex;
@@ -49,10 +50,9 @@
     /* border: 1px solid #f9f9f9; */
     border: none;
     background-color: #00C585;
-    
 }
 
-.user-show {
+.user-show-link {
     background-color: transparent;
 }
 
@@ -64,6 +64,7 @@
     position: relative;
     /* top: 4px; */
     padding-right: 1px;
+    color: #28400C;
     background-color: transparent;
 }
 

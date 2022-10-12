@@ -23,7 +23,7 @@ const Navigation = () => {
             <div className='logedin-buttons'>
                 <button className='logout' onClick={logout}>Logout</button>
                 <div className='user-div'>
-                    <NavLink className='user-show' to={`/user/${sessionUser.id}`}><GiCampingTent className='user-tent'/></NavLink>
+                    <NavLink className='user-show-link' to={`/user/${sessionUser.id}`}><GiCampingTent className='user-tent'/></NavLink>
                 </div>
             </div>
         );

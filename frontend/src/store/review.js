@@ -7,6 +7,7 @@ import { addUser } from './user';
 const ADD_REVIEW = 'reviews/ADD_REVIEW';
 const ADD_REVIEWS = 'reviews/ADD_REVIEWS';
 const REMOVE_REVIEW = 'reviews/REMOVE_REVIEWS';
+export const CLEAR_REVIEWS = 'bookings/CLEAR_REVIEWS'
 
 const addReview = review => ({
     type: ADD_REVIEW,
@@ -22,6 +23,13 @@ const removeReview = reviewId => ({
     type: REMOVE_REVIEW,
     payload: reviewId
 });
+
+export const clearReviews = () => ({
+    type: CLEAR_REVIEWS,
+    payload: {}
+})
+
+
   
 export const getCampsiteReviews = campsiteId => state => {
     return Object.values(state.reviews)
@@ -98,6 +106,8 @@ const reviewsReducer = (state = {}, action) => {
             const reviewId = action.payload;
             delete newState[reviewId.id];
             return newState;
+        case CLEAR_REVIEWS:
+            return {};
         case RECEIVE_CAMPSITE:
             return { ...action.payload.reviews }
         default:

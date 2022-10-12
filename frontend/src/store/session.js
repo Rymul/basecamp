@@ -1,3 +1,4 @@
+import { clearBookings } from "./booking.js";
 import csrfFetch from "./csrf.js";
 
 export const SET_CURRENT_USER = 'session/setCurrentUser';
@@ -62,6 +63,7 @@ export const logout = () => async (dispatch) => {
     });
     storeCurrentUser(null);
     dispatch(removeCurrentUser());
+    dispatch(clearBookings());
     return response;
 };
   

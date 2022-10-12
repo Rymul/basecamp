@@ -6,6 +6,7 @@ import { ADD_USER } from "./user";
 export const ADD_BOOKING = 'bookings/ADD_BOOKING';
 export const ADD_BOOKINGS = 'bookings/ADD_BOOKINGS';
 export const REMOVE_BOOKING = 'bookings/REMOVE_BOOKINGS';
+export const CLEAR_BOOKINGS = 'bookings/CLEAR_BOOKINGS'
 
 const addBooking = booking => {
 return { type: ADD_BOOKING,
@@ -24,6 +25,10 @@ const removeBooking = bookingId => ({
     payload: bookingId
 });
 
+export const clearBookings = () => ({
+    type: CLEAR_BOOKINGS,
+    payload: {}
+})
 
 
 export const getBooking = bookingId => state => {
@@ -136,6 +141,8 @@ const bookingsReducer = (state = {}, action) => {
             return newState;
         // case SET_CURRENT_USER:
         //     return { ... action.payload.bookings}
+        case CLEAR_BOOKINGS:
+            return {};
         case ADD_USER:
             return { ... action.payload.bookings}
         default:

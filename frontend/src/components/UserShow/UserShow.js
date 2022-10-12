@@ -36,7 +36,7 @@ const UserShow = () => {
                         <p>Trusted Basecamper</p>
                         <p><AiOutlineCheckCircle id='check-icon'/> Email address</p>
                     </div>
-                    <div className="base-cash">
+                    {/* <div className="base-cash">
                         <div id="balance">
                             <p>$0</p>
                             <p>Balance</p>
@@ -46,7 +46,7 @@ const UserShow = () => {
                     <div className="build-profile">
                         <AiOutlinePlusCircle id='plus-icon'/>
                         <p>Continue building out your Basecamp profile by adding places you have camped</p>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="bookings-show-container">
                     <h3 id="total-bookings">{bookings.length} Trips</h3>
@@ -62,7 +62,9 @@ const UserShow = () => {
                                     <p id='camp-name'>{campsites[booking.campsiteId].name}</p>
                                 </Link>
                                 <div className="dates">
-                                    <p id="dates">DATES: {booking.checkinDate.slice(5, 7)}-{booking.checkinDate.slice(8, 10)}-{booking.checkinDate.slice(0, 4)} through {booking.checkoutDate.slice(5, 7)}-{booking.checkoutDate.slice(8, 10)}-{booking.checkoutDate.slice(0, 4)}</p>
+                                    {/* <p id="dates">DATES: {booking.checkinDate.slice(5, 7)}-{booking.checkinDate.slice(8, 10)}-{booking.checkinDate.slice(0, 4)} through {booking.checkoutDate.slice(5, 7)}-{booking.checkoutDate.slice(8, 10)}-{booking.checkoutDate.slice(0, 4)}</p> */}
+                                    <p id="dates">DATES: {new Date(booking.checkinDate).toString().slice(0, 15)} - {new Date(booking.checkoutDate).toString().slice(0, 15)}</p>
+
                                 </div>
                                 <div className="location-info">
                                     <div className="location">
