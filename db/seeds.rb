@@ -602,10 +602,10 @@ ApplicationRecord.transaction do
 
     puts "Creating bookings..."
 
-    b1 = Booking.create!(campsite_id: 1, customer_id: 1, host_id: c1.host_id, adults: 10,children: 0, pets: 0, price: c1.price*5, checkin_date: "2022-09-20", checkout_date: "2022-09-25")
-    b1 = Booking.create!(campsite_id: 2, customer_id: 1, host_id: c2.host_id, adults: 8,children: 0, pets: 0, price: c2.price*4, checkin_date: "2022-10-05", checkout_date: "2022-10-09")
-    b1 = Booking.create!(campsite_id: 3, customer_id: 1, host_id: c3.host_id, adults: 2,children: 0, pets: 0, price: c3.price*3, checkin_date: "2022-04-10", checkout_date: "2022-04-13")
-    b1 = Booking.create!(campsite_id: 4, customer_id: 1, host_id: c4.host_id, adults: 3,children: 0, pets: 0, price: c3.price*4, checkin_date: "2022-06-09", checkout_date: "2022-06-12")
+    b1 = Booking.create!(campsite_id: 1, customer_id: 1, host_id: c1.host_id, adults: 10,children: 0, pets: 0, price: c1.price*5, checkin_date: "2023-09-20", checkout_date: "2023-09-25")
+    b1 = Booking.create!(campsite_id: 2, customer_id: 1, host_id: c2.host_id, adults: 8,children: 0, pets: 0, price: c2.price*4, checkin_date: "2023-01-05", checkout_date: "2023-01-09")
+    b1 = Booking.create!(campsite_id: 3, customer_id: 1, host_id: c3.host_id, adults: 2,children: 0, pets: 0, price: c3.price*3, checkin_date: "2023-04-10", checkout_date: "2023-04-13")
+    b1 = Booking.create!(campsite_id: 4, customer_id: 1, host_id: c4.host_id, adults: 3,children: 0, pets: 0, price: c3.price*4, checkin_date: "2023-06-09", checkout_date: "2023-06-12")
     
     puts "All Done!"
     # b1 = Booking.create!(campsite_id: , customer_id: , host_id: ,adults:  ,children: 0, pets: 0, price: , checkin_date: , checkin_date: )

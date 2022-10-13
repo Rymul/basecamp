@@ -11,6 +11,13 @@ import { getCampsites, getCampsites2 } from "../../store/campsite";
 
 
 const UserShow = () => {
+
+    window.scroll({
+        top: 0, 
+        left: 0, 
+        // behavior: 'smooth'
+    });
+
     const sessionUser = useSelector(state => state.session.user);
     const { userId } = useParams();
     const dispatch = useDispatch();

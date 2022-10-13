@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { fetchBooking, getBooking, updateBooking } from '../../store/booking';
-import { getCampsites } from '../../store/campsite';
+import { getCampsite, getCampsites } from '../../store/campsite';
 import './UpdateBookingForm.css'
 import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css'
@@ -13,16 +13,23 @@ import 'react-date-range/dist/theme/default.css'
 
 const UpdateBookingForm = () => {
 
+    window.scroll({
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth'
+    });
+    
     const { bookingId } = useParams();
     const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const bookingData = useSelector(getBooking(bookingId))
     const [booking, setBooking] = useState(bookingData)
-    const campsite = useSelector(getCampsites)[0]
+    // const campsite = useSelector(getCampsites)[0]
+    const campsite = useSelector(getCampsite(booking.campsiteId))
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const history = useHistory()
-
+    
     const selectedDates = {
         startDate: startDate,
         endDate: endDate,
@@ -30,10 +37,12 @@ const UpdateBookingForm = () => {
         key: 'selection'
     };
     
-    useEffect(()=> {
-        dispatch(fetchBooking(bookingId))
-    },[bookingId])
+    // useEffect(()=> {
+    //     dispatch(fetchBooking(bookingId))
+    // },[bookingId])
+    
 
+    
     useEffect(()=>{
         if(!bookingData) return
         setBooking(bookingData)

@@ -7,6 +7,12 @@ import SearchMapWrapper from "./SearchMapWrapper"
 
 const SearchIndex = () => {
 
+    window.scroll({
+        top: 0, 
+        left: 0, 
+        // behavior: 'smooth'
+    });
+
     const campsites = useSelector(getCampsites)
     // let campsites = useSelector(state => Object.values(state.campsites));
     

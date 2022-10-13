@@ -18,6 +18,13 @@ import CampsiteMapWrapper from './CampsiteMapWrapper';
 
 
 const CampsiteShow = () => {
+
+    window.scroll({
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth'
+    });
+
     const { campsiteId } = useParams();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)

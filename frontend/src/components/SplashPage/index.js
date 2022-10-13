@@ -7,6 +7,12 @@ import './SplashPage.css';
 
 const SplashPage = () => {
     
+    window.scroll({
+        top: 0, 
+        left: 0, 
+        // behavior: 'smooth'
+    });
+
     const dispatch = useDispatch()
     const hideModal = (event) => {
         const dateModal = document.getElementById("SearchDateModal")

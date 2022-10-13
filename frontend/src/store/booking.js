@@ -60,6 +60,7 @@ export const fetchBooking = (bookingId) => async dispatch => {
     });
     if (res.ok) {
         const booking = await res.json();
+        // dispatch(clearBookings());
         dispatch(addBooking(booking));
         
     }
