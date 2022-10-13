@@ -17,7 +17,6 @@ const CampsiteItem = ({campsite}) => {
             <Link key={`${campsite.id}1`} className='campsite-item-campsite-link' to={`/campsites/${campsite.id}`}>
                 <img key={`${campsite.id}2`} className='campsite-item-img' src={campsite.photoUrl[0]} alt={campsite.location} />
             </Link>
-
             <div className="campsite-item-rating">
                 <FaThumbsUp className='campsite-item-review-thumb'/>
                 <p className='campsite-item-review-per'>{Math.floor(campsite.rating)}%</p>
