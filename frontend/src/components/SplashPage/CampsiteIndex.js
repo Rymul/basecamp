@@ -7,16 +7,19 @@ import './CampsiteIndex.css'
 const CampsiteIndex = () => {
     const dispatch = useDispatch();
     const campsites = useSelector(getCampsites)
-
+    const selectCampsites = campsites.slice(0, 6)
     useEffect(()=> {
         dispatch(fetchCampsites());
     }, [])
     
     return (
         <>
+        <div className='campsite-index-title-container'>
             <p className='index-title'>Find your next getaway</p>
+        </div>
             <div className='campsite-index-container'>
-                {campsites.map(campsite => {
+                {/* {campsites.map(campsite => { */}
+                    {selectCampsites.map(campsite => {
                     return(
                         <div key={`${campsite.id}`} className='single-campsite'>
                             <Link key={`${campsite.id}1`} id='single-campsite-link' to={`/campsites/${campsite.id}`}>
