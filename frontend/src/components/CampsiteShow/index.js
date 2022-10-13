@@ -37,9 +37,7 @@ const CampsiteShow = () => {
 
     const campsite = useSelector(getCampsite(campsiteId))
 
-    // if (!sessionUser) {
-    //     history.push('/')
-    // }
+
     if (campsite){
     return (
         <div className='campsite-parent'>

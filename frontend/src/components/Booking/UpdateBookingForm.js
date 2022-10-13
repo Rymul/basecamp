@@ -22,7 +22,6 @@ const UpdateBookingForm = () => {
     const { bookingId } = useParams();
     const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch();
-    // const campsite = useSelector(getCampsites)[0]
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const history = useHistory()
@@ -37,18 +36,10 @@ const UpdateBookingForm = () => {
         key: 'selection'
     };
     
-
     
     useEffect(()=> {
         dispatch(fetchBooking(bookingId))
     },[bookingId])
-
-    // useEffect(() => {
-    //     if(!booking) {
-    //         dispatch(fetchBooking(bookingId))
-    //     }
-    // },[])
-
     
     
     useEffect(()=>{
@@ -80,22 +71,10 @@ const UpdateBookingForm = () => {
         setEndDate(ranges.selection.endDate);
         let newBooking = Object.assign({}, booking,{ checkinDate: ranges.selection.startDate, checkoutDate: ranges.selection.endDate, price: campsite.price * dayDif()})
         setBooking(newBooking)
-        // handleChange()
     }
 
-    // const handleChange = (field) => {
-    //     return(e) => {
-    //         let newBooking = Object.assign({}, booking, {[field]: e.currentTarget.value})
-    //         setBooking(newBooking)
-    //     }
-    // }
-
-    
     if(!booking) return null
     
-    
-    
-
     return(
         <div className='bookingUpdate-component'>
             <div className='bookingUpdate-info'>    
@@ -105,9 +84,7 @@ const UpdateBookingForm = () => {
                 <div className="update-info">
                         <p id='update-camp-name'>{campsite.name}</p>
                     <div className="update-dates">
-                        {/* <p id="update-dates">DATES: {firstDate} through {lastDate}</p> */}
                         <p id="update-dates">DATES: {new Date(booking.checkinDate).toString().slice(0, 15)} - {new Date(booking.checkoutDate).toString().slice(0, 15)}</p>
-
                     </div>
                     <div className="update-location-info">
                         <div className="update-location">
@@ -150,22 +127,6 @@ const UpdateBookingForm = () => {
                                 onChange={handleChange('adults')}
                             />
                     </div>
-                    {/* <label id='input-title'>Children
-                        <input 
-                            type="number" 
-                            value={booking.children} 
-                            id="children"
-                            onChange={handleChange('children')}
-                        />
-                    </label>
-                    <label id="input-title">Pets
-                        <input 
-                            type="number" 
-                            value={booking.pets} 
-                            id="pets"
-                            onChange={handleChange('pets')}
-                        />
-                    </label> */}
                     <button id='update-submit-button'>Update Booking</button>
                     <button id='update-cancel-button'>Cancel</button>
                 </form>

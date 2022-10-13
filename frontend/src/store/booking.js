@@ -127,7 +127,6 @@ const bookingsReducer = (state = {}, action) => {
                 const booking = action.payload.booking;
                 newState[booking.id] = booking;
                 return newState;
-
             }
             newState[action.payload.id] = action.payload
             return newState
