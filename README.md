@@ -64,16 +64,7 @@ Bonus Features:
 
 * Saved campsites displayed on profile page
 * Authored reviews displayed on profile page
-
-
-To Do:
----
----
-
-* Add Mapping on campsite show and search results
-* Fix guest dropdown to include toggling numbers for adults, children, and pets
-* Make date select dropdown a modal
 * Allow campsites to have more than 5 pictures, with a button to Show More
 * Campsite details partially hidden with a Show More button
-* Build Tags table - use to make campsite show more dynamic
 * Build mock checkout page
+

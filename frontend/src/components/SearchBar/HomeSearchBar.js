@@ -62,7 +62,7 @@ const HomeSearchBar = () => {
                         // type="text"
                         autoFocus='autofocus'
                         value={query}
-                        placeholder='Try Yosemite, Napa, Moab...'
+                        placeholder='Try Yosemite, Joshua Tree, Moab...'
                         onChange={handleChange('query')}
                     />
                 </div>
