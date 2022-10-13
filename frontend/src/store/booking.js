@@ -14,7 +14,6 @@ return { type: ADD_BOOKING,
 };
 
 export const addBookings = bookings => {
-    // debugger
     return {
     type: ADD_BOOKINGS,
     payload: bookings }

@@ -36,7 +36,6 @@ const ReviewForm = () => {
             let data;
             try {
                 data = await res.close().json();
-                debugger
             } catch {
                 data = await res.text();
                 

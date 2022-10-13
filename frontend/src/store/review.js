@@ -52,7 +52,6 @@ export const getReview = reviewId => state => {
 
 
 export const createReview = (review) => async dispatch => {
-    // debugger
     const res = await csrfFetch('/api/reviews', {
         method: 'POST',
         headers: {
