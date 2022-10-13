@@ -22,13 +22,13 @@ const UpdateBookingForm = () => {
     const { bookingId } = useParams();
     const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch();
-    const bookingData = useSelector(getBooking(bookingId))
-    const [booking, setBooking] = useState(bookingData)
     // const campsite = useSelector(getCampsites)[0]
-    const campsite = useSelector(getCampsite(booking.campsiteId))
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const history = useHistory()
+    const bookingData = useSelector(getBooking(bookingId))
+    const [booking, setBooking] = useState(bookingData || null)
+    const campsite = useSelector(getCampsite(bookingData?.campsiteId))
     
     const selectedDates = {
         startDate: startDate,
@@ -37,17 +37,26 @@ const UpdateBookingForm = () => {
         key: 'selection'
     };
     
-    // useEffect(()=> {
-    //     dispatch(fetchBooking(bookingId))
-    // },[bookingId])
-    
 
+    
+    useEffect(()=> {
+        dispatch(fetchBooking(bookingId))
+    },[bookingId])
+
+    // useEffect(() => {
+    //     if(!booking) {
+    //         dispatch(fetchBooking(bookingId))
+    //     }
+    // },[])
+
+    
     
     useEffect(()=>{
         if(!bookingData) return
         setBooking(bookingData)
     },[bookingData])
-
+    
+    
     const dayDif = () => {
         return(endDate.getTime() - startDate.getTime()) / 86400000
     }
@@ -57,10 +66,21 @@ const UpdateBookingForm = () => {
         dispatch(updateBooking(booking)).then(()=> history.push(`/user/${sessionUser.id}`))
     }
     
+    const handleChange = (field) => {
+        return (e)=>{
+            let newBooking = Object.assign({}, booking, {[field]: e.currentTarget.value},
+                { checkinDate: startDate, checkoutDate: endDate, price: campsite.price * dayDif()})
+                console.error(newBooking, "IN handle change")
+            setBooking(newBooking)
+        }
+    }
+
     const handleDateChange = (ranges) => {
         setStartDate(ranges.selection.startDate);
         setEndDate(ranges.selection.endDate);
-
+        let newBooking = Object.assign({}, booking,{ checkinDate: ranges.selection.startDate, checkoutDate: ranges.selection.endDate, price: campsite.price * dayDif()})
+        setBooking(newBooking)
+        // handleChange()
     }
 
     // const handleChange = (field) => {
@@ -70,22 +90,11 @@ const UpdateBookingForm = () => {
     //     }
     // }
 
-    const handleChange = (field) => {
-        return (e)=>{
-            let newBooking = Object.assign({}, booking, {[field]: e.currentTarget.value},
-                { checkinDate: startDate, checkoutDate: endDate, price: campsite.price * dayDif()})
-            setBooking(newBooking)
-        }
-    }
-
     
     if(!booking) return null
-    // let firstDate;
-    // let lastDate;
-    // if(booking.checkinDate && booking.checkoutDate) {
-    //     firstDate = new Date(booking.checkinDate).toString().slice(0, 15)
-    //     lastDate = new Date(booking.checkoutDate).toString().slice(0, 15)
-    // }
+    
+    
+    
 
     return(
         <div className='bookingUpdate-component'>

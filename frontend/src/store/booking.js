@@ -126,7 +126,6 @@ const bookingsReducer = (state = {}, action) => {
             if(action.payload.booking){
                 const booking = action.payload.booking;
                 newState[booking.id] = booking;
-                // debugger
                 return newState;
 
             }
@@ -135,6 +134,7 @@ const bookingsReducer = (state = {}, action) => {
             // const booking = action.payload.booking;
         case ADD_BOOKINGS:
             const bookings = action.payload.bookings;
+            
             return { ...newState, ...bookings };
         case REMOVE_BOOKING:
             const bookingId = action.payload;
