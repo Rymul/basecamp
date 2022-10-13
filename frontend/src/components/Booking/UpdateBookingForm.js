@@ -47,16 +47,16 @@ const UpdateBookingForm = () => {
         setBooking(bookingData)
     },[bookingData])
     
-    
-    const dayDif = () => {
-        return(endDate.getTime() - startDate.getTime()) / 86400000
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(updateBooking(booking)).then(()=> history.push(`/user/${sessionUser.id}`))
     }
-    
+
+    const dayDif = () => {
+        return(endDate.getTime() - startDate.getTime()) / 86400000
+    }
+
     const handleChange = (field) => {
         return (e)=>{
             let newBooking = Object.assign({}, booking, {[field]: e.currentTarget.value},
@@ -66,10 +66,12 @@ const UpdateBookingForm = () => {
         }
     }
 
+
     const handleDateChange = (ranges) => {
         setStartDate(ranges.selection.startDate);
         setEndDate(ranges.selection.endDate);
-        let newBooking = Object.assign({}, booking,{ checkinDate: ranges.selection.startDate, checkoutDate: ranges.selection.endDate, price: campsite.price * dayDif()})
+        let dayDifference = (ranges.selection.endDate.getTime() - ranges.selection.startDate.getTime()) / 86400000
+        let newBooking = Object.assign({}, booking,{ checkinDate: ranges.selection.startDate, checkoutDate: ranges.selection.endDate, price: campsite.price * dayDifference})
         setBooking(newBooking)
     }
 
