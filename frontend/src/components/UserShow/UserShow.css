@@ -208,17 +208,20 @@
     height: 20px;
     width: 20px;
     color: #222222;
+    cursor: pointer;
 
 }
 #user-show-delete-button {
     height: 20px;
     width: 20px;
     color: #222222;
+    cursor: pointer;
 }
 
 #delete-button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 /* #delete-button :first-child {

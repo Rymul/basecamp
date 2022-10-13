@@ -42,13 +42,13 @@ const Navigation = () => {
             {/* <NavLink className='home' exact to="/">BASEC<img className='home-tent' src="tent-text-icon.png" />MP</NavLink> */}
             <NavLink className='home' exact to="/">BASEC< GiCampingTent className='home-tent'/>MP</NavLink>
             <div className='icon-buttons'>
-                <a href='https://github.com/Rymul'>
+                <a target="_blank" href='https://github.com/Rymul'>
                     <AiFillGithub className='github navIcon'/>          
                 </a>
-                <a href='https://www.linkedin.com/in/ryanfmullen/'>
+                <a target="_blank" href='https://www.linkedin.com/in/ryanfmullen/'>
                     <AiFillLinkedin className='linkedin navIcon'/>
                 </a>
-                <a href='https://github.com/Rymul'>
+                <a target="_blank" href='https://github.com/Rymul'>
                     <CgProfile className='aboutme navIcon' />
                 </a>
             </div>

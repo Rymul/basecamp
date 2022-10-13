@@ -41,13 +41,14 @@
     height: 20px;
     width: 20px;
     color: #222222;
-
+    cursor: pointer;
 }
 
 #delete-button {
     border: none;
     background-color: transparent;
     color: #222222;
+    cursor: pointer;
 }
 
 /* #delete-button :first-child {
